@@ -44,7 +44,7 @@ Routes:
 
 Portfolio filtering is **URL-driven `<Link href="?tag=...">`**, not click handlers — so filters work with JS disabled, are shareable, and the filter component ships zero client JS. Canonical is always `/portfolio`; filtered variants set `robots.index=false`.
 
-Two different card grids share `CaseStudyCard` but lay out differently — do not conflate them. `PortfolioGrid` (the `/portfolio` page) keeps the asymmetric `feature` spans (`i % 5 === 0` → `lg:col-span-4`). The home `FeaturedCaseStudies` is a deliberately **uniform 2×2 grid — no feature card** (product decision: with 4 featured items the old asymmetric feature layout left ragged whitespace and a lone card in a 3-wide row). `items-stretch` equalises card height per row. Do NOT reintroduce a `feature` hero card on the home grid.
+Both card grids that use `CaseStudyCard` are deliberately **uniform — no `feature`/`col-span` rhythm** (product decision). `FeaturedCaseStudies` (home) is a 2×2; `PortfolioGrid` (`/portfolio`) is a 3-col (`sm:grid-cols-2 lg:grid-cols-3`). Reason: mixing a tall feature card (aspect 16/10 + bigger heading) with short `col-span-2` neighbours in one grid row made `items-stretch` inflate the short cards, leaving ragged whitespace. `items-stretch` on a uniform grid instead equalises height per row and keeps every card aligned at any (filtered) result count. Do NOT reintroduce a `feature` hero card in either grid. (`CaseStudyCard` still accepts a `feature` prop but no caller passes it.)
 
 ### Quote Builder — the critical path
 

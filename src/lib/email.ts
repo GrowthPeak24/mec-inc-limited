@@ -52,7 +52,7 @@ export async function sendLeadNotification(args: {
   ];
 
   try {
-    await fetch('https://api.resend.com/emails', {
+    const res = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${apiKey}`,
@@ -66,7 +66,18 @@ export async function sendLeadNotification(args: {
         text: lines.join('\n'),
       }),
     });
-  } catch {
-    // swallow — lead is already persisted; team can retry manually
+    // Best-effort: never throw (lead is already persisted). But a non-2xx
+    // here means the notification silently failed — e.g. Resend test mode
+    // rejecting a real recipient because no domain is verified. Log it so
+    // the failure is visible in server logs instead of vanishing.
+    if (!res.ok) {
+      const body = await res.text().catch(() => '');
+      console.error(
+        `[email] Resend rejected notification for ${reference}: ${res.status} ${body}`,
+      );
+    }
+  } catch (err) {
+    // Network/transport failure — lead is already persisted; team can retry.
+    console.error(`[email] Resend request failed for ${reference}:`, err);
   }
 }

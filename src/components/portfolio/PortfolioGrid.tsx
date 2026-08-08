@@ -1,32 +1,22 @@
 import type { CaseStudy } from '@/types/content';
 import { CaseStudyCard } from './CaseStudyCard';
 
-/** Uniform grid with intentional feature spans on lg — not masonry
- *  (which needs JS and breaks natural reading order). */
+/** Uniform grid — every card is the same size (equal image aspect, equal
+ *  gaps). Feature/col-span rhythm was removed: mixing a tall feature card
+ *  with short neighbours in the same grid row made `items-stretch` inflate
+ *  the short cards, leaving ragged whitespace. A plain uniform grid keeps
+ *  every card aligned and reads correctly at any filtered result count. */
 export function PortfolioGrid({ studies }: { studies: readonly CaseStudy[] }) {
   return (
-    <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-6 lg:gap-8">
-      {studies.map((s, i) => {
-        // Rhythm: first card spans 4 cols on lg, then alternating pairs of 3+3, next 4+2 etc.
-        // Simpler: every 5th index features (spans 4), others span 3 or 2.
-        const feature = i % 5 === 0;
-        return (
-          <li
-            key={s.slug}
-            className={feature ? 'lg:col-span-4' : 'lg:col-span-2'}
-          >
-            <CaseStudyCard
-              study={s}
-              feature={feature}
-              sizes={
-                feature
-                  ? '(max-width: 1024px) 100vw, 66vw'
-                  : '(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw'
-              }
-            />
-          </li>
-        );
-      })}
+    <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+      {studies.map((s) => (
+        <li key={s.slug}>
+          <CaseStudyCard
+            study={s}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          />
+        </li>
+      ))}
     </ul>
   );
 }
