@@ -1,0 +1,12 @@
+node_modules/
+.next/
+out/
+dist/
+*.log
+.env
+.env.local
+.DS_Store
+scripts/.raw/
+opt-log.txt
+.turbo/
+.claude/.claude-md-prompted

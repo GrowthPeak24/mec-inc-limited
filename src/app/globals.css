@@ -1,0 +1,100 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Brand */
+  --color-ink: #0A0E1A;         /* deep navy/charcoal base */
+  --color-ink-2: #131a2e;        /* raised surface */
+  --color-ink-3: #1c2440;        /* elevated */
+  --color-gold: #0F52BA;         /* brand sapphire — primary accent */
+  --color-gold-2: #0000FF;       /* brand blue — hover / gradient stop */
+  --color-paper: #FFFFFF;        /* brand white */
+  --color-sand: #F5F1EA;         /* warm neutral bg */
+  --color-sand-2: #EBE4D6;
+  --color-mute: #6B7280;
+  --color-line: rgba(255,255,255,0.10);
+  --color-line-ink: rgba(10,14,26,0.10);
+
+  /* Type */
+  --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Radii */
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+
+  /* Container width */
+  --container-max: 80rem;
+
+  /* Marquee */
+  --marquee-duration: 25s;
+}
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body {
+    background: var(--color-sand);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-feature-settings: 'ss01', 'cv11';
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, .display { font-family: var(--font-display); letter-spacing: -0.02em; }
+  ::selection { background: var(--color-gold); color: var(--color-paper); }
+  :focus-visible { outline: 2px solid var(--color-gold); outline-offset: 3px; border-radius: 6px; }
+}
+
+@utility container-x {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (min-width: 768px) { padding-inline: 2rem; }
+  @media (min-width: 1280px) { padding-inline: 3rem; }
+}
+
+/* Continuous logo marquee — pure CSS, no JS */
+@keyframes marquee-x {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+.marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+.marquee-track {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  width: max-content;
+  animation: marquee-x var(--marquee-duration) linear infinite;
+  will-change: transform;
+}
+.marquee-item { display: flex; align-items: center; justify-content: center; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+/* Marquee runs even under prefers-reduced-motion by product decision:
+   logo bar is decorative and horizontal, low vestibular risk. Hover pause
+   still lets users freeze it on demand. Reveal + other motion continue to
+   respect the OS setting below. */
+
+/* Reveal — set by <Reveal>; JS toggles data-visible */
+[data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+  transition: opacity 600ms cubic-bezier(.2,.7,.2,1), transform 600ms cubic-bezier(.2,.7,.2,1);
+  will-change: opacity, transform;
+}
+[data-reveal][data-visible='true'] { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
+/* Frosted-glass tag */
+.frost {
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  background: rgba(10,14,26,0.55);
+  border: 1px solid rgba(255,255,255,0.12);
+}

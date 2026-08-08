@@ -1,0 +1,130 @@
+{
+  "_notes": [
+    "Hand-curated map from scripts/.raw/*.png -> src/assets/media/{dest}.avif.",
+    "Only real MEC client work is included. Deck's high-res stock imagery",
+    "(archery target, puzzle pieces, fist-bump, orange sliced, desk mockups)",
+    "is deliberately excluded per the Phase 0 image-gate decision.",
+    "role: 'bento' = hero bento tile (priority load, largest budget)",
+    "      'card'  = portfolio card / feature block",
+    "      'gallery' = case study gallery item",
+    "      'logo'  = client logo for the trust marquee"
+  ],
+
+  "hero": [
+    {
+      "raw": "p18-i02-1800x1200.png",
+      "dest": "hero/01-stage-booth-build",
+      "role": "bento",
+      "alt": "Custom-built Azure Awards stage set by MEC for NCB's Pinnacle & Long Service Awards in Kingston, Jamaica",
+      "crop": { "aspect": "9/16" }
+    },
+    {
+      "raw": "p09-i02-1642x1095.png",
+      "dest": "hero/02-plated-catering",
+      "role": "bento",
+      "alt": "Themed corporate catering by MEC — chafing dishes with braised beef and garnish for a client event in Jamaica",
+      "crop": { "aspect": "3/2" }
+    },
+    {
+      "raw": "p18-i00-1805x1205.png",
+      "dest": "hero/03-brand-activation",
+      "role": "bento",
+      "alt": "'WINNING' stage build for NCB Capital Markets — speaker on a branded set designed and produced by MEC in Kingston",
+      "crop": { "aspect": "3/2" }
+    }
+  ],
+
+  "case_studies": {
+    "ncb-pinnacle-long-service-awards": [
+      { "raw": "p18-i02-1800x1200.png", "dest": "case-studies/ncb-pinnacle-long-service-awards/01-hero", "role": "card", "alt": "Azure-themed Long Service Awards stage set for NCB, built by MEC" },
+      { "raw": "p15-i01-1266x844.png", "dest": "case-studies/ncb-pinnacle-long-service-awards/02-nb-installation", "role": "gallery", "alt": "Two NCB honourees photographed in front of an illuminated 'NB' installation with floral arrangements" },
+      { "raw": "p15-i02-1256x838.png", "dest": "case-studies/ncb-pinnacle-long-service-awards/03-arrival-arch", "role": "gallery", "alt": "White floral arrival arch for NCB Pinnacle Awards guests" },
+      { "raw": "p15-i03-1330x887.png", "dest": "case-studies/ncb-pinnacle-long-service-awards/04-guest-table", "role": "gallery", "alt": "Blue-and-gold tablescape with floral centerpieces at NCB Pinnacle Awards" }
+    ],
+
+    "ncb-capital-markets-winning": [
+      { "raw": "p18-i00-1805x1205.png", "dest": "case-studies/ncb-capital-markets-winning/01-hero", "role": "card", "alt": "NCB Capital Markets 'WINNING' stage build with speaker at podium" },
+      { "raw": "p14-i04-1302x841.png", "dest": "case-studies/ncb-capital-markets-winning/02-plenary", "role": "gallery", "alt": "Full plenary set for NCB Capital Markets with LED walls, custom podiums and floral guest tables" },
+      { "raw": "p17-i06-1221x885.png", "dest": "case-studies/ncb-capital-markets-winning/03-lunch", "role": "gallery", "alt": "Branded NCB Capital Markets lunch break with turf backdrop and gold accents" }
+    ],
+
+    "ncb-champions": [
+      { "raw": "p14-i01-1349x900.png", "dest": "case-studies/ncb-champions/01-hero", "role": "card", "alt": "NCB Champions guest experience — sunflower-themed activation with brand ambassador" },
+      { "raw": "p14-i03-1349x900.png", "dest": "case-studies/ncb-champions/02-brand-lounge", "role": "gallery", "alt": "Branded NCB Champions lounge set with hospitality staff" }
+    ],
+
+    "wisynco-eco-club": [
+      { "raw": "p12-i00-768x461.png", "dest": "case-studies/wisynco-eco-club/01-hero", "role": "card", "alt": "Wisynco Eco Club recycling campaign creative — 'Easy Steps to Recycling' for Jamaican schools" },
+      { "raw": "p12-i02-768x461.png", "dest": "case-studies/wisynco-eco-club/02-creative", "role": "gallery", "alt": "Wisynco Eco Club campaign asset by MEC" },
+      { "raw": "p13-i01-1200x900.png", "dest": "case-studies/wisynco-eco-club/03-school", "role": "gallery", "alt": "Manchester High School students participating in the Wisynco Eco Club recycling programme" },
+      { "raw": "p13-i03-1200x900.png", "dest": "case-studies/wisynco-eco-club/04-collection", "role": "gallery", "alt": "Bags of collected recyclables from a Wisynco Eco Club schools drive" }
+    ],
+
+    "bigga-share-with-care": [
+      { "raw": "p14-i05-1204x804.png", "dest": "case-studies/bigga-share-with-care/01-hero", "role": "card", "alt": "BIGGA 'Share with Care' social awareness campaign creative" },
+      { "raw": "p14-i06-1204x804.png", "dest": "case-studies/bigga-share-with-care/02-influencer", "role": "gallery", "alt": "BIGGA 'Share with Care' influencer partnership content" },
+      { "raw": "p14-i07-1204x804.png", "dest": "case-studies/bigga-share-with-care/03-partners", "role": "gallery", "alt": "BIGGA campaign partnership assets with JCF and MOEY co-branding" },
+      { "raw": "p14-i08-1204x804.png", "dest": "case-studies/bigga-share-with-care/04-outreach", "role": "gallery", "alt": "BIGGA 'Share with Care' schools outreach material" }
+    ],
+
+    "grl-cool-fi-di-summer": [
+      { "raw": "p16-i02-1287x855.png", "dest": "case-studies/grl-cool-fi-di-summer/01-hero", "role": "card", "alt": "GRL Lennox 'Cool Fi Di Summer' campaign creative for AC unit promotion in Jamaica" },
+      { "raw": "p16-i04-600x800.png", "dest": "case-studies/grl-cool-fi-di-summer/02-lifestyle", "role": "gallery", "alt": "GRL 'Cool Fi Di Summer' lifestyle photography — Jamaican couple relaxing under a Lennox AC" }
+    ],
+
+    "mcintosh-bedding-showroom": [
+      { "raw": "p13-i00-717x538.png", "dest": "case-studies/mcintosh-bedding-showroom/01-hero", "role": "card", "alt": "McIntosh Bedding Company branded trade show booth built by MEC" }
+    ],
+
+    "hampden-estate-activation": [
+      { "raw": "p17-i04-615x820.png", "dest": "case-studies/hampden-estate-activation/01-hero", "role": "card", "alt": "Hampden Estate outdoor brand activation with custom yellow archway signage" }
+    ],
+
+    "geddes-refrigeration-summer-sale": [
+      { "raw": "p16-i00-525x399.png", "dest": "case-studies/geddes-refrigeration-summer-sale/01-hero", "role": "card", "alt": "Geddes Refrigeration 'Summer Sale' Lennox AC campaign creative" }
+    ],
+
+    "cargo-caribbean-airlines": [
+      { "raw": "p17-i05-717x538.png", "dest": "case-studies/cargo-caribbean-airlines/01-hero", "role": "card", "alt": "Cargo Caribbean Airlines 'Between Greater Miami and Kingston' welcome activation" }
+    ]
+  },
+
+  "themes": [
+    { "raw": "p14-i04-1302x841.png", "dest": "themes/azure-corporate", "role": "gallery", "alt": "Azure-themed corporate set decor by MEC" },
+    { "raw": "p17-i06-1221x885.png", "dest": "themes/gold-summer", "role": "gallery", "alt": "Gold and turf themed corporate hospitality decor by MEC" },
+    { "raw": "p17-i04-615x820.png", "dest": "themes/tropical-outdoor", "role": "gallery", "alt": "Tropical outdoor archway installation for a Jamaican brand activation" },
+    { "raw": "p15-i02-1256x838.png", "dest": "themes/floral-arrival", "role": "gallery", "alt": "White-and-green floral arrival arch for a corporate awards ceremony" }
+  ],
+
+  "about": [
+    { "raw": "p14-i01-1349x900.png", "dest": "about/01-team-in-action", "role": "card", "alt": "MEC brand experience in production — sunflower-themed corporate activation in Jamaica" }
+  ],
+
+  "logos": [
+    { "raw": "logos/logo-00-429x404.png", "dest": "logos/young-chefs",              "name": "Young Chefs" },
+    { "raw": "logos/logo-01-404x404.png", "dest": "logos/bigga",                    "name": "Bigga" },
+    { "raw": "logos/logo-02-934x404.png", "dest": "logos/ncb-capital-markets",     "name": "NCB Capital Markets" },
+    { "raw": "logos/logo-03-394x404.png", "dest": "logos/honey-bun",                "name": "Honey Bun" },
+    { "raw": "logos/logo-04-438x404.png", "dest": "logos/wisynco-eco",              "name": "Wisynco Eco" },
+    { "raw": "logos/logo-05-818x404.png", "dest": "logos/ncb",                      "name": "NCB (National Commercial Bank Jamaica)" },
+    { "raw": "logos/logo-06-694x295.png", "dest": "logos/zim-the-x-factor",         "name": "ZIM — The X Factor" },
+    { "raw": "logos/logo-07-162x295.png", "dest": "logos/scotiabank-mark",          "name": "Scotiabank mark" },
+    { "raw": "logos/logo-08-753x295.png", "dest": "logos/scotiabank",               "name": "Scotiabank" },
+    { "raw": "logos/logo-09-519x295.png", "dest": "logos/one-on-one",               "name": "One on One" },
+    { "raw": "logos/logo-10-583x295.png", "dest": "logos/fidelity-motors",          "name": "Fidelity Motors" },
+    { "raw": "logos/logo-11-600x295.png", "dest": "logos/bytesori",                 "name": "Bytesori" },
+    { "raw": "logos/logo-12-667x352.png", "dest": "logos/jps-partners",             "name": "JPS & Partners" },
+    { "raw": "logos/logo-13-413x352.png", "dest": "logos/financial-services-commission", "name": "Financial Services Commission" },
+    { "raw": "logos/logo-14-563x352.png", "dest": "logos/kingston-freeport-terminal", "name": "Kingston Freeport Terminal" },
+    { "raw": "logos/logo-15-424x352.png", "dest": "logos/nestle",                   "name": "Nestlé" },
+    { "raw": "logos/logo-16-456x352.png", "dest": "logos/terra-nova",               "name": "Terra Nova All-Suite Hotel" },
+    { "raw": "logos/logo-17-495x352.png", "dest": "logos/grl",                      "name": "GRL — Geddes Refrigeration Ltd" },
+    { "raw": "logos/logo-18-432x352.png", "dest": "logos/mcintosh-bedding",         "name": "McIntosh Bedding Company" },
+    { "raw": "logos/logo-19-725x321.png", "dest": "logos/veronica-campbell-brown-foundation", "name": "Veronica Campbell-Brown Foundation" },
+    { "raw": "logos/logo-20-318x321.png", "dest": "logos/vcb",                      "name": "VCB" },
+    { "raw": "logos/logo-21-710x321.png", "dest": "logos/hampden-estate",           "name": "Hampden Estate" },
+    { "raw": "logos/logo-22-454x321.png", "dest": "logos/lasco-financial-services", "name": "LASCO Financial Services" },
+    { "raw": "logos/logo-23-441x321.png", "dest": "logos/jamaica-customs-agency",   "name": "Jamaica Customs Agency" },
+    { "raw": "logos/logo-24-845x321.png", "dest": "logos/smartserv",                "name": "Smartserv Limited" }
+  ]
+}
