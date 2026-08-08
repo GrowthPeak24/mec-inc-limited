@@ -9,4 +9,5 @@ dist/
 scripts/.raw/
 opt-log.txt
 .turbo/
+tsconfig.tsbuildinfo
 .claude/.claude-md-prompted
