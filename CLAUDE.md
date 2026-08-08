@@ -44,6 +44,8 @@ Routes:
 
 Portfolio filtering is **URL-driven `<Link href="?tag=...">`**, not click handlers — so filters work with JS disabled, are shareable, and the filter component ships zero client JS. Canonical is always `/portfolio`; filtered variants set `robots.index=false`.
 
+Two different card grids share `CaseStudyCard` but lay out differently — do not conflate them. `PortfolioGrid` (the `/portfolio` page) keeps the asymmetric `feature` spans (`i % 5 === 0` → `lg:col-span-4`). The home `FeaturedCaseStudies` is a deliberately **uniform 2×2 grid — no feature card** (product decision: with 4 featured items the old asymmetric feature layout left ragged whitespace and a lone card in a 3-wide row). `items-stretch` equalises card height per row. Do NOT reintroduce a `feature` hero card on the home grid.
+
 ### Quote Builder — the critical path
 
 One zod schema (`src/lib/schema/quote.ts`) is shared by the wizard and the Server Action (`src/actions/quote.ts`). Per-step gating uses `trigger(STEP_FIELDS[n])` — the `STEP_FIELDS` map is part of the schema module.
@@ -58,6 +60,8 @@ Server Action pipeline: zod parse → honeypot (`website` field non-empty → fa
 - Client: register with `setValueAs: (v) => (v === '' ? undefined : v)` — see the `emptyToUndef` helper in `Step2Scale.tsx` / `Step4Details.tsx`.
 - Server Action: use `data.field || null` (NOT `?? null`) for every enum-backed column when writing to Supabase. `??` passes `""` through and Postgres rejects the insert with a generic "Something went wrong saving your brief" toast.
 **Radio-group enum gotcha (`.nullish()` not `.optional()`):** `SelectableCard variant="radio"` fields (`themePreference`, `cateringStyle`) register onto a radio GROUP. React Hook Form yields `null` — NOT `undefined` — for a group with nothing checked, and `z.enum(...).optional()` rejects `null`. This silently fails `trigger()` (blocking the Step 3→4 advance with no visible error) and fails final submit. These fields MUST be `z.enum(...).nullish()`. Consumers of the value (e.g. `ReviewSummary`) then need `?? undefined` before passing to `string | undefined` helpers. Do NOT "simplify" these back to `.optional()`.
+
+**Sticky error-banner gotcha:** `QuoteBuilder.tsx` keeps an aggregated `submitError` banner ("Please fix: …") set by a failed `handleNext`/submit. It is separate from RHF's per-field errors (which self-clear on blur), so it MUST be cleared on any edit via a `methods.watch(() => setSubmitError(null))` subscription. Without it the banner lingers after the user has already corrected the fields, reading as a false "still broken". Do NOT remove that watch effect.
 
 `ContactForm` posts through the **same** Server Action with `source='contact'` — the schema tolerates the reduced contact-form payload by defaulting `services=['strategic-marketing']` and `dateFlexible=true`.
 
