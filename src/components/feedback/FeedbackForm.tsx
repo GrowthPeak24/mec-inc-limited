@@ -167,7 +167,7 @@ export function FeedbackForm() {
           rows={6}
           minLength={10}
           maxLength={2000}
-          placeholder="What worked, what didn\u2019t, what should we do next time?"
+          placeholder="What worked, what didn’t, what should we do next time?"
           className={inputCls}
         />
         {fieldErr('message') && (
