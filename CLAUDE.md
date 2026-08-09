@@ -26,7 +26,7 @@ There is no test runner set up. Verify changes with `npm run typecheck && npm ru
 ### Locked constraints — do not breach without explicit approval
 
 - **No Framer Motion / no UI kit / no icon library.** Motion is CSS-first (`@keyframes`, `IntersectionObserver` in `Reveal`, `prefers-reduced-motion` short-circuit). All icons are inline SVG. **Exception:** the logo `.marquee-track` is deliberately exempt from the reduced-motion short-circuit (product decision — horizontal decorative scroll, low vestibular risk, hover-pause is the accommodation). Do not re-add a `@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }` block.
-- **Only four client components ship sitewide:** `MobileNav`, `Reveal`, `QuoteBuilder` (+ its 4 steps), `ContactForm`. Everything else must remain a Server Component. Adding a 5th `'use client'` is a design decision, not a routine change.
+- **Only five client components ship sitewide:** `MobileNav`, `Reveal`, `QuoteBuilder` (+ its 4 steps), `ContactForm`, `FeedbackForm`. Everything else must remain a Server Component. Adding a 6th `'use client'` is a design decision, not a routine change. `FeedbackForm` was the deliberate breach of the original 4-ceiling — the star-rating picker needs interactive hover/keyboard preview, and reusing the ContactForm progressive-enhancement pattern (native form + Server Action + honeypot + dwell) keeps every write-surface on the same mental model.
 - **Hero (`HeroBento`) is never wrapped in `Reveal`** — it must paint before hydration for LCP.
 - **No `tailwind.config.ts`.** Tailwind v4 config is `@theme { ... }` in `src/app/globals.css`. That file *is* the design system.
 - **Brand accent token names are legacy.** `--color-gold` now holds sapphire `#0F52BA`, `--color-gold-2` holds blue `#0000FF`. The names predate the rebrand; the values are the brand. Because sapphire is dark, any surface using either gold token as its background must pair it with `text-[var(--color-paper)]` (not `--color-ink`) for WCAG contrast. Do NOT write Tailwind-shaped placeholders like `bg-[var(--color-gold-star)]` in this file — Tailwind v4 auto-scans markdown as source and will emit invalid CSS.
@@ -38,9 +38,9 @@ There is no test runner set up. Verify changes with `npm run typecheck && npm ru
 Content is hardcoded, strongly-typed TS in `src/content/*.ts` using `as const satisfies readonly T[]`. This makes tags, slugs, and enums compile-time-checked across the app. The contract lives in `src/types/content.ts` — change types there, not in the content files.
 
 Routes:
-- Static (`○`): `/`, `/about`, `/services`, `/contact`, `/privacy`, `/quote`
+- Static (`○`): `/`, `/about`, `/services`, `/contact`, `/privacy`, `/quote`, `/feedback`
 - SSG with `generateStaticParams` + `dynamicParams=false` (`●`): `/services/[category]` (3 categories), `/portfolio/[slug]` (10 case studies)
-- Dynamic (`ƒ`): `/portfolio` (reads `?tag=`), `/quote/thank-you` (reads `?ref=`)
+- Dynamic (`ƒ`): `/portfolio` (reads `?tag=`), `/quote/thank-you` (reads `?ref=`), `/feedback/thank-you` (reads `?ref=`)
 
 Portfolio filtering is **URL-driven `<Link href="?tag=...">`**, not click handlers — so filters work with JS disabled, are shareable, and the filter component ships zero client JS. Canonical is always `/portfolio`; filtered variants set `robots.index=false`.
 
@@ -65,14 +65,24 @@ Server Action pipeline: zod parse → honeypot (`website` field non-empty → fa
 
 `ContactForm` posts through the **same** Server Action with `source='contact'` — the schema tolerates the reduced contact-form payload by defaulting `services=['strategic-marketing']` and `dateFlexible=true`.
 
+### Feedback capture (`/feedback`)
+
+Separate write-surface, mirrors the quote pipeline but with its own table, schema, and action:
+- Schema: `src/lib/schema/feedback.ts` (`feedbackSchema`, `FEEDBACK_SERVICE_AREA_OPTIONS`).
+- Server Action: `src/actions/feedback.ts` (`submitFeedback`) — zod parse → honeypot → dwell → salted IP hash → `feedback_rate_limit_ok` RPC (fail-open) → insert → best-effort Resend notification via `sendFeedbackNotification` in `src/lib/email.ts` (only sets `reply_to` when the customer left an email — Resend rejects an empty string).
+- Table: `public.feedback_submissions` in `supabase/migrations/20260809120000_feedback_submissions.sql`. Same anon-INSERT-only-with-consent RLS. `allow_public` (independent of `consent`) is the one flag that gates whether feedback can be surfaced on marketing pages; anything with `allow_public=false` is internal-only. `rating` is a `smallint CHECK (rating between 1 and 5)` — the client `<input type="radio">` group posts a string and the schema uses `z.coerce.number()`.
+- The star picker is a real radio group (submittable with JS off). If the site ever needs a 0-JS `/feedback` path, replace `FeedbackForm`'s `useTransition` wrapper with a native `<form action={submitFeedback}>` and drop the honeypot's dwell guard — the current progressive-enhancement wrapper is the one deliberate breach of the historical 4-client-component ceiling.
+
 ### Supabase
 
-Project: `mec-inc-website` (us-east-1, region chosen for Caribbean latency). Table + policies in `supabase/migrations/20260807120000_quote_requests.sql`.
+Project: `mec-inc-website` (us-east-1, region chosen for Caribbean latency). Tables + policies:
+- `public.quote_requests` — `supabase/migrations/20260807120000_quote_requests.sql`
+- `public.feedback_submissions` — `supabase/migrations/20260809120000_feedback_submissions.sql`
 
 Security model:
 - **`anon` role has INSERT only**, and only when `consent = true` — no select/update/delete policy exists.
 - **Postgres `CHECK` constraints mirror every zod enum.** When adding/renaming an option in `src/content/quote-options.ts`, you MUST also update the matching CHECK in the migration. A tampered payload should fail twice (zod, then Postgres). Array columns (`services`, `production_needs`) use an element-allowlist CHECK via `<@ array[...]::text[]` — keep that in sync when the enum changes, not just the scalar CHECKs.
-- Rate-limiting is a `SECURITY DEFINER` function `quote_rate_limit_ok(ip_hash)`, granted only to `service_role` (revoked from `anon`/`authenticated`).
+- Rate-limiting is a `SECURITY DEFINER` function per table — `quote_rate_limit_ok(ip_hash)` and `feedback_rate_limit_ok(ip_hash)` — granted only to `service_role` (revoked from `anon`/`authenticated`). Both are 5/hour.
 - `SUPABASE_SERVICE_ROLE_KEY` is server-only, never `NEXT_PUBLIC_*`. It must be pasted manually from the Supabase dashboard — the MCP does not return it.
 
 Two lazy singleton clients:

@@ -34,6 +34,9 @@ export function Footer() {
             <Link href="/quote" className="text-sm text-[var(--color-paper)]/80 hover:text-[var(--color-gold-2)]">
               Request Proposal
             </Link>
+            <Link href="/feedback" className="text-sm text-[var(--color-paper)]/80 hover:text-[var(--color-gold-2)]">
+              Share Feedback
+            </Link>
             <Link href="/privacy" className="text-sm text-[var(--color-paper)]/80 hover:text-[var(--color-gold-2)]">
               Privacy
             </Link>

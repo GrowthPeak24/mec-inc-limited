@@ -39,11 +39,15 @@ export const ATTENDEE_BAND_OPTIONS = [
 ] as const;
 export type AttendeeBandValue = (typeof ATTENDEE_BAND_OPTIONS)[number]['value'];
 
+// USD equivalents rounded to marketing-friendly figures at an
+// approximate JMD/USD reference rate of ~155 (2026 range). Update these
+// labels if the reference rate shifts materially; the `value` codes are
+// currency-agnostic so the zod enum and Postgres CHECK stay stable.
 export const BUDGET_BAND_OPTIONS = [
-  { value: 'under-1m', label: 'Under J$1M' },
-  { value: '1m-5m', label: 'J$1M \u2013 J$5M' },
-  { value: '5m-15m', label: 'J$5M \u2013 J$15M' },
-  { value: '15m-plus', label: 'J$15M+' },
+  { value: 'under-1m', label: 'Under J$1M / Under US$6,500' },
+  { value: '1m-5m', label: 'J$1M \u2013 J$5M / US$6,500 \u2013 US$32,000' },
+  { value: '5m-15m', label: 'J$5M \u2013 J$15M / US$32,000 \u2013 US$100,000' },
+  { value: '15m-plus', label: 'J$15M+ / US$100,000+' },
   { value: 'unsure', label: 'Not sure yet' },
 ] as const;
 export type BudgetBandValue = (typeof BUDGET_BAND_OPTIONS)[number]['value'];

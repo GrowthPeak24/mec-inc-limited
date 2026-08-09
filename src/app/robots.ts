@@ -10,6 +10,8 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           '/quote',
           '/quote/thank-you',
+          '/feedback',
+          '/feedback/thank-you',
           '/privacy',
           '/portfolio?*',
         ],

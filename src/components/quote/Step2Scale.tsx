@@ -102,7 +102,7 @@ export function Step2Scale() {
 
         <label className="block sm:col-span-2">
           <span className="mb-1.5 block text-sm font-medium text-[var(--color-ink)]">
-            Budget band (JMD)
+            Budget band (JMD / USD)
           </span>
           <select className={selectCls} {...register('budgetBand', emptyToUndef)}>
             <option value="">Select&hellip;</option>
