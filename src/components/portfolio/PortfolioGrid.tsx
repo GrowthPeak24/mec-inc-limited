@@ -10,7 +10,7 @@ export function PortfolioGrid({ studies }: { studies: readonly CaseStudy[] }) {
   return (
     <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
       {studies.map((s) => (
-        <li key={s.slug}>
+        <li key={s.slug} className="h-full">
           <CaseStudyCard
             study={s}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

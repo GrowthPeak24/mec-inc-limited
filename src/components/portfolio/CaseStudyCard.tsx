@@ -14,7 +14,7 @@ export function CaseStudyCard({ study, feature, sizes }: Props) {
   return (
     <Link
       href={`/portfolio/${study.slug}`}
-      className="group relative flex flex-col overflow-hidden rounded-[var(--radius-xl)] bg-[var(--color-ink-2)] text-[var(--color-paper)]"
+      className="group relative flex h-full flex-col overflow-hidden rounded-[var(--radius-xl)] bg-[var(--color-ink-2)] text-[var(--color-paper)]"
     >
       <div
         className={
@@ -47,14 +47,14 @@ export function CaseStudyCard({ study, feature, sizes }: Props) {
         <h3
           className={
             feature
-              ? 'mt-2 text-2xl font-semibold leading-tight tracking-tight md:text-3xl'
-              : 'mt-2 text-xl font-semibold leading-tight tracking-tight'
+              ? 'mt-2 line-clamp-2 text-2xl font-semibold leading-tight tracking-tight md:text-3xl'
+              : 'mt-2 line-clamp-2 min-h-[3.25rem] text-xl font-semibold leading-tight tracking-tight'
           }
         >
           {study.title}
         </h3>
-        <p className="mt-3 text-sm text-[var(--color-paper)]/70">{study.summary}</p>
-        <span className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-[var(--color-gold-2)]">
+        <p className="mt-3 line-clamp-3 text-sm text-[var(--color-paper)]/70">{study.summary}</p>
+        <span className="mt-auto inline-flex items-center gap-1 pt-6 text-sm font-medium text-[var(--color-gold-2)]">
           Read case study
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
             <path
