@@ -114,10 +114,10 @@
   opacity: 0;
   animation: confirm-badge-in 520ms cubic-bezier(.2,.9,.3,1) forwards;
 }
-/* Check path length is ~19.7 user units; 22 clears it with minimal dead time. */
+/* Check path length is ~15.3 user units; 16 clears it with minimal dead time. */
 .confirm-check {
-  stroke-dasharray: 22;
-  stroke-dashoffset: 22;
+  stroke-dasharray: 16;
+  stroke-dashoffset: 16;
   animation: confirm-check-draw 460ms cubic-bezier(.65,0,.35,1) 240ms forwards;
 }
 @media (prefers-reduced-motion: reduce) {

@@ -125,7 +125,11 @@ export function QuoteBuilder() {
             }
             return;
           }
-          router.push(`/quote/thank-you?ref=${encodeURIComponent(result.reference)}`);
+          // First name only — the confirmation page greets the lead by name.
+          const firstName = data.contactName.trim().split(/\s+/)[0] ?? '';
+          router.push(
+            `/quote/thank-you?ref=${encodeURIComponent(result.reference)}&name=${encodeURIComponent(firstName)}`,
+          );
         } catch {
           setSubmitError(
             'Something went wrong submitting your brief. Please try again, or email us at mecincja@gmail.com.',
