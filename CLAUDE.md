@@ -78,6 +78,7 @@ Separate write-surface, mirrors the quote pipeline but with its own table, schem
 Project: `mec-inc-website` (us-east-1, region chosen for Caribbean latency). Tables + policies:
 - `public.quote_requests` — `supabase/migrations/20260807120000_quote_requests.sql`
 - `public.feedback_submissions` — `supabase/migrations/20260809120000_feedback_submissions.sql`
+- Storage bucket `design-uploads` — `supabase/migrations/20260810120000_design_uploads_storage.sql`. Public-READ (so the notification email link opens without a Supabase session), anon-INSERT scoped to this bucket only, no update/delete. Bucket-level `file_size_limit=10MB` and `allowed_mime_types` (png/jpeg/webp/pdf) enforce the client's constraints server-side. `quote_requests.design_upload_url` persists the public URL. **Server Action re-validates the URL** (`sanitiseDesignUploadUrl` in `src/actions/quote.ts`) against `NEXT_PUBLIC_SUPABASE_URL` origin + `/storage/v1/object/public/design-uploads/` path prefix so a tampered payload can't inject an external link into the notification email. Upload happens client-side (`DesignUploadField` in `src/components/quote/DesignUploadField.tsx`) using the publishable anon key; only the resulting URL rides through the RHF payload.
 
 Security model:
 - **`anon` role has INSERT only**, and only when `consent = true` — no select/update/delete policy exists.

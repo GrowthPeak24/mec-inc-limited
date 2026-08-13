@@ -46,6 +46,7 @@ export async function sendLeadNotification(args: {
     '',
     `Objectives: ${data.objectives ?? '-'}`,
     `Notes: ${data.notes ?? '-'}`,
+    `Design upload: ${data.designUploadUrl ?? '-'}`,
     '',
     `Consent: ${data.consent ? 'yes' : 'no'}`,
     '',

@@ -50,6 +50,7 @@ export function ReviewSummary() {
         ? labelOf(CATERING_STYLE_OPTIONS, v.cateringStyle ?? undefined)
         : 'Not required',
     ],
+    ['Design upload', v.designUploadUrl ? 'Attached' : 'None'],
   ];
 
   return (

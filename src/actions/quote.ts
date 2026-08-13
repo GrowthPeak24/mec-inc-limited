@@ -15,6 +15,27 @@ export type SubmitResult =
  *  the bot thinks it worked; no row inserted). */
 const MIN_DWELL_MS = 4_000;
 
+/** Verify the submitted design-upload URL actually lives on THIS project's
+ *  Supabase storage subdomain and inside the `design-uploads` bucket. This
+ *  prevents a tampered payload from injecting an arbitrary external link
+ *  into the notification email. Returns the URL if valid, otherwise null. */
+function sanitiseDesignUploadUrl(url: string | undefined): string | null {
+  if (!url) return null;
+  const base = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  if (!base) return null;
+  try {
+    const u = new URL(url);
+    const b = new URL(base);
+    if (u.origin !== b.origin) return null;
+    if (!u.pathname.startsWith('/storage/v1/object/public/design-uploads/')) {
+      return null;
+    }
+    return u.toString();
+  } catch {
+    return null;
+  }
+}
+
 function extractClientIp(h: Headers): string {
   // Vercel edge — single value, not client-spoofable.
   const vercel = h.get('x-vercel-forwarded-for');
@@ -86,6 +107,7 @@ export async function submitQuote(
   }
 
   const reference = newReference();
+  const designUploadUrl = sanitiseDesignUploadUrl(data.designUploadUrl);
   const { error: insertError } = await supabase.from('quote_requests').insert({
     reference,
     source,
@@ -115,6 +137,7 @@ export async function submitQuote(
     hear_about: data.hearAbout || null,
     consent: data.consent,
     ip_hash,
+    design_upload_url: designUploadUrl,
   });
 
   if (insertError) {
@@ -125,7 +148,12 @@ export async function submitQuote(
   }
 
   // Fire-and-forget notification — never block the response on email.
-  void sendLeadNotification({ reference, data, source });
+  // Pass the sanitised URL through so the email links only to our own bucket.
+  void sendLeadNotification({
+    reference,
+    data: { ...data, designUploadUrl: designUploadUrl ?? undefined },
+    source,
+  });
 
   return { ok: true, reference };
 }

@@ -4,6 +4,7 @@ import { useFormContext } from 'react-hook-form';
 import type { QuoteInput } from '@/lib/schema/quote';
 import { THEME_OPTIONS, CATERING_STYLE_OPTIONS } from '@/content/quote-options';
 import { SelectableCard } from './SelectableCard';
+import { DesignUploadField } from './DesignUploadField';
 
 const textareaCls =
   'w-full rounded-[var(--radius-md)] border border-[var(--color-line-ink)] bg-[var(--color-paper)] px-3.5 py-2.5 text-sm text-[var(--color-ink)] placeholder:text-[var(--color-ink)]/40 focus:border-[var(--color-ink)] focus:outline-none';
@@ -131,6 +132,8 @@ export function Step3Concept() {
           {...register('notes')}
         />
       </label>
+
+      <DesignUploadField />
     </div>
   );
 }

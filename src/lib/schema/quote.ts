@@ -49,6 +49,18 @@ export const step3Schema = z.object({
   cateringStyle: z.enum(values(CATERING_STYLE_OPTIONS)).nullish(),
   objectives: z.string().max(600).optional(),
   notes: z.string().max(1200).optional(),
+  /** Public Supabase Storage URL for an uploaded design reference
+   *  (PNG/JPEG/WEBP/PDF, ≤10MB). The upload happens client-side directly
+   *  against the `design-uploads` bucket; only the resulting URL is
+   *  submitted through the Server Action. The action re-validates that
+   *  this URL sits on our project's storage domain and bucket path so a
+   *  tampered payload can't inject an external link into the notification
+   *  email. Max length matches the CHECK constraint on the column. */
+  designUploadUrl: z
+    .string()
+    .url('Design upload URL is invalid')
+    .max(2000)
+    .optional(),
 });
 
 export const step4Schema = z.object({
@@ -132,6 +144,7 @@ export const STEP_FIELDS = {
     'cateringStyle',
     'objectives',
     'notes',
+    'designUploadUrl',
   ] as const,
   4: [
     'company',
