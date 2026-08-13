@@ -12,19 +12,25 @@ const config: NextConfig = {
     optimizePackageImports: ['react-hook-form', 'zod'],
   },
   async headers() {
-    // CSP for a first-party marketing site: no third-party scripts, no
-    // browser Supabase calls, Server Actions post same-origin. `'unsafe-inline'`
-    // remains on script-src because Next.js hydrates via inline JSON payload
-    // scripts and Turbopack has no nonce/hash pipeline configured. Tighten
-    // to nonce-based `'strict-dynamic'` via middleware if/when a third-party
-    // script (analytics, chat widget) is added.
+    // CSP for a first-party marketing site: no third-party scripts. Server
+    // Actions post same-origin. `'unsafe-inline'` remains on script-src
+    // because Next.js hydrates via inline JSON payload scripts and Turbopack
+    // has no nonce/hash pipeline configured. Tighten to nonce-based
+    // `'strict-dynamic'` via middleware if/when a third-party script
+    // (analytics, chat widget) is added.
+    //
+    // `connect-src` permits *.supabase.co so the browser DesignUploadField
+    // can PUT files to Supabase Storage directly with the publishable anon
+    // key. `img-src` includes it too so the post-upload public URL preview
+    // renders. Without these, uploads silently fail with the generic
+    // "Upload failed. Please try again, or attach later via email." toast.
     const csp = [
       "default-src 'self'",
       "script-src 'self' 'unsafe-inline'",
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob:",
+      "img-src 'self' data: blob: https://*.supabase.co",
       "font-src 'self' data:",
-      "connect-src 'self'",
+      "connect-src 'self' https://*.supabase.co wss://*.supabase.co",
       "frame-ancestors 'none'",
       "base-uri 'self'",
       "form-action 'self'",
