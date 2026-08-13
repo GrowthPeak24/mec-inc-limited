@@ -91,6 +91,47 @@
   [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
 }
 
+/* Confirmation state (/quote/thank-you) — CSS-only entrance.
+   Deliberately NOT driven by <Reveal>: this content is the whole viewport on
+   arrival, so it animates on paint rather than on intersection. Delays are
+   set per-element via --confirm-delay. */
+@keyframes confirm-rise {
+  from { opacity: 0; transform: translate3d(0, 10px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes confirm-badge-in {
+  from { opacity: 0; transform: scale(0.82); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes confirm-check-draw {
+  to { stroke-dashoffset: 0; }
+}
+.confirm-rise {
+  opacity: 0;
+  animation: confirm-rise 620ms cubic-bezier(.2,.7,.2,1) var(--confirm-delay, 0ms) forwards;
+}
+.confirm-badge {
+  opacity: 0;
+  animation: confirm-badge-in 520ms cubic-bezier(.2,.9,.3,1) forwards;
+}
+/* Check path length is ~19.7 user units; 22 clears it with minimal dead time. */
+.confirm-check {
+  stroke-dasharray: 22;
+  stroke-dashoffset: 22;
+  animation: confirm-check-draw 460ms cubic-bezier(.65,0,.35,1) 240ms forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .confirm-rise, .confirm-badge {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .confirm-check {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}
+
 /* Frosted-glass tag */
 .frost {
   backdrop-filter: blur(10px) saturate(140%);
