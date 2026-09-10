@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Marketing site for **Marketing, Events and Catering (MEC) Inc. Limited** — a Jamaican B2B agency. Greenfield Next.js build replacing a 30MB PDF deck. Full build plan lives at `.claude/plans/scalable-cooking-wigderson.md` — read it before starting large changes; the *"Decisions locked in"* table, performance budget, and Roadmap are load-bearing.
+Marketing site for **Marketing, Events and Catering (MEC) Inc. Limited** — a Jamaican B2B agency. Greenfield Next.js build replacing a 30MB PDF deck.
 
 ## Commands
 
@@ -19,7 +19,7 @@ npm run media:extract  # extract embedded images → scripts/.raw/
 npm run media:optimize # sharp → src/assets/media/**.avif + logos/**.png
 ```
 
-There is no test runner set up. Verify changes with `npm run typecheck && npm run build` — the plan's *Verification* section documents the manual QA passes (RLS smoke test, JS-disabled portfolio filtering, quote-form end-to-end, screen-reader pass).
+There is no test runner set up. Verify changes with `npm run typecheck && npm run build`. Manual QA passes: RLS smoke test, JS-disabled portfolio filtering, quote-form end-to-end, screen-reader pass.
 
 ## Architecture
 
@@ -119,7 +119,7 @@ The shipped header is unchanged by the split: production and Vercel preview buil
 
 See `.env.example`. `NEXT_PUBLIC_SITE_URL` drives `metadataBase`, canonicals, sitemap, and OG — set it before Phase 8 or all of it regenerates. `IP_HASH_SALT` must be ≥32 chars and stable across deploys, or historical rate-limit hashes become useless.
 
-## Known risks (from plan §Risks)
+## Known risks
 
 1. Client photography quality (Phase 0 gate) — do not ship on ≤900px upscales.
 2. Domain not yet decided.
