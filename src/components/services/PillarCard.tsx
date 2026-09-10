@@ -39,7 +39,7 @@ export function PillarCard({ pillar }: { pillar: ServicePillar }) {
   return (
     <Link
       href={`/services/${pillar.slug}`}
-      className="group relative flex flex-col overflow-hidden rounded-[var(--radius-xl)] bg-[var(--color-paper)] shadow-[0_1px_0_rgba(10,14,26,0.06),0_20px_50px_-30px_rgba(10,14,26,0.35)] transition-[transform,box-shadow] hover:-translate-y-1 hover:shadow-[0_1px_0_rgba(10,14,26,0.06),0_30px_60px_-30px_rgba(10,14,26,0.5)]"
+      className="group relative flex flex-col overflow-hidden rounded-[var(--radius-xl)] bg-[var(--color-paper)] ring-1 ring-inset ring-[var(--color-line-ink)] shadow-[0_1px_0_rgba(10,14,26,0.06),0_20px_50px_-30px_rgba(10,14,26,0.35)] transition-all duration-500 ease-[cubic-bezier(.2,.7,.2,1)] hover:-translate-y-1 hover:ring-[var(--color-gold)]/30 hover:shadow-[0_1px_0_rgba(10,14,26,0.06),0_30px_60px_-30px_rgba(10,14,26,0.5)]"
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         <MediaImage
@@ -48,22 +48,28 @@ export function PillarCard({ pillar }: { pillar: ServicePillar }) {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover transition-transform duration-[900ms] ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-105"
         />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 to-transparent"
+        />
       </div>
       <div className="flex flex-1 flex-col p-6 md:p-7">
-        <div className="flex items-center gap-2 text-[var(--color-gold)]">
-          <PillarIcon kind={pillar.icon} />
-          <span className="text-xs font-semibold uppercase tracking-widest">
+        <div className="flex items-center gap-3 text-[var(--color-gold)]">
+          <span className="flex size-9 shrink-0 items-center justify-center rounded-[10px] border border-[var(--color-line-ink)] bg-[var(--color-sand)]">
+            <PillarIcon kind={pillar.icon} />
+          </span>
+          <span className="text-[11px] font-semibold uppercase tracking-[0.2em]">
             Pillar 0{pillar.id === 'marketing' ? 1 : pillar.id === 'events' ? 2 : 3}
           </span>
         </div>
-        <h3 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
+        <h3 className="mt-4 text-2xl font-semibold tracking-tight text-[var(--color-ink)]">
           {pillar.name}
         </h3>
         <p className="mt-2 text-sm text-[var(--color-ink)]/70">{pillar.tagline}</p>
         <p className="mt-4 text-sm text-[var(--color-ink)]/60">{pillar.blurb}</p>
-        <span className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-[var(--color-ink)] group-hover:text-[var(--color-gold)]">
+        <span className="mt-6 inline-flex items-center gap-1.5 border-t border-[var(--color-line-ink)] pt-5 text-sm font-medium text-[var(--color-ink)] transition-colors duration-500 group-hover:text-[var(--color-gold)]">
           Explore capabilities
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden className="nudge">
             <path
               d="M5 12h14M13 6l6 6-6 6"
               stroke="currentColor"

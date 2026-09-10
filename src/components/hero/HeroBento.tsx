@@ -7,7 +7,8 @@ import brandActivation from '@/assets/media/hero/03-brand-activation.avif';
 
 /** Home LCP element. NEVER wrap in <Reveal>; it must paint pre-hydration.
  *  Three tiles carry priority; grid is a fixed-height 12-col split on
- *  large viewports and stacks below md. */
+ *  large viewports and stacks below md. All decoration is CSS-only so
+ *  nothing here blocks or defers the LCP paint. */
 export function HeroBento() {
   return (
     <section className="relative overflow-hidden bg-[var(--color-ink)] text-[var(--color-paper)]">
@@ -15,10 +16,19 @@ export function HeroBento() {
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-[520px] bg-[radial-gradient(60%_60%_at_20%_0%,rgba(15,82,186,0.18),transparent_60%)]"
       />
+      {/* Dotted texture field — anchors the copy column without competing
+          with the photography. */}
+      <div
+        aria-hidden
+        className="dot-grid pointer-events-none absolute left-0 top-0 hidden h-[340px] w-[220px] text-[var(--color-paper)] opacity-[0.07] [mask-image:linear-gradient(135deg,black,transparent_70%)] lg:block"
+      />
       <div className="container-x relative grid gap-10 py-20 md:py-28 lg:grid-cols-12 lg:gap-14">
         {/* Copy column */}
         <div className="lg:col-span-6 lg:pt-6">
-          <h1 className="text-4xl font-semibold leading-[1.05] tracking-tight md:text-5xl lg:text-6xl">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--color-gold-2)]">
+            Marketing &middot; Events &middot; Catering
+          </p>
+          <h1 className="mt-5 text-4xl font-semibold leading-[1.05] tracking-tight md:text-5xl lg:text-6xl">
             Impacting brands through <em className="not-italic font-semibold text-[var(--color-gold-2)]">innovative solutions</em>.
           </h1>
           <p className="mt-6 max-w-xl text-lg text-[var(--color-paper)]/75">
@@ -33,6 +43,11 @@ export function HeroBento() {
             <Button href="/portfolio" variant="ghost" size="lg">
               Explore Case Studies
             </Button>
+          </div>
+          <div className="mt-10 hidden border-t border-[var(--color-line)] pt-6 lg:block">
+            <p className="text-sm text-[var(--color-paper)]/55">
+              One accountable producer across all three disciplines &mdash; you brief once.
+            </p>
           </div>
         </div>
 

@@ -8,9 +8,13 @@ export function QuoteCTA() {
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_60%_at_80%_0%,rgba(15,82,186,0.22),transparent_60%)]"
       />
+      <div
+        aria-hidden
+        className="dot-grid pointer-events-none absolute bottom-0 left-0 hidden h-48 w-64 text-[var(--color-paper)] opacity-[0.08] [mask-image:linear-gradient(45deg,black,transparent_70%)] lg:block"
+      />
       <div className="container-x relative grid gap-10 lg:grid-cols-12 lg:items-end lg:gap-16">
         <div className="lg:col-span-8">
-          <p className="text-xs font-semibold uppercase tracking-widest text-[var(--color-gold-2)]">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--color-gold-2)]">
             Bring us the brief
           </p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight md:text-5xl">
@@ -21,7 +25,7 @@ export function QuoteCTA() {
             business day with next steps and a scoping call.
           </p>
         </div>
-        <div className="flex flex-col items-start gap-4 lg:col-span-4 lg:items-end">
+        <div className="flex flex-col items-start gap-4 border-t border-[var(--color-line)] pt-8 lg:col-span-4 lg:items-end lg:border-t-0 lg:pt-0">
           <Button href="/quote" variant="primary" size="lg">
             Start the brief
           </Button>

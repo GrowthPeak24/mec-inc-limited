@@ -30,6 +30,7 @@ There is no test runner set up. Verify changes with `npm run typecheck && npm ru
 - **Hero (`HeroBento`) is never wrapped in `Reveal`** — it must paint before hydration for LCP.
 - **No `tailwind.config.ts`.** Tailwind v4 config is `@theme { ... }` in `src/app/globals.css`. That file *is* the design system.
 - **Brand accent token names are legacy.** `--color-gold` now holds sapphire `#0F52BA`, `--color-gold-2` holds blue `#0000FF`. The names predate the rebrand; the values are the brand. Because sapphire is dark, any surface using either gold token as its background must pair it with `text-[var(--color-paper)]` (not `--color-ink`) for WCAG contrast. Do NOT write Tailwind-shaped placeholders like `bg-[var(--color-gold-star)]` in this file — Tailwind v4 auto-scans markdown as source and will emit invalid CSS.
+- **`Button` `ghost`/`outline` inherit their colour — never hard-code one.** Both variants use `text-current` and a `border-current` ring so they take their colour from the `Section` tone wrapper (paper on `ink`, ink on `sand`/`paper`). They were previously pinned to the paper token, which rendered white-on-white inside a `tone="paper"` section and white-on-sand inside `tone="sand"` — invisible CTAs on the home page. Only `primary` carries fixed colours. If you re-pin `ghost`/`outline` to a literal token, you reintroduce that bug on every light surface.
 - Photography is imported as `StaticImageData` (never string paths) so `next/image` gets intrinsic dimensions and auto-`blurDataURL`. Turbopack prints "AVIF image not supported" warnings on these imports — expected, files are pre-optimized by the sharp pipeline.
 - **Media filenames in `src/assets/media/case-studies/**` DO NOT reliably match their contents.** Phase 0's PDF extractor labeled by slide position, not subject — e.g. `wisynco-eco-club/03-school.avif` actually contains a McIntosh Bedding showroom, `mcintosh-bedding-showroom/01-hero.avif` is a Terra Nova tent. `src/assets/media/hero/**` IS trusted (manually curated). Before assigning any case-study image to a hero/OG slot, decode it (sharp → JPEG preview) and eyeball it — do not trust the path. A full re-extract or rename pass is outstanding.
 
@@ -101,6 +102,14 @@ Security headers (`Content-Security-Policy`, `X-Frame-Options: DENY`, `X-Content
 ### Path alias
 
 `@/*` → `./src/*` (no `baseUrl` in `tsconfig.json` — modern TS 5+ style).
+
+## Dev-mode CSP blocks hydration (`npm run dev` only)
+
+The CSP in `next.config.ts` sets `script-src 'self' 'unsafe-inline'` with **no** `'unsafe-eval'`. React's *development* build needs `eval()` for debugging features, so on the dev server hydration fails with a console error beginning "eval() is not supported in this environment".
+
+Visible symptom: every `Reveal`-wrapped section stays at opacity 0 forever, because the `IntersectionObserver` in its `useEffect` never runs. The page reads as large blank bands below the hero. `MobileNav`, the forms and the quote wizard are inert for the same reason.
+
+This is **dev-only** — React never calls `eval()` in production, so the built site hydrates normally and the header stays as-is deliberately. Do NOT "fix" a blank below-the-fold section by rewriting `Reveal` or deleting its opacity rule, and do NOT add `'unsafe-eval'` to the production CSP. Loosening it for local visual QA is a deliberate decision to raise explicitly, not a drive-by edit.
 
 ## Local dev TLS (Windows / Avast)
 
