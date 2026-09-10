@@ -103,13 +103,13 @@ Security headers (`Content-Security-Policy`, `X-Frame-Options: DENY`, `X-Content
 
 `@/*` → `./src/*` (no `baseUrl` in `tsconfig.json` — modern TS 5+ style).
 
-## Dev-mode CSP blocks hydration (`npm run dev` only)
+## CSP: `'unsafe-eval'` is a deliberate dev/prod split
 
-The CSP in `next.config.ts` sets `script-src 'self' 'unsafe-inline'` with **no** `'unsafe-eval'`. React's *development* build needs `eval()` for debugging features, so on the dev server hydration fails with a console error beginning "eval() is not supported in this environment".
+`next.config.ts` builds one CSP for every route with a single environment-gated token: `script-src` gains `'unsafe-eval'` when `NODE_ENV !== 'production'`, and never otherwise. React's *development* build needs `eval()` for debugging features; without it the dev server serves HTML that never hydrates, and the only signal is a console error beginning "eval() is not supported in this environment".
 
-Visible symptom: every `Reveal`-wrapped section stays at opacity 0 forever, because the `IntersectionObserver` in its `useEffect` never runs. The page reads as large blank bands below the hero. `MobileNav`, the forms and the quote wizard are inert for the same reason.
+Symptom if that dev branch is ever removed: every `Reveal`-wrapped section sits at opacity 0 (its `IntersectionObserver` never runs), so the page reads as blank bands below the hero — and `MobileNav`, `ContactForm`, `FeedbackForm`, `DesignUploadField` and the whole `QuoteBuilder` wizard are inert, which makes the quote-form and screen-reader QA passes impossible to run locally. Do NOT diagnose that as a broken `Reveal` or delete its opacity rule.
 
-This is **dev-only** — React never calls `eval()` in production, so the built site hydrates normally and the header stays as-is deliberately. Do NOT "fix" a blank below-the-fold section by rewriting `Reveal` or deleting its opacity rule, and do NOT add `'unsafe-eval'` to the production CSP. Loosening it for local visual QA is a deliberate decision to raise explicitly, not a drive-by edit.
+The shipped header is unchanged by the split: production and Vercel preview builds both run with `NODE_ENV=production` and emit exactly `script-src 'self' 'unsafe-inline'`. Never add `'unsafe-eval'` unconditionally.
 
 ## Local dev TLS (Windows / Avast)
 

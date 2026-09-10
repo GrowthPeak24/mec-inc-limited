@@ -19,14 +19,21 @@ const config: NextConfig = {
     // `'strict-dynamic'` via middleware if/when a third-party script
     // (analytics, chat widget) is added.
     //
+    // `'unsafe-eval'` is added ONLY outside production: React's development
+    // build needs eval() for debugging features, and without it the dev server
+    // serves HTML that never hydrates (see CLAUDE.md). Production and Vercel
+    // preview builds run with NODE_ENV=production and emit the strict header
+    // unchanged.
+    //
     // `connect-src` permits *.supabase.co so the browser DesignUploadField
     // can PUT files to Supabase Storage directly with the publishable anon
     // key. `img-src` includes it too so the post-upload public URL preview
     // renders. Without these, uploads silently fail with the generic
     // "Upload failed. Please try again, or attach later via email." toast.
+    const dev = process.env.NODE_ENV !== 'production';
     const csp = [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline'",
+      `script-src 'self' 'unsafe-inline'${dev ? " 'unsafe-eval'" : ''}`,
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob: https://*.supabase.co",
       "font-src 'self' data:",
