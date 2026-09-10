@@ -4,7 +4,7 @@ This file provides guidance to Codex (Codex.ai/code) when working with code in t
 
 ## Project
 
-Marketing site for **Marketing, Events and Catering (MEC) Inc. Limited** — a Jamaican B2B agency. Greenfield Next.js build replacing a 30MB PDF deck. Full build plan lives at `.Codex/plans/scalable-cooking-wigderson.md` — read it before starting large changes; the *"Decisions locked in"* table, performance budget, and Roadmap are load-bearing.
+Marketing site for **Marketing, Events and Catering (MEC) Inc. Limited** — a Jamaican B2B agency. Greenfield Next.js build replacing a 30MB PDF deck. Full build plan lives at `.claude/plans/scalable-cooking-wigderson.md` — read it before starting large changes; the *"Decisions locked in"* table, performance budget, and Roadmap are load-bearing.
 
 ## Commands
 
