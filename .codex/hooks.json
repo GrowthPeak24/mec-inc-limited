@@ -1,0 +1,25 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash 'C:\\Users\\User\\Desktop\\Mec Inc Limited\\.codex\\hooks\\session-start.sh'"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash 'C:\\Users\\User\\Desktop\\Mec Inc Limited\\.codex\\hooks\\maybe-update-claude-md.sh'",
+            "timeout": 90
+          }
+        ]
+      }
+    ]
+  }
+}
