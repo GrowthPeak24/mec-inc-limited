@@ -30,6 +30,7 @@ There is no test runner set up. Verify changes with `npm run typecheck && npm ru
 - **Hero (`HeroBento`) is never wrapped in `Reveal`** — it must paint before hydration for LCP.
 - **No `tailwind.config.ts`.** Tailwind v4 config is `@theme { ... }` in `src/app/globals.css`. That file *is* the design system.
 - **Brand accent token names are legacy.** `--color-gold` now holds sapphire `#0F52BA`, `--color-gold-2` holds blue `#0000FF`. The names predate the rebrand; the values are the brand. Because sapphire is dark, any surface using either gold token as its background must pair it with `text-[var(--color-paper)]` (not `--color-ink`) for WCAG contrast. Do NOT write Tailwind-shaped placeholders like `bg-[var(--color-gold-star)]` in this file — Tailwind v4 auto-scans markdown as source and will emit invalid CSS.
+- **`Button` `ghost`/`outline` inherit their colour — never hard-code one.** Both variants use `text-current` and a `border-current` ring so they take their colour from the `Section` tone wrapper (paper on `ink`, ink on `sand`/`paper`). They were previously pinned to the paper token, which rendered white-on-white inside a `tone="paper"` section and white-on-sand inside `tone="sand"` — invisible CTAs on the home page. Only `primary` carries fixed colours. If you re-pin `ghost`/`outline` to a literal token, you reintroduce that bug on every light surface.
 - Photography is imported as `StaticImageData` (never string paths) so `next/image` gets intrinsic dimensions and auto-`blurDataURL`. Turbopack prints "AVIF image not supported" warnings on these imports — expected, files are pre-optimized by the sharp pipeline.
 - **Media filenames in `src/assets/media/case-studies/**` DO NOT reliably match their contents.** Phase 0's PDF extractor labeled by slide position, not subject — e.g. `wisynco-eco-club/03-school.avif` actually contains a McIntosh Bedding showroom, `mcintosh-bedding-showroom/01-hero.avif` is a Terra Nova tent. `src/assets/media/hero/**` IS trusted (manually curated). Before assigning any case-study image to a hero/OG slot, decode it (sharp → JPEG preview) and eyeball it — do not trust the path. A full re-extract or rename pass is outstanding.
 
@@ -102,6 +103,20 @@ Security headers (`Content-Security-Policy`, `X-Frame-Options: DENY`, `X-Content
 
 `@/*` → `./src/*` (no `baseUrl` in `tsconfig.json` — modern TS 5+ style).
 
+## CSP: `'unsafe-eval'` is a deliberate dev/prod split
+
+`next.config.ts` builds one CSP for every route with a single environment-gated token: `script-src` gains `'unsafe-eval'` when `NODE_ENV !== 'production'`, and never otherwise. React's *development* build needs `eval()` for debugging features; without it the dev server serves HTML that never hydrates, and the only signal is a console error beginning "eval() is not supported in this environment".
+
+Symptom if that dev branch is ever removed: every `Reveal`-wrapped section sits at opacity 0 (its `IntersectionObserver` never runs), so the page reads as blank bands below the hero — and `MobileNav`, `ContactForm`, `FeedbackForm`, `DesignUploadField` and the whole `QuoteBuilder` wizard are inert, which makes the quote-form and screen-reader QA passes impossible to run locally. Do NOT diagnose that as a broken `Reveal` or delete its opacity rule.
+
+The shipped header is unchanged by the split: production and Vercel preview builds both run with `NODE_ENV=production` and emit exactly `script-src 'self' 'unsafe-inline'`. Never add `'unsafe-eval'` unconditionally.
+
+### `frame-src` and the only third-party origin
+
+`/contact` embeds an OpenStreetMap iframe — the site's **one** third-party runtime origin. It is keyless on purpose (no Google/Mapbox account, key or billing), and its bbox is derived from `SITE.geo` rather than hardcoded. Swapping it for a Google or Mapbox map is not a drop-in: that needs an API key *and* a new `img-src`/`frame-src` host, so it stops being a pure front-end change.
+
+The trap: the CSP had **no `frame-src`**, and a missing `frame-src` silently falls back to `default-src 'self'`. A cross-origin iframe then renders as a blank box with **no console error and no network request** — which is exactly how the map read before this was added. Any future embed (video, calendar, booking widget) needs its host added to `frame-src` or it will fail the same silent way. `frame-ancestors 'none'` is unrelated and governs who may frame *us*.
+
 ## Local dev TLS (Windows / Avast)
 
 `npm run dev` and `npm run start` launch Next via `node --use-system-ca ./node_modules/next/dist/bin/next ...` (not the bare `next` bin). Reason: this dev machine runs **Avast**, which MITM-intercepts HTTPS and presents its own root CA. Node's bundled CA store doesn't trust it, so Server Action `fetch` calls to Supabase fail with `UNABLE_TO_VERIFY_LEAF_SIGNATURE` → the user sees "Something went wrong saving your brief" even though the schema/insert are correct. `--use-system-ca` makes Node trust the Windows cert store (which holds Avast's root), fixing it independent of whether the launching shell inherited `NODE_EXTRA_CA_CERTS`. This is **dev-only** — Vercel prod has no MITM proxy. If you see `fetch failed` from a Server Action locally, this is the cause; do NOT disable TLS verification (`NODE_TLS_REJECT_UNAUTHORIZED=0`).
@@ -114,7 +129,7 @@ See `.env.example`. `NEXT_PUBLIC_SITE_URL` drives `metadataBase`, canonicals, si
 
 1. Client photography quality (Phase 0 gate) — do not ship on ≤900px upscales.
 2. Domain not yet decided.
-3. Kingston 6 geo coordinates and "2014" founding date are approximations pending client confirmation — wrong geo hurts local pack ranking.
+3. Kingston 6 geo coordinates and "2014" founding date are approximations pending client confirmation — wrong geo hurts local pack ranking, and `SITE.geo` now also positions the public map marker on `/contact`.
 4. Client logo rights (NCB, Scotiabank strict guidelines).
 5. JMD budget bands in `src/content/quote-options.ts` are guesses — validate before launch.
 
