@@ -12,7 +12,22 @@ export const metadata: Metadata = {
 };
 
 const OPEN_MAPS = `https://www.google.com/maps/search/?api=1&query=${SITE.geo.latitude},${SITE.geo.longitude}`;
-const STATIC_MAP_ALT = `Static map showing ${SITE.address.street}, ${SITE.address.locality}`;
+const MAP_LABEL = `Map showing ${SITE.address.street}, ${SITE.address.locality}`;
+
+/* OpenStreetMap embed: keyless, so it works without a Google/Mapbox account.
+   bbox is a ~0.008deg box around SITE.geo, derived rather than hardcoded so a
+   corrected coordinate (plan risk #3) updates the map automatically.
+   Requires frame-src for openstreetmap.org in the next.config.ts CSP. */
+const MAP_SPAN = 0.008;
+const MAP_BBOX = [
+  SITE.geo.longitude - MAP_SPAN,
+  SITE.geo.latitude - MAP_SPAN,
+  SITE.geo.longitude + MAP_SPAN,
+  SITE.geo.latitude + MAP_SPAN,
+]
+  .map((n) => n.toFixed(6))
+  .join(',');
+const MAP_EMBED = `https://www.openstreetmap.org/export/embed.html?bbox=${MAP_BBOX}&layer=mapnik&marker=${SITE.geo.latitude},${SITE.geo.longitude}`;
 
 export default function ContactPage() {
   return (
@@ -82,12 +97,12 @@ export default function ContactPage() {
           </dl>
 
           <div className="mt-8 overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-line-ink)]">
-            {/* Static map placeholder — swap `src` for a signed static-maps URL
-                once the Google Maps or Mapbox key is decided in Phase 9. */}
-            <div
-              role="img"
-              aria-label={STATIC_MAP_ALT}
-              className="aspect-[16/9] w-full bg-[linear-gradient(135deg,#F5F1EA,#E8DFCF)]"
+            <iframe
+              title={MAP_LABEL}
+              src={MAP_EMBED}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="block aspect-[16/9] w-full border-0 bg-[linear-gradient(135deg,#F5F1EA,#E8DFCF)]"
             />
             <a
               href={OPEN_MAPS}

@@ -38,6 +38,9 @@ const config: NextConfig = {
       "img-src 'self' data: blob: https://*.supabase.co",
       "font-src 'self' data:",
       "connect-src 'self' https://*.supabase.co wss://*.supabase.co",
+      // OpenStreetMap embed on /contact. Keyless, so no map API key is needed;
+      // without this the iframe falls back to default-src 'self' and renders blank.
+      "frame-src 'self' https://www.openstreetmap.org",
       "frame-ancestors 'none'",
       "base-uri 'self'",
       "form-action 'self'",
