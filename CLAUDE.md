@@ -111,6 +111,12 @@ Symptom if that dev branch is ever removed: every `Reveal`-wrapped section sits 
 
 The shipped header is unchanged by the split: production and Vercel preview builds both run with `NODE_ENV=production` and emit exactly `script-src 'self' 'unsafe-inline'`. Never add `'unsafe-eval'` unconditionally.
 
+### `frame-src` and the only third-party origin
+
+`/contact` embeds an OpenStreetMap iframe — the site's **one** third-party runtime origin. It is keyless on purpose (no Google/Mapbox account, key or billing), and its bbox is derived from `SITE.geo` rather than hardcoded. Swapping it for a Google or Mapbox map is not a drop-in: that needs an API key *and* a new `img-src`/`frame-src` host, so it stops being a pure front-end change.
+
+The trap: the CSP had **no `frame-src`**, and a missing `frame-src` silently falls back to `default-src 'self'`. A cross-origin iframe then renders as a blank box with **no console error and no network request** — which is exactly how the map read before this was added. Any future embed (video, calendar, booking widget) needs its host added to `frame-src` or it will fail the same silent way. `frame-ancestors 'none'` is unrelated and governs who may frame *us*.
+
 ## Local dev TLS (Windows / Avast)
 
 `npm run dev` and `npm run start` launch Next via `node --use-system-ca ./node_modules/next/dist/bin/next ...` (not the bare `next` bin). Reason: this dev machine runs **Avast**, which MITM-intercepts HTTPS and presents its own root CA. Node's bundled CA store doesn't trust it, so Server Action `fetch` calls to Supabase fail with `UNABLE_TO_VERIFY_LEAF_SIGNATURE` → the user sees "Something went wrong saving your brief" even though the schema/insert are correct. `--use-system-ca` makes Node trust the Windows cert store (which holds Avast's root), fixing it independent of whether the launching shell inherited `NODE_EXTRA_CA_CERTS`. This is **dev-only** — Vercel prod has no MITM proxy. If you see `fetch failed` from a Server Action locally, this is the cause; do NOT disable TLS verification (`NODE_TLS_REJECT_UNAUTHORIZED=0`).
@@ -123,7 +129,7 @@ See `.env.example`. `NEXT_PUBLIC_SITE_URL` drives `metadataBase`, canonicals, si
 
 1. Client photography quality (Phase 0 gate) — do not ship on ≤900px upscales.
 2. Domain not yet decided.
-3. Kingston 6 geo coordinates and "2014" founding date are approximations pending client confirmation — wrong geo hurts local pack ranking.
+3. Kingston 6 geo coordinates and "2014" founding date are approximations pending client confirmation — wrong geo hurts local pack ranking, and `SITE.geo` now also positions the public map marker on `/contact`.
 4. Client logo rights (NCB, Scotiabank strict guidelines).
 5. JMD budget bands in `src/content/quote-options.ts` are guesses — validate before launch.
 
