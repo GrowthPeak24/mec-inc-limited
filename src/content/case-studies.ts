@@ -34,6 +34,11 @@ import grlLifestyle from '@/assets/media/case-studies/grl-cool-fi-di-summer/02-l
 // -- Single-hero studies ---------------------------------------------
 import mcintoshHero from '@/assets/media/case-studies/mcintosh-bedding-showroom/01-hero.avif';
 import hampdenHero from '@/assets/media/case-studies/hampden-estate-activation/01-hero.avif';
+import hampdenSwingArch from '@/assets/media/case-studies/hampden-estate-activation/02-swing-arch.avif';
+import hampdenTealLounge from '@/assets/media/case-studies/hampden-estate-activation/03-teal-fan-lounge.avif';
+import hampdenCoralLounge from '@/assets/media/case-studies/hampden-estate-activation/04-coral-fan-lounge.avif';
+import hampdenBlueBackdrop from '@/assets/media/case-studies/hampden-estate-activation/05-blue-fan-backdrop.avif';
+import hampdenBar from '@/assets/media/case-studies/hampden-estate-activation/06-tropical-bar.avif';
 import geddesHero from '@/assets/media/case-studies/geddes-refrigeration-summer-sale/01-hero.avif';
 import cargoHero from '@/assets/media/case-studies/cargo-caribbean-airlines/01-hero.avif';
 
@@ -275,7 +280,27 @@ export const CASE_STUDIES = [
       src: hampdenHero,
       alt: 'Hampden Estate on-site brand activation produced by MEC.',
     },
-    gallery: [],
+    // Portrait sources sit in 4:3 gallery frames; focal keeps the backdrop
+    // and seating in view.
+    gallery: [
+      { src: hampdenSwingArch, alt: 'Floral swing-arch installation in the gardens at the Hampden Estate activation.' },
+      { src: hampdenBar, alt: 'Tropical-themed outdoor bar built by MEC for the Hampden Estate activation.' },
+      {
+        src: hampdenTealLounge,
+        alt: 'Teal paper-fan backdrop with a white lounge set at the Hampden Estate activation.',
+        focal: '50% 60%',
+      },
+      {
+        src: hampdenCoralLounge,
+        alt: 'Coral paper-fan photo backdrop with lounge seating at the Hampden Estate activation.',
+        focal: '50% 55%',
+      },
+      {
+        src: hampdenBlueBackdrop,
+        alt: 'Blue paper-fan and palm-leaf backdrop in the Hampden Estate gardens.',
+        focal: '50% 45%',
+      },
+    ],
     featured: false,
   },
   {

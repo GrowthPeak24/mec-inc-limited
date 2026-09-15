@@ -11,3 +11,4 @@ opt-log.txt
 .turbo/
 tsconfig.tsbuildinfo
 .claude/.claude-md-prompted
+scripts/.upscale-state.json

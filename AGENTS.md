@@ -17,6 +17,10 @@ npm run lint           # eslint
 # Media pipeline (Phase 0 — run only when the source PDF changes)
 npm run media:extract  # extract embedded images → scripts/.raw/
 npm run media:optimize # sharp → src/assets/media/**.avif + logos/**.png
+
+# One-off Replicate Real-ESRGAN pass for the 12 field photos (billable, needs REPLICATE_API_TOKEN;
+# --use-system-ca for Avast). State in scripts/.upscale-state.json prevents duplicate charges.
+node --use-system-ca scripts/upscale-replicate.mjs upscale|validate|encode [--from-source]
 ```
 
 There is no test runner set up. Verify changes with `npm run typecheck && npm run build`. Manual QA passes: RLS smoke test, JS-disabled portfolio filtering, quote-form end-to-end, screen-reader pass.
@@ -32,6 +36,7 @@ There is no test runner set up. Verify changes with `npm run typecheck && npm ru
 - **Brand accent token names are legacy.** `--color-gold` now holds sapphire `#0F52BA`, `--color-gold-2` holds blue `#0000FF`. The names predate the rebrand; the values are the brand. Because sapphire is dark, any surface using either gold token as its background must pair it with `text-[var(--color-paper)]` (not `--color-ink`) for WCAG contrast. Do NOT write Tailwind-shaped placeholders like `bg-[var(--color-gold-star)]` in this file — Tailwind v4 auto-scans markdown as source and will emit invalid CSS.
 - **`Button` `ghost`/`outline` inherit their colour — never hard-code one.** Both variants use `text-current` and a `border-current` ring so they take their colour from the `Section` tone wrapper (paper on `ink`, ink on `sand`/`paper`). They were previously pinned to the paper token, which rendered white-on-white inside a `tone="paper"` section and white-on-sand inside `tone="sand"` — invisible CTAs on the home page. Only `primary` carries fixed colours. If you re-pin `ghost`/`outline` to a literal token, you reintroduce that bug on every light surface.
 - Photography is imported as `StaticImageData` (never string paths) so `next/image` gets intrinsic dimensions and auto-`blurDataURL`. Turbopack prints "AVIF image not supported" warnings on these imports — expected, files are pre-optimized by the sharp pipeline.
+- **AVIF imports carry a fake `width: 100, height: 100`.** Because Turbopack can't decode AVIF, every `.avif` static import gets placeholder dimensions. That is harmless only because every AVIF slot renders with `fill` + an `aspect-*` wrapper. Any image rendered at intrinsic size (no `fill`, e.g. `SetupGallery`'s masonry on `/services/[category]`) must be imported as **WebP** (or PNG/JPEG) or it renders as a square. The `next/image` optimizer still serves AVIF to browsers via `images.formats`, so WebP sources cost nothing on the wire.
 - **Media filenames in `src/assets/media/case-studies/**` DO NOT reliably match their contents.** Phase 0's PDF extractor labeled by slide position, not subject — e.g. `wisynco-eco-club/03-school.avif` actually contains a McIntosh Bedding showroom, `mcintosh-bedding-showroom/01-hero.avif` is a Terra Nova tent. `src/assets/media/hero/**` IS trusted (manually curated). Before assigning any case-study image to a hero/OG slot, decode it (sharp → JPEG preview) and eyeball it — do not trust the path. A full re-extract or rename pass is outstanding.
 
 ### Data flow

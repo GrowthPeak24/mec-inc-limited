@@ -7,6 +7,7 @@ import { Section } from '@/components/ui/Section';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { CapabilityList } from '@/components/services/CapabilityList';
 import { ServiceFaq } from '@/components/services/ServiceFaq';
+import { SetupGallery } from '@/components/services/SetupGallery';
 import { CaseStudyCard } from '@/components/portfolio/CaseStudyCard';
 import { MediaImage } from '@/components/ui/MediaImage';
 import { QuoteCTA } from '@/components/home/QuoteCTA';
@@ -110,6 +111,23 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
           </Reveal>
         </div>
       </Section>
+
+      {'gallery' in cat && cat.gallery.length > 0 && (
+        <Section tone="ink">
+          <Reveal>
+            <SectionHeading
+              tone="paper"
+              eyebrow="In the field"
+              title={`${cat.name} setups we have produced.`}
+            />
+          </Reveal>
+          <div className="mt-12">
+            <Reveal>
+              <SetupGallery gallery={cat.gallery} />
+            </Reveal>
+          </div>
+        </Section>
+      )}
 
       {related.length > 0 && (
         <Section tone="sand">
