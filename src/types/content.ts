@@ -78,6 +78,9 @@ export interface ServiceCategory {
     items: readonly string[];
   }[];
   faqs: readonly { q: string; a: string }[];
+  /** Client-neutral field photography shown in the "In the field" section.
+   *  Only use images with no confirmed case-study client here. */
+  gallery?: readonly MediaRef[];
   seo: {
     title: string;
     description: string;

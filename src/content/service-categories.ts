@@ -4,6 +4,27 @@ import marketingHero from '@/assets/media/hero/03-brand-activation.avif';
 import eventsHero from '@/assets/media/hero/01-stage-booth-build.avif';
 import cateringHero from '@/assets/media/hero/02-plated-catering.avif';
 
+// -- Field galleries -------------------------------------------------
+import poolsideLounge from '@/assets/media/services/event-production/01-poolside-lounge.webp';
+import gardenLounge from '@/assets/media/services/event-production/02-garden-lounge.webp';
+import cabanaLounge from '@/assets/media/services/event-production/03-cabana-lounge.webp';
+import fabricArch from '@/assets/media/services/event-production/04-fabric-arch.webp';
+import winterTunnel from '@/assets/media/services/event-production/05-winter-tunnel.webp';
+import swingArch from '@/assets/media/services/event-production/06-swing-arch.webp';
+import tropicalBar from '@/assets/media/services/event-production/07-tropical-bar.webp';
+import tealFanLounge from '@/assets/media/services/event-production/08-teal-fan-lounge.webp';
+import coralFanLounge from '@/assets/media/services/event-production/09-coral-fan-lounge.webp';
+import blueFanBackdrop from '@/assets/media/services/event-production/10-blue-fan-backdrop.webp';
+import worldChampionshipTrack from '@/assets/media/services/event-production/11-world-championship-track.webp';
+import terraNovaTent from '@/assets/media/services/event-production/12-terra-nova-night-tent.webp';
+import honeyBunBooth from '@/assets/media/services/strategic-marketing/01-honey-bun-expo-booth.webp';
+import scotiaInsuranceBooth from '@/assets/media/services/strategic-marketing/02-scotia-insurance-booth.webp';
+import scotiabankTent from '@/assets/media/services/strategic-marketing/03-scotiabank-activation-tent.webp';
+import fscBooth from '@/assets/media/services/strategic-marketing/04-fsc-booth.webp';
+import sslBooth from '@/assets/media/services/strategic-marketing/05-ssl-investment-booth.webp';
+import vegetableSkillet from '@/assets/media/services/bespoke-catering/01-vegetable-skillet.webp';
+import lanternTable from '@/assets/media/services/bespoke-catering/02-lantern-table.webp';
+
 export const SERVICE_CATEGORIES = [
   {
     slug: 'strategic-marketing',
@@ -57,6 +78,13 @@ export const SERVICE_CATEGORIES = [
         q: 'What is the minimum engagement?',
         a: 'For strategic marketing we prefer engagements of 12 weeks or more so the work has time to be measured. Single-campaign sprints are possible for existing clients.',
       },
+    ],
+    gallery: [
+      { src: honeyBunBooth, alt: 'Honey Bun and Buccaneer branded expo booth built by MEC.' },
+      { src: scotiaInsuranceBooth, alt: 'Scotia Insurance lounge-style booth with a ScotiaBridge display.' },
+      { src: scotiabankTent, alt: 'Scotiabank branded activation tent at an outdoor event.' },
+      { src: fscBooth, alt: 'Financial Services Commission exhibition booth with seating and screen.' },
+      { src: sslBooth, alt: 'SSL Investment Centre booth with a “Money” banner and branded counter.' },
     ],
     seo: {
       title: 'Marketing Agency in Kingston, Jamaica',
@@ -117,6 +145,27 @@ export const SERVICE_CATEGORIES = [
         a: 'Yes. We routinely produce across Jamaica and the wider Caribbean. Travel, freight and permitting are scoped into the estimate.',
       },
     ],
+    gallery: [
+      { src: poolsideLounge, alt: 'Poolside white lounge set against a blue backdrop, styled by MEC.' },
+      { src: gardenLounge, alt: 'Garden lounge vignette with a white sofa and props, styled by MEC.' },
+      { src: cabanaLounge, alt: 'Blue-draped cabana lounge with a faux fireplace, produced by MEC.' },
+      { src: fabricArch, alt: 'White fabric arch dressed with greenery for an outdoor event.' },
+      {
+        src: winterTunnel,
+        alt: 'Blue-lit winter-themed entrance tunnel for an NCB Capital Markets holiday event.',
+      },
+      {
+        src: worldChampionshipTrack,
+        alt: 'Running-track entrance for the NCB Capital Markets “World Championship” event.',
+      },
+      { src: terraNovaTent, alt: 'Lit marquee tent with a Terra Nova bar set-up at night.' },
+      // Garden series: NCB Capital Markets "Breakfast at the Pavilion", Hope Gardens.
+      { src: swingArch, alt: '“Breakfast at the Pavilion” floral swing arch in a garden setting.' },
+      { src: tropicalBar, alt: 'Outdoor bar dressed with painted tropical leaves at a garden brunch.' },
+      { src: tealFanLounge, alt: 'Teal paper-fan backdrop with a white lounge set outdoors.' },
+      { src: coralFanLounge, alt: 'Coral paper-fan photo backdrop with lounge seating outdoors.' },
+      { src: blueFanBackdrop, alt: 'Blue paper-fan and palm-leaf backdrop in a garden setting.' },
+    ],
     seo: {
       title: 'Event Production in Kingston, Jamaica',
       description:
@@ -175,6 +224,10 @@ export const SERVICE_CATEGORIES = [
         q: 'Do you handle service staff?',
         a: 'Every catering engagement includes a trained MEC service team sized to the format and guest count.',
       },
+    ],
+    gallery: [
+      { src: vegetableSkillet, alt: 'Cast-iron skillet of seasoned vegetables served at an MEC event.' },
+      { src: lanternTable, alt: 'Poolside table styled with a lantern and mason-jar candles.' },
     ],
     seo: {
       title: 'Bespoke Catering in Kingston, Jamaica',

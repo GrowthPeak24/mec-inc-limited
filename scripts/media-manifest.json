@@ -44,54 +44,59 @@
 
     "ncb-capital-markets-winning": [
       { "raw": "p18-i00-1805x1205.png", "dest": "case-studies/ncb-capital-markets-winning/01-hero", "role": "card", "alt": "NCB Capital Markets 'WINNING' stage build with speaker at podium" },
-      { "raw": "p14-i04-1302x841.png", "dest": "case-studies/ncb-capital-markets-winning/02-plenary", "role": "gallery", "alt": "Full plenary set for NCB Capital Markets with LED walls, custom podiums and floral guest tables" },
-      { "raw": "p17-i06-1221x885.png", "dest": "case-studies/ncb-capital-markets-winning/03-lunch", "role": "gallery", "alt": "Branded NCB Capital Markets lunch break with turf backdrop and gold accents" }
+      { "raw": "p14-i04-1302x841.png", "dest": "case-studies/ncb-capital-markets-winning/02-plenary", "role": "gallery", "alt": "'Customer Obsession' plenary set for NCB Capital Markets with blue-and-gold guest tables" },
+      { "raw": "p14-i08-1204x804.png", "dest": "case-studies/ncb-capital-markets-winning/03-lunch", "role": "gallery", "alt": "NCB Capital Markets working lunch with turf wall, boxing-glove accents and yellow table linen" },
+      { "raw": "p14-i05-1204x804.png", "dest": "case-studies/ncb-capital-markets-winning/04-winning-entrance", "role": "gallery", "alt": "'WINNING' championship-belt entrance with boxer cut-outs for NCB Capital Markets" },
+      { "raw": "p14-i06-1204x804.png", "dest": "case-studies/ncb-capital-markets-winning/05-boxing-lounge", "role": "gallery", "alt": "Red boxing-ring themed lounge with NCB Capital Markets podium" },
+      { "raw": "p14-i07-1204x804.png", "dest": "case-studies/ncb-capital-markets-winning/06-win-stage", "role": "gallery", "alt": "'WIN' stage set with roped ring edge for NCB Capital Markets" }
     ],
 
     "ncb-champions": [
-      { "raw": "p14-i01-1349x900.png", "dest": "case-studies/ncb-champions/01-hero", "role": "card", "alt": "NCB Champions guest experience — sunflower-themed activation with brand ambassador" },
-      { "raw": "p14-i03-1349x900.png", "dest": "case-studies/ncb-champions/02-brand-lounge", "role": "gallery", "alt": "Branded NCB Champions lounge set with hospitality staff" }
+      { "raw": "sweep/p15-i04.x4.png", "dest": "case-studies/ncb-champions/01-hero", "role": "card", "alt": "NCB Summit 'CHAMPIONS' arch and branded riser (4x upscale of deck image)" },
+      { "raw": "sweep/p15-i05.x4.png", "dest": "case-studies/ncb-champions/02-lockers", "role": "gallery", "alt": "NCB 'Stronger Together' locker installation" },
+      { "raw": "sweep/p15-i06.x4.png", "dest": "case-studies/ncb-champions/03-hallway", "role": "gallery", "alt": "NCB Summit branded hallway runner and wall graphics" }
     ],
 
     "wisynco-eco-club": [
-      { "raw": "p12-i00-768x461.png", "dest": "case-studies/wisynco-eco-club/01-hero", "role": "card", "alt": "Wisynco Eco Club recycling campaign creative — 'Easy Steps to Recycling' for Jamaican schools" },
-      { "raw": "p12-i02-768x461.png", "dest": "case-studies/wisynco-eco-club/02-creative", "role": "gallery", "alt": "Wisynco Eco Club campaign asset by MEC" },
-      { "raw": "p13-i01-1200x900.png", "dest": "case-studies/wisynco-eco-club/03-school", "role": "gallery", "alt": "Manchester High School students participating in the Wisynco Eco Club recycling programme" },
-      { "raw": "p13-i03-1200x900.png", "dest": "case-studies/wisynco-eco-club/04-collection", "role": "gallery", "alt": "Bags of collected recyclables from a Wisynco Eco Club schools drive" }
+      { "raw": "sweep/p10-i03.x4.png", "dest": "case-studies/wisynco-eco-club/01-hero", "role": "card", "alt": "Collected recyclables and Eco Club flag in a school courtyard (4x upscale)" },
+      { "raw": "sweep/p10-i01.png", "dest": "case-studies/wisynco-eco-club/02-student-collection", "role": "gallery", "alt": "Students with collection bags (trimmed original; AI upscale rejected for face distortion)" },
+      { "raw": "sweep/p10-i02.png", "dest": "case-studies/wisynco-eco-club/03-beach-cleanup", "role": "gallery", "alt": "Students on a coastal clean-up (trimmed original; AI upscale rejected for face distortion)" },
+      { "raw": "sweep/p10-i00.png", "dest": "case-studies/wisynco-eco-club/04-recycling-kiosk", "role": "gallery", "alt": "Wisynco ECO recycling kiosk (trimmed original; AI upscale rejected for altered lettering)" }
     ],
 
     "bigga-share-with-care": [
-      { "raw": "p14-i05-1204x804.png", "dest": "case-studies/bigga-share-with-care/01-hero", "role": "card", "alt": "BIGGA 'Share with Care' social awareness campaign creative" },
-      { "raw": "p14-i06-1204x804.png", "dest": "case-studies/bigga-share-with-care/02-influencer", "role": "gallery", "alt": "BIGGA 'Share with Care' influencer partnership content" },
-      { "raw": "p14-i07-1204x804.png", "dest": "case-studies/bigga-share-with-care/03-partners", "role": "gallery", "alt": "BIGGA campaign partnership assets with JCF and MOEY co-branding" },
-      { "raw": "p14-i08-1204x804.png", "dest": "case-studies/bigga-share-with-care/04-outreach", "role": "gallery", "alt": "BIGGA 'Share with Care' schools outreach material" }
+      { "raw": "sweep/p11-i01.x4.png", "dest": "case-studies/bigga-share-with-care/01-hero", "role": "card", "alt": "Bigga schools-tour stage and screen with students (4x upscale)" },
+      { "raw": "sweep/p11-i02.png", "dest": "case-studies/bigga-share-with-care/02-school-interview", "role": "gallery", "alt": "On-stage interview at a Bigga school stop (trimmed original; AI upscale rejected for face distortion)" }
     ],
 
     "grl-cool-fi-di-summer": [
-      { "raw": "p16-i02-1287x855.png", "dest": "case-studies/grl-cool-fi-di-summer/01-hero", "role": "card", "alt": "GRL Lennox 'Cool Fi Di Summer' campaign creative for AC unit promotion in Jamaica" },
-      { "raw": "p16-i04-600x800.png", "dest": "case-studies/grl-cool-fi-di-summer/02-lifestyle", "role": "gallery", "alt": "GRL 'Cool Fi Di Summer' lifestyle photography — Jamaican couple relaxing under a Lennox AC" }
+      { "raw": "p12-i01-512x481.png", "dest": "case-studies/grl-cool-fi-di-summer/01-hero", "role": "card", "alt": "GRL 'Cool Fi Di Summer' Lennox inverter AC campaign creative" },
+      { "raw": "p12-i02-768x461.png", "dest": "case-studies/grl-cool-fi-di-summer/02-friends-campaign", "role": "gallery", "alt": "'Cool Fi Di Summer' campaign creative featuring friends on a sofa" },
+      { "raw": "p19-i04-640x640.png", "dest": "case-studies/grl-cool-fi-di-summer/03-couple-campaign", "role": "gallery", "alt": "'Cool Fi Di Summer' social creative featuring a couple at home" },
+      { "raw": "p12-i03-360x640.png", "dest": "case-studies/grl-cool-fi-di-summer/04-poster", "role": "gallery", "alt": "'Cool Fi Di Summer' portrait poster for Lennox inverter AC" }
     ],
 
     "mcintosh-bedding-showroom": [
-      { "raw": "p13-i00-717x538.png", "dest": "case-studies/mcintosh-bedding-showroom/01-hero", "role": "card", "alt": "McIntosh Bedding Company branded trade show booth built by MEC" }
+      { "raw": "p13-i01-1200x900.png", "dest": "case-studies/mcintosh-bedding-showroom/01-hero", "role": "card", "alt": "McIntosh Bedding Company booth with M-Bed display beds" }
     ],
 
     "hampden-estate-activation": [
-      { "raw": "p17-i04-615x820.png", "dest": "case-studies/hampden-estate-activation/01-hero", "role": "card", "alt": "Hampden Estate outdoor brand activation with custom yellow archway signage" }
+      { "raw": "sweep/p13-i02.x2.png", "dest": "case-studies/hampden-estate-activation/01-hero", "role": "card", "alt": "Illuminated HAMPDEN ESTATE bar booth with floral wall (2x upscale)" }
     ],
 
     "geddes-refrigeration-summer-sale": [
-      { "raw": "p16-i00-525x399.png", "dest": "case-studies/geddes-refrigeration-summer-sale/01-hero", "role": "card", "alt": "Geddes Refrigeration 'Summer Sale' Lennox AC campaign creative" }
+      { "raw": "p12-i00-768x461.png", "dest": "case-studies/geddes-refrigeration-summer-sale/01-hero", "role": "card", "alt": "Geddes Refrigeration 'Summer Sale on all AC units' campaign creative" },
+      { "raw": "p19-i03-1007x921.png", "dest": "case-studies/geddes-refrigeration-summer-sale/02-glacier-ad", "role": "gallery", "alt": "GRL Glacier AC advertisement" }
     ],
 
     "cargo-caribbean-airlines": [
-      { "raw": "p17-i05-717x538.png", "dest": "case-studies/cargo-caribbean-airlines/01-hero", "role": "card", "alt": "Cargo Caribbean Airlines 'Between Greater Miami and Kingston' welcome activation" }
+      { "raw": "p13-i03-1200x900.png", "dest": "case-studies/cargo-caribbean-airlines/01-hero", "role": "card", "alt": "Caribbean Airlines Cargo 'Experience Greater Shipping Possibilities' booth" }
     ]
   },
 
   "themes": [
     { "raw": "p14-i04-1302x841.png", "dest": "themes/azure-corporate", "role": "gallery", "alt": "Azure-themed corporate set decor by MEC" },
-    { "raw": "p17-i06-1221x885.png", "dest": "themes/gold-summer", "role": "gallery", "alt": "Gold and turf themed corporate hospitality decor by MEC" },
+    { "raw": "../../src/assets/images/364A1758.jpg", "dest": "themes/gold-summer", "role": "gallery", "alt": "Warm gold light-draped walkway (client photo, replaces a private birthday image)" },
     { "raw": "p17-i04-615x820.png", "dest": "themes/tropical-outdoor", "role": "gallery", "alt": "Tropical outdoor archway installation for a Jamaican brand activation" },
     { "raw": "p15-i02-1256x838.png", "dest": "themes/floral-arrival", "role": "gallery", "alt": "White-and-green floral arrival arch for a corporate awards ceremony" }
   ],

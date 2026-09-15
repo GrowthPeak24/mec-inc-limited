@@ -18,10 +18,10 @@ export const DECOR_THEMES = [
   {
     name: 'Gold Summer',
     blurb:
-      'Warm-metallic seated experience with directional lighting. Fits keynote dinners and long-service recognition.',
+      'Warm-metallic walkways and draped string lighting. Fits keynote dinners and long-service recognition.',
     media: {
       src: gold,
-      alt: 'Gold and warm-lit banquet table styled for a summer corporate dinner.',
+      alt: 'Gold-lit walkway framed with draped string lights and framed artwork.',
     },
   },
   {
