@@ -12,3 +12,6 @@ opt-log.txt
 tsconfig.tsbuildinfo
 .claude/.claude-md-prompted
 scripts/.upscale-state.json
+# Raw client photo/video dump (~500 MB incl. .x2.png upscales). Curated,
+# web-encoded copies live in src/assets/media/.
+src/assets/images/
