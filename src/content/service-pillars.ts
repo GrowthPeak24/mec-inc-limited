@@ -1,6 +1,6 @@
 import type { ServicePillar } from '@/types/content';
 
-import marketingImg from '@/assets/media/case-studies/wisynco-eco-club/02-creative.avif';
+import marketingImg from '@/assets/media/case-studies/wisynco-eco-club/01-hero.avif';
 import eventsImg from '@/assets/media/case-studies/ncb-pinnacle-long-service-awards/01-hero.avif';
 import cateringImg from '@/assets/media/hero/02-plated-catering.avif';
 
@@ -15,7 +15,7 @@ export const SERVICE_PILLARS = [
     icon: 'chart',
     media: {
       src: marketingImg,
-      alt: 'MEC creative team producing campaign content for Wisynco Eco Club.',
+      alt: 'Recyclables collected by a school for the Wisynco Eco Club programme, run by MEC.',
     },
   },
   {

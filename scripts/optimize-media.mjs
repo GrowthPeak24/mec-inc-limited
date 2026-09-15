@@ -64,12 +64,20 @@ async function optimizeLogo(entry) {
   return { dest: entry.dest + '.png', bytes };
 }
 
+// --only=case-studies/,themes/gold-summer re-encodes just matching dest
+// prefixes (and skips logos), so untouched assets don't churn in git.
+const only = process.argv
+  .find((a) => a.startsWith('--only='))
+  ?.slice('--only='.length)
+  .split(',');
+
 const photoEntries = [
   ...manifest.hero,
   ...Object.values(manifest.case_studies).flat(),
   ...manifest.themes,
   ...manifest.about,
-];
+].filter((e) => !only || only.some((prefix) => e.dest.startsWith(prefix)));
+if (only) manifest.logos = [];
 
 console.log(`Photos: ${photoEntries.length} · Logos: ${manifest.logos.length}\n`);
 
