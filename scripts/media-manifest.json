@@ -5,6 +5,7 @@
     "(archery target, puzzle pieces, fist-bump, orange sliced, desk mockups)",
     "is deliberately excluded per the Phase 0 image-gate decision.",
     "role: 'bento' = hero bento tile (priority load, largest budget)",
+    "      'hero'  = full-bleed case-study hero (sizes=100vw), also its card",
     "      'card'  = portfolio card / feature block",
     "      'gallery' = case study gallery item",
     "      'logo'  = client logo for the trust marquee"
@@ -24,14 +25,14 @@
 
   "case_studies": {
     "ncb-pinnacle-long-service-awards": [
-      { "raw": "p18-i02-1800x1200.png", "dest": "case-studies/ncb-pinnacle-long-service-awards/01-hero", "role": "card", "alt": "Azure-themed Long Service Awards stage set for NCB, built by MEC" },
+      { "raw": "p18-i02-1800x1200.png", "dest": "case-studies/ncb-pinnacle-long-service-awards/01-hero", "role": "hero", "alt": "Azure-themed Long Service Awards stage set for NCB, built by MEC" },
       { "raw": "p15-i01-1266x844.png", "dest": "case-studies/ncb-pinnacle-long-service-awards/02-nb-installation", "role": "gallery", "alt": "Two NCB honourees photographed in front of an illuminated 'NB' installation with floral arrangements" },
       { "raw": "p15-i02-1256x838.png", "dest": "case-studies/ncb-pinnacle-long-service-awards/03-arrival-arch", "role": "gallery", "alt": "White floral arrival arch for NCB Pinnacle Awards guests" },
       { "raw": "p15-i03-1330x887.png", "dest": "case-studies/ncb-pinnacle-long-service-awards/04-guest-table", "role": "gallery", "alt": "Blue-and-gold tablescape with floral centerpieces at NCB Pinnacle Awards" }
     ],
 
     "ncb-capital-markets-winning": [
-      { "raw": "p18-i00-1805x1205.png", "dest": "case-studies/ncb-capital-markets-winning/01-hero", "role": "card", "alt": "NCB Capital Markets 'WINNING' stage build with speaker at podium" },
+      { "raw": "p18-i00-1805x1205.png", "dest": "case-studies/ncb-capital-markets-winning/01-hero", "role": "hero", "alt": "NCB Capital Markets 'WINNING' stage build with speaker at podium" },
       { "raw": "p14-i04-1302x841.png", "dest": "case-studies/ncb-capital-markets-winning/02-plenary", "role": "gallery", "alt": "'Customer Obsession' plenary set for NCB Capital Markets with blue-and-gold guest tables" },
       { "raw": "p14-i08-1204x804.png", "dest": "case-studies/ncb-capital-markets-winning/03-lunch", "role": "gallery", "alt": "NCB Capital Markets working lunch with turf wall, boxing-glove accents and yellow table linen" },
       { "raw": "p14-i05-1204x804.png", "dest": "case-studies/ncb-capital-markets-winning/04-winning-entrance", "role": "gallery", "alt": "'WINNING' championship-belt entrance with boxer cut-outs for NCB Capital Markets" },
@@ -40,38 +41,38 @@
     ],
 
     "ncb-champions": [
-      { "raw": "sweep/p15-i04.x4.png", "dest": "case-studies/ncb-champions/01-hero", "role": "card", "alt": "NCB Summit 'CHAMPIONS' arch and branded riser (4x upscale of deck image)" },
+      { "raw": "sweep/p15-i04.x4.png", "dest": "case-studies/ncb-champions/01-hero", "role": "hero", "alt": "NCB Summit 'CHAMPIONS' arch and branded riser (4x upscale of deck image)" },
       { "raw": "sweep/p15-i05.x4.png", "dest": "case-studies/ncb-champions/02-lockers", "role": "gallery", "alt": "NCB 'Stronger Together' locker installation" },
       { "raw": "sweep/p15-i06.x4.png", "dest": "case-studies/ncb-champions/03-hallway", "role": "gallery", "alt": "NCB Summit branded hallway runner and wall graphics" }
     ],
 
     "wisynco-eco-club": [
-      { "raw": "sweep/p10-i03.x4.png", "dest": "case-studies/wisynco-eco-club/01-hero", "role": "card", "alt": "Collected recyclables and Eco Club flag in a school courtyard (4x upscale)" }
+      { "raw": "sweep/p10-i03.x4.png", "dest": "case-studies/wisynco-eco-club/01-hero", "role": "hero", "alt": "Collected recyclables and Eco Club flag in a school courtyard (4x upscale)" }
     ],
 
     "bigga-share-with-care": [
-      { "raw": "sweep/p11-i01.x4.png", "dest": "case-studies/bigga-share-with-care/01-hero", "role": "card", "alt": "Bigga schools-tour stage and screen with students (4x upscale)" }
+      { "raw": "sweep/p11-i01.x4.png", "dest": "case-studies/bigga-share-with-care/01-hero", "role": "hero", "alt": "Bigga schools-tour stage and screen with students (4x upscale)" }
     ],
 
     "grl-cool-fi-di-summer": [
-      { "raw": "p19-i04-640x640.x2.png", "dest": "case-studies/grl-cool-fi-di-summer/01-hero", "role": "card", "alt": "'Cool Fi Di Summer' social creative featuring a couple at home (Real-ESRGAN x2)" }
+      { "raw": "p19-i04-640x640.x4.png", "dest": "case-studies/grl-cool-fi-di-summer/01-hero", "role": "hero", "alt": "'Cool Fi Di Summer' social creative featuring a couple at home (Real-ESRGAN x4)" }
     ],
 
     "mcintosh-bedding-showroom": [
-      { "raw": "p13-i01-1200x900.x2.png", "dest": "case-studies/mcintosh-bedding-showroom/01-hero", "role": "card", "alt": "McIntosh Bedding Company booth with M-Bed display beds" }
+      { "raw": "p13-i01-1200x900.x2.png", "dest": "case-studies/mcintosh-bedding-showroom/01-hero", "role": "hero", "alt": "McIntosh Bedding Company booth with M-Bed display beds" }
     ],
 
     "hampden-estate-activation": [
-      { "raw": "sweep/p13-i02.x2.png", "dest": "case-studies/hampden-estate-activation/01-hero", "role": "card", "alt": "Illuminated HAMPDEN ESTATE bar booth with floral wall (2x upscale)" }
+      { "raw": "sweep/p13-i02.x2.png", "dest": "case-studies/hampden-estate-activation/01-hero", "role": "hero", "alt": "Illuminated HAMPDEN ESTATE bar booth with floral wall (2x upscale)" }
     ],
 
     "geddes-refrigeration-summer-sale": [
-      { "raw": "p12-i00-768x461.x2.png", "dest": "case-studies/geddes-refrigeration-summer-sale/01-hero", "role": "card", "alt": "Geddes Refrigeration 'Summer Sale on all AC units' campaign creative" },
+      { "raw": "p12-i00-768x461.x4.png", "dest": "case-studies/geddes-refrigeration-summer-sale/01-hero", "role": "hero", "alt": "Geddes Refrigeration 'Summer Sale on all AC units' campaign creative" },
       { "raw": "p19-i03-1007x921.x2.png", "dest": "case-studies/geddes-refrigeration-summer-sale/02-glacier-ad", "role": "gallery", "alt": "GRL Glacier AC advertisement" }
     ],
 
     "cargo-caribbean-airlines": [
-      { "raw": "p13-i03-1200x900.x2.png", "dest": "case-studies/cargo-caribbean-airlines/01-hero", "role": "card", "alt": "Caribbean Airlines Cargo 'Experience Greater Shipping Possibilities' booth" }
+      { "raw": "p13-i03-1200x900.x2.png", "dest": "case-studies/cargo-caribbean-airlines/01-hero", "role": "hero", "alt": "Caribbean Airlines Cargo 'Experience Greater Shipping Possibilities' booth" }
     ]
   },
 

@@ -121,6 +121,20 @@ const ITEMS = [
   { batch: 3, base: 'raw', src: 'p19-i03-1007x921.png' }, // Geddes glacier ad
   { batch: 3, base: 'raw', src: 'p13-i01-1200x900.png' }, // McIntosh showroom
   { batch: 3, base: 'raw', src: 'p13-i03-1200x900.png' }, // Caribbean Airlines cargo
+
+  // -- Batch 4: full-bleed case-study heroes (sizes="100vw", up to 1920px) ----
+  // x2 left these at 1280-1536px, so the browser stretched them on desktop.
+  // Geddes: the footer's 5px "REFRIGERATION LTD." gets rewritten by the model at
+  // any scale, so that box is redrawn from a plain Lanczos resize of the source.
+  {
+    batch: 4,
+    base: 'raw',
+    src: 'p12-i00-768x461.png',
+    scale: 4,
+    rerun: true,
+    restore: [{ left: 24, top: 424, width: 120, height: 30 }],
+  }, // Geddes hero
+  { batch: 4, base: 'raw', src: 'p19-i04-640x640.png', scale: 4, rerun: true }, // GRL hero
 ];
 
 const batchArg = process.argv.find((a) => a.startsWith('--batch='));
@@ -166,6 +180,32 @@ const REJECTED = new Set([
 ]);
 
 const scaleOf = (item) => item.scale ?? 2;
+
+/**
+ * Overwrite `item.restore` boxes (source pixels) in the upscale with a Lanczos
+ * resize of the original. For small lettering the model invents new glyphs;
+ * soft-but-correct beats sharp-but-wrong. Idempotent: always rebuilt from source.
+ */
+async function applyRestore(item) {
+  if (!item.restore) return;
+  const k = scaleOf(item);
+  const out = outputPath(item);
+  const patches = await Promise.all(
+    item.restore.map(async (r) => ({
+      input: await sharp(inputPath(item))
+        .removeAlpha()
+        .extract(r)
+        .resize(r.width * k, r.height * k, { kernel: 'lanczos3' })
+        .png()
+        .toBuffer(),
+      left: r.left * k,
+      top: r.top * k,
+    })),
+  );
+  const buf = await sharp(out).removeAlpha().composite(patches).png().toBuffer();
+  await writeFile(out, buf);
+  console.log(`restore ${stateKey(item)}: ${item.restore.length} box(es) redrawn from source`);
+}
 const inputPath = (item) => path.join(BASES[item.base ?? 'images'], item.src);
 const outputPath = (item) => inputPath(item).replace(/\.(jpe?g|png)$/i, `.x${scaleOf(item)}.png`);
 /** Batch-1 keys stay bare filenames so the existing state file still matches.
@@ -242,6 +282,7 @@ async function upscale() {
 
     if (entry.done && existsSync(out)) {
       console.log(`skip  ${key} (already upscaled)`);
+      await applyRestore(item);
       continue;
     }
 
@@ -294,6 +335,7 @@ async function upscale() {
       await writeFile(out, Buffer.from(await img.arrayBuffer()));
       entry.done = true;
       await saveState(state);
+      await applyRestore(item);
       console.log(`done  ${key} ${run.predictTime.toFixed(2)}s`);
     }
   }
