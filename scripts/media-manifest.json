@@ -11,27 +11,15 @@
   ],
 
   "hero": [
-    {
-      "raw": "p18-i02-1800x1200.png",
-      "dest": "hero/01-stage-booth-build",
-      "role": "bento",
-      "alt": "Custom-built Azure Awards stage set by MEC for NCB's Pinnacle & Long Service Awards in Kingston, Jamaica",
-      "crop": { "aspect": "9/16" }
-    },
-    {
-      "raw": "p09-i02-1642x1095.png",
-      "dest": "hero/02-plated-catering",
-      "role": "bento",
-      "alt": "Themed corporate catering by MEC — chafing dishes with braised beef and garnish for a client event in Jamaica",
-      "crop": { "aspect": "3/2" }
-    },
-    {
-      "raw": "p18-i00-1805x1205.png",
-      "dest": "hero/03-brand-activation",
-      "role": "bento",
-      "alt": "'WINNING' stage build for NCB Capital Markets — speaker on a branded set designed and produced by MEC in Kingston",
-      "crop": { "aspect": "3/2" }
-    }
+    { "raw": "../../src/assets/images/20180422_085443.jpg", "dest": "hero/01-stage-booth-build", "role": "bento", "alt": "Honey Bun and Buccaneer expo booth built by MEC (camera original)" },
+    { "raw": "../../src/assets/images/IMG-20170703-WA0012.x2.png", "dest": "hero/02-plated-catering", "role": "bento", "alt": "Round banquet table laid with green napkins and a candle centrepiece (Real-ESRGAN x2)" },
+    { "raw": "../../src/assets/images/Scotia/IMG_1848.JPG", "dest": "hero/03-brand-activation", "role": "bento", "alt": "Scotiabank activation tent with visitors at the counter (camera original)" }
+  ],
+
+  "pillars": [
+    { "raw": "../../src/assets/images/Scotia/IMG_1763.JPG", "dest": "pillars/strategic-marketing", "role": "card", "alt": "Scotiabank branded tent and banners at an outdoor activation (camera original)" },
+    { "raw": "../../src/assets/images/IMG-20240108-WA0013.x2.png", "dest": "pillars/event-production", "role": "card", "alt": "Poolside evening set-up with draped cabanas and string lights (Real-ESRGAN x2)" },
+    { "raw": "../../src/assets/images/IMG-20170703-WA0011.x2.png", "dest": "pillars/bespoke-catering", "role": "card", "alt": "Banquet table with chiavari chairs and green napkins (Real-ESRGAN x2)" }
   ],
 
   "case_studies": {
@@ -58,26 +46,19 @@
     ],
 
     "wisynco-eco-club": [
-      { "raw": "sweep/p10-i03.x4.png", "dest": "case-studies/wisynco-eco-club/01-hero", "role": "card", "alt": "Collected recyclables and Eco Club flag in a school courtyard (4x upscale)" },
-      { "raw": "sweep/p10-i01.png", "dest": "case-studies/wisynco-eco-club/02-student-collection", "role": "gallery", "alt": "Students with collection bags (trimmed original; AI upscale rejected for face distortion)" },
-      { "raw": "sweep/p10-i02.png", "dest": "case-studies/wisynco-eco-club/03-beach-cleanup", "role": "gallery", "alt": "Students on a coastal clean-up (trimmed original; AI upscale rejected for face distortion)" },
-      { "raw": "sweep/p10-i00.png", "dest": "case-studies/wisynco-eco-club/04-recycling-kiosk", "role": "gallery", "alt": "Wisynco ECO recycling kiosk (trimmed original; AI upscale rejected for altered lettering)" }
+      { "raw": "sweep/p10-i03.x4.png", "dest": "case-studies/wisynco-eco-club/01-hero", "role": "card", "alt": "Collected recyclables and Eco Club flag in a school courtyard (4x upscale)" }
     ],
 
     "bigga-share-with-care": [
-      { "raw": "sweep/p11-i01.x4.png", "dest": "case-studies/bigga-share-with-care/01-hero", "role": "card", "alt": "Bigga schools-tour stage and screen with students (4x upscale)" },
-      { "raw": "sweep/p11-i02.png", "dest": "case-studies/bigga-share-with-care/02-school-interview", "role": "gallery", "alt": "On-stage interview at a Bigga school stop (trimmed original; AI upscale rejected for face distortion)" }
+      { "raw": "sweep/p11-i01.x4.png", "dest": "case-studies/bigga-share-with-care/01-hero", "role": "card", "alt": "Bigga schools-tour stage and screen with students (4x upscale)" }
     ],
 
     "grl-cool-fi-di-summer": [
-      { "raw": "p12-i01-512x481.png", "dest": "case-studies/grl-cool-fi-di-summer/01-hero", "role": "card", "alt": "GRL 'Cool Fi Di Summer' Lennox inverter AC campaign creative" },
-      { "raw": "p12-i02-768x461.png", "dest": "case-studies/grl-cool-fi-di-summer/02-friends-campaign", "role": "gallery", "alt": "'Cool Fi Di Summer' campaign creative featuring friends on a sofa" },
-      { "raw": "p19-i04-640x640.png", "dest": "case-studies/grl-cool-fi-di-summer/03-couple-campaign", "role": "gallery", "alt": "'Cool Fi Di Summer' social creative featuring a couple at home" },
-      { "raw": "p12-i03-360x640.png", "dest": "case-studies/grl-cool-fi-di-summer/04-poster", "role": "gallery", "alt": "'Cool Fi Di Summer' portrait poster for Lennox inverter AC" }
+      { "raw": "p19-i04-640x640.x2.png", "dest": "case-studies/grl-cool-fi-di-summer/01-hero", "role": "card", "alt": "'Cool Fi Di Summer' social creative featuring a couple at home (Real-ESRGAN x2)" }
     ],
 
     "mcintosh-bedding-showroom": [
-      { "raw": "p13-i01-1200x900.png", "dest": "case-studies/mcintosh-bedding-showroom/01-hero", "role": "card", "alt": "McIntosh Bedding Company booth with M-Bed display beds" }
+      { "raw": "p13-i01-1200x900.x2.png", "dest": "case-studies/mcintosh-bedding-showroom/01-hero", "role": "card", "alt": "McIntosh Bedding Company booth with M-Bed display beds" }
     ],
 
     "hampden-estate-activation": [
@@ -85,24 +66,24 @@
     ],
 
     "geddes-refrigeration-summer-sale": [
-      { "raw": "p12-i00-768x461.png", "dest": "case-studies/geddes-refrigeration-summer-sale/01-hero", "role": "card", "alt": "Geddes Refrigeration 'Summer Sale on all AC units' campaign creative" },
-      { "raw": "p19-i03-1007x921.png", "dest": "case-studies/geddes-refrigeration-summer-sale/02-glacier-ad", "role": "gallery", "alt": "GRL Glacier AC advertisement" }
+      { "raw": "p12-i00-768x461.x2.png", "dest": "case-studies/geddes-refrigeration-summer-sale/01-hero", "role": "card", "alt": "Geddes Refrigeration 'Summer Sale on all AC units' campaign creative" },
+      { "raw": "p19-i03-1007x921.x2.png", "dest": "case-studies/geddes-refrigeration-summer-sale/02-glacier-ad", "role": "gallery", "alt": "GRL Glacier AC advertisement" }
     ],
 
     "cargo-caribbean-airlines": [
-      { "raw": "p13-i03-1200x900.png", "dest": "case-studies/cargo-caribbean-airlines/01-hero", "role": "card", "alt": "Caribbean Airlines Cargo 'Experience Greater Shipping Possibilities' booth" }
+      { "raw": "p13-i03-1200x900.x2.png", "dest": "case-studies/cargo-caribbean-airlines/01-hero", "role": "card", "alt": "Caribbean Airlines Cargo 'Experience Greater Shipping Possibilities' booth" }
     ]
   },
 
   "themes": [
-    { "raw": "p14-i04-1302x841.png", "dest": "themes/azure-corporate", "role": "gallery", "alt": "Azure-themed corporate set decor by MEC" },
-    { "raw": "../../src/assets/images/364A1758.jpg", "dest": "themes/gold-summer", "role": "gallery", "alt": "Warm gold light-draped walkway (client photo, replaces a private birthday image)" },
-    { "raw": "p17-i04-615x820.png", "dest": "themes/tropical-outdoor", "role": "gallery", "alt": "Tropical outdoor archway installation for a Jamaican brand activation" },
-    { "raw": "p15-i02-1256x838.png", "dest": "themes/floral-arrival", "role": "gallery", "alt": "White-and-green floral arrival arch for a corporate awards ceremony" }
+    { "raw": "../../src/assets/images/NCBCM/IMG-20180114-WA0016.x2.png", "dest": "themes/azure-corporate", "role": "gallery", "alt": "Blue-lit lounge with white drape and bar, NCB Capital Markets holiday event (Real-ESRGAN x2)" },
+    { "raw": "../../src/assets/images/364A1758.jpg", "dest": "themes/gold-summer", "role": "gallery", "alt": "Warm gold light-draped walkway (camera original)" },
+    { "raw": "../../src/assets/images/IMG-20240108-WA0010.x2.png", "dest": "themes/tropical-outdoor", "role": "gallery", "alt": "Daytime poolside lounge set among palms (Real-ESRGAN x2)" },
+    { "raw": "../../src/assets/images/IMG-20240117-WA0013.x2.png", "dest": "themes/floral-arrival", "role": "gallery", "alt": "Floral swing arch at a garden brunch (Real-ESRGAN x2)" }
   ],
 
   "about": [
-    { "raw": "p14-i01-1349x900.png", "dest": "about/01-team-in-action", "role": "card", "alt": "MEC brand experience in production — sunflower-themed corporate activation in Jamaica" }
+    { "raw": "../../src/assets/images/NCBCM/20171111_124546.jpg", "dest": "about/01-team-in-action", "role": "card", "alt": "NCB Capital Markets World Championship conference in session (camera original)" }
   ],
 
   "logos": [

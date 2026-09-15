@@ -5,8 +5,8 @@ import eventsHero from '@/assets/media/hero/01-stage-booth-build.avif';
 import cateringHero from '@/assets/media/hero/02-plated-catering.avif';
 
 // -- Field galleries -------------------------------------------------
-import poolsideLounge from '@/assets/media/services/event-production/01-poolside-lounge.webp';
-import gardenLounge from '@/assets/media/services/event-production/02-garden-lounge.webp';
+import poolsideLantern from '@/assets/media/services/event-production/01-poolside-lantern.webp';
+import cinemaLounge from '@/assets/media/services/event-production/02-cinema-lounge.webp';
 import cabanaLounge from '@/assets/media/services/event-production/03-cabana-lounge.webp';
 import fabricArch from '@/assets/media/services/event-production/04-fabric-arch.webp';
 import winterTunnel from '@/assets/media/services/event-production/05-winter-tunnel.webp';
@@ -24,6 +24,8 @@ import fscBooth from '@/assets/media/services/strategic-marketing/04-fsc-booth.w
 import sslBooth from '@/assets/media/services/strategic-marketing/05-ssl-investment-booth.webp';
 import vegetableSkillet from '@/assets/media/services/bespoke-catering/01-vegetable-skillet.webp';
 import lanternTable from '@/assets/media/services/bespoke-catering/02-lantern-table.webp';
+import floralHeadTable from '@/assets/media/services/bespoke-catering/03-floral-head-table.webp';
+import poolsideRoundTable from '@/assets/media/services/bespoke-catering/04-poolside-round-table.webp';
 
 export const SERVICE_CATEGORIES = [
   {
@@ -32,7 +34,7 @@ export const SERVICE_CATEGORIES = [
     pillarId: 'marketing',
     hero: {
       src: marketingHero,
-      alt: 'NCB Capital Markets brand activation produced by MEC Inc. in Kingston, Jamaica.',
+      alt: 'Scotiabank activation tent produced by MEC Inc. in Jamaica.',
     },
     intro:
       'Positioning, brand systems and integrated campaigns designed against commercial KPIs, not vanity reach. Every project is briefed against a business outcome and instrumented so the client can defend the spend.',
@@ -98,7 +100,7 @@ export const SERVICE_CATEGORIES = [
     pillarId: 'events',
     hero: {
       src: eventsHero,
-      alt: 'Large-scale corporate stage build produced by MEC Inc. in Kingston.',
+      alt: 'Honey Bun and Buccaneer expo booth built by MEC Inc.',
     },
     intro:
       'From 40-guest boardroom dinners to 3,000-guest brand activations, we manage the whole production stack (concept, engineering, technical, hospitality and strike) with a single accountable producer per project.',
@@ -146,8 +148,8 @@ export const SERVICE_CATEGORIES = [
       },
     ],
     gallery: [
-      { src: poolsideLounge, alt: 'Poolside white lounge set against a blue backdrop, styled by MEC.' },
-      { src: gardenLounge, alt: 'Garden lounge vignette with a white sofa and props, styled by MEC.' },
+      { src: poolsideLantern, alt: 'Poolside evening set-up with draped cabanas and a lantern centrepiece.' },
+      { src: cinemaLounge, alt: 'Cinema-themed lounge with white armchairs and framed art, styled by MEC.' },
       { src: cabanaLounge, alt: 'Blue-draped cabana lounge with a faux fireplace, produced by MEC.' },
       { src: fabricArch, alt: 'White fabric arch dressed with greenery for an outdoor event.' },
       {
@@ -178,7 +180,7 @@ export const SERVICE_CATEGORIES = [
     pillarId: 'catering',
     hero: {
       src: cateringHero,
-      alt: 'Plated fine-dining course produced by MEC\u2019s bespoke catering team.',
+      alt: 'Banquet table dressed by MEC\u2019s bespoke catering team.',
     },
     intro:
       'Cuisine curated around the brief, not a fixed banquet menu. We design each menu, service style and floor plan to match the event\u2019s narrative and the seniority of the room.',
@@ -228,6 +230,8 @@ export const SERVICE_CATEGORIES = [
     gallery: [
       { src: vegetableSkillet, alt: 'Cast-iron skillet of seasoned vegetables served at an MEC event.' },
       { src: lanternTable, alt: 'Poolside table styled with a lantern and mason-jar candles.' },
+      { src: floralHeadTable, alt: 'Head table dressed with white roses, trailing ivy and votive candles.' },
+      { src: poolsideRoundTable, alt: 'Poolside round table laid with green napkins and chiavari chairs.' },
     ],
     seo: {
       title: 'Bespoke Catering in Kingston, Jamaica',

@@ -57,7 +57,7 @@ export function HeroBento() {
             <BentoTile
               media={{
                 src: stageBooth,
-                alt: 'Custom stage and booth build produced by MEC for an enterprise activation.',
+                alt: 'Honey Bun and Buccaneer expo booth designed and built by MEC.',
               }}
               label="Event Production"
               caption="Stage & booth build engineered for enterprise activations."
@@ -69,7 +69,7 @@ export function HeroBento() {
             <BentoTile
               media={{
                 src: platedCatering,
-                alt: 'Plated catering course served at an MEC-produced enterprise dinner.',
+                alt: 'Banquet table laid with green napkins and a candle centrepiece by MEC catering.',
               }}
               label="Bespoke Catering"
               caption="Curated menus for the seniority of the room."
@@ -80,7 +80,7 @@ export function HeroBento() {
             <BentoTile
               media={{
                 src: brandActivation,
-                alt: 'Branded activation experience delivered by MEC Inc.',
+                alt: 'Scotiabank activation tent drawing visitors, delivered by MEC Inc.',
               }}
               label="Strategic Marketing"
               caption="Campaigns built against commercial numbers."

@@ -6,6 +6,8 @@
  *   node scripts/upscale-replicate.mjs validate [sheetDir]
  *   node scripts/upscale-replicate.mjs encode
  *
+ * Add --batch=<n> to any command to act on one batch only.
+ *
  * upscale  -> <source>.x<scale>.png next to each source (sources are never
  *             modified). Only items with scale > 1. Needs REPLICATE_API_TOKEN.
  * validate -> downscales each upscale back to source size, reports PSNR and
@@ -59,8 +61,9 @@ const ITEMS = [
   { src: 'IMG-20240117-WA0014.jpg', dest: 'services/event-production/08-teal-fan-lounge' },
   { src: 'IMG-20240117-WA0027.jpg', dest: 'services/event-production/09-coral-fan-lounge' },
   { src: 'IMG-20240117-WA0029.jpg', dest: 'services/event-production/10-blue-fan-backdrop' },
-  { src: 'IMG-20240108-WA0011.jpg', dest: 'services/event-production/01-poolside-lounge' },
-  { src: 'IMG-20240108-WA0009.jpg', dest: 'services/event-production/02-garden-lounge' },
+  // 20240108 lounges: upscale rejected; replaced by batch-3 poolside/cinema shots.
+  { src: 'IMG-20240108-WA0011.jpg' },
+  { src: 'IMG-20240108-WA0009.jpg' },
   { src: 'IMG-20170702-WA0014.jpg', dest: 'services/event-production/03-cabana-lounge' },
   { src: 'IMG-20170702-WA0036.jpg', dest: 'services/event-production/04-fabric-arch' },
   { src: 'NCBCM/IMG-20180114-WA0004.jpg', dest: 'services/event-production/05-winter-tunnel' },
@@ -87,7 +90,41 @@ const ITEMS = [
   { src: 'Scotia/Copy of IMG_1808.JPG', scale: 1, dest: 'services/strategic-marketing/03-scotiabank-activation-tent' },
   { src: 'FSC/imgupscaler-enhanced (1).png', scale: 1, dest: 'services/strategic-marketing/04-fsc-booth' },
   { src: 'SSL/20170505_083116.jpg', scale: 1, dest: 'services/strategic-marketing/05-ssl-investment-booth' },
+
+  // -- Batch 3: site-wide replacement of deck photography --------------------
+  // Hero bento, pillars, decor themes and about now come from the client's own
+  // photo folders. Sources under ~1600px run through Real-ESRGAN x2; 12 MP
+  // camera originals are encoded directly (see media-manifest.json).
+  { batch: 3, src: 'IMG-20170703-WA0012.jpg' }, // hero/02-plated-catering
+  { batch: 3, src: 'IMG-20170703-WA0011.jpg' }, // pillars/bespoke-catering
+  { batch: 3, src: 'IMG-20240108-WA0013.jpg' }, // pillars/event-production
+  { batch: 3, src: 'NCBCM/IMG-20180114-WA0016.jpg' }, // themes/azure-corporate
+  { batch: 3, src: 'IMG-20240117-WA0013.jpg' }, // themes/floral-arrival
+  { batch: 3, src: 'IMG-20240108-WA0010.jpg' }, // themes/tropical-outdoor
+  { batch: 3, src: 'IMG-20240108-WA0012.jpg', dest: 'services/event-production/01-poolside-lantern' },
+  { batch: 3, src: '20180602_145224.jpg', scale: 1, dest: 'services/event-production/02-cinema-lounge' },
+  { batch: 3, src: 'IMG-20170703-WA0013.jpg', dest: 'services/bespoke-catering/03-floral-head-table' },
+  { batch: 3, src: 'IMG-20170703-WA0014.jpg', dest: 'services/bespoke-catering/04-poolside-round-table' },
+
+  // Case-study deck images below their slot width. The four `rerun` items were
+  // rejected at x4; x2 invents less, and if it still fails review the image is
+  // dropped from the gallery rather than shipped low-res.
+  { batch: 3, base: 'raw', src: 'sweep/p10-i00.png', rerun: true }, // Wisynco recycling kiosk
+  { batch: 3, base: 'raw', src: 'sweep/p10-i01.png', rerun: true }, // Wisynco students
+  { batch: 3, base: 'raw', src: 'sweep/p10-i02.png', rerun: true }, // Wisynco beach clean-up
+  { batch: 3, base: 'raw', src: 'sweep/p11-i02.png', rerun: true }, // Bigga interview
+  { batch: 3, base: 'raw', src: 'p12-i01-512x481.png' }, // GRL hero
+  { batch: 3, base: 'raw', src: 'p12-i02-768x461.png' }, // GRL friends campaign
+  { batch: 3, base: 'raw', src: 'p19-i04-640x640.png' }, // GRL couple campaign
+  { batch: 3, base: 'raw', src: 'p12-i03-360x640.png' }, // GRL poster
+  { batch: 3, base: 'raw', src: 'p12-i00-768x461.png' }, // Geddes hero
+  { batch: 3, base: 'raw', src: 'p19-i03-1007x921.png' }, // Geddes glacier ad
+  { batch: 3, base: 'raw', src: 'p13-i01-1200x900.png' }, // McIntosh showroom
+  { batch: 3, base: 'raw', src: 'p13-i03-1200x900.png' }, // Caribbean Airlines cargo
 ];
+
+const batchArg = process.argv.find((a) => a.startsWith('--batch='));
+const inBatch = (item) => !batchArg || String(item.batch ?? 1) === batchArg.slice('--batch='.length);
 
 /** Matches the `gallery` role in scripts/optimize-media.mjs. */
 const GALLERY_PRESET = { maxWidth: 1200, quality: 56, chromaSubsampling: '4:2:0' };
@@ -107,22 +144,36 @@ const destFormat = (dest) => (dest.startsWith('services/') ? 'webp' : 'avif');
  *  - p10-i00: kiosk lettering rewritten ("INSERT" became "DISCUT").
  *  - p10-i01, p10-i02, p11-i02: 4x from ~10-25px faces invented new facial
  *    features (several subjects are school students). Never ship those.
- * Manifest entries for the deck items point at the trimmed source PNG.
+ *  - Batch 3: the same four at x2 failed again (faces, "INSERT" rewritten),
+ *    and GRL p12-i01/p12-i02/p12-i03 rewrote small lettering
+ *    ("REFRIGERATION") and altered faces. These are no longer shipped at all:
+ *    their galleries were dropped rather than falling back to low-res originals.
  */
 const REJECTED = new Set([
   'IMG-20240108-WA0011.jpg',
   'IMG-20240108-WA0009.jpg',
-  'sweep/p10-i00.png',
-  'sweep/p10-i01.png',
-  'sweep/p10-i02.png',
-  'sweep/p11-i02.png',
+  'raw:sweep/p10-i00.png',
+  'raw:sweep/p10-i01.png',
+  'raw:sweep/p10-i02.png',
+  'raw:sweep/p11-i02.png',
+  'raw:sweep/p10-i00.png@x2',
+  'raw:sweep/p10-i01.png@x2',
+  'raw:sweep/p10-i02.png@x2',
+  'raw:sweep/p11-i02.png@x2',
+  'raw:p12-i01-512x481.png',
+  'raw:p12-i02-768x461.png',
+  'raw:p12-i03-360x640.png',
 ]);
 
 const scaleOf = (item) => item.scale ?? 2;
 const inputPath = (item) => path.join(BASES[item.base ?? 'images'], item.src);
 const outputPath = (item) => inputPath(item).replace(/\.(jpe?g|png)$/i, `.x${scaleOf(item)}.png`);
-/** Batch-1 keys stay bare filenames so the existing state file still matches. */
-const stateKey = (item) => (item.base && item.base !== 'images' ? `${item.base}:${item.src}` : item.src);
+/** Batch-1 keys stay bare filenames so the existing state file still matches.
+ *  A rerun at a new scale gets its own key so it isn't mistaken for the old run. */
+const stateKey = (item) => {
+  const key = item.base && item.base !== 'images' ? `${item.base}:${item.src}` : item.src;
+  return item.rerun ? `${key}@x${scaleOf(item)}` : key;
+};
 const mimeOf = (file) => (/\.png$/i.test(file) ? 'image/png' : 'image/jpeg');
 
 async function loadState() {
@@ -184,7 +235,7 @@ async function upscale() {
   const version = model.latest_version?.id;
   if (!version) throw new Error('Could not resolve model version');
 
-  for (const item of ITEMS.filter((i) => scaleOf(i) > 1)) {
+  for (const item of ITEMS.filter((i) => scaleOf(i) > 1 && inBatch(i))) {
     const key = stateKey(item);
     const out = outputPath(item);
     const entry = (state[key] ??= { runs: [] });
@@ -263,7 +314,7 @@ async function validate() {
   const sheetDir = process.argv[3] ?? path.join(ROOT, 'scripts', '.raw');
   await mkdir(sheetDir, { recursive: true });
   let n = 0;
-  for (const item of ITEMS.filter((i) => scaleOf(i) > 1)) {
+  for (const item of ITEMS.filter((i) => scaleOf(i) > 1 && inBatch(i))) {
     const k = scaleOf(item);
     const srcFile = inputPath(item);
     const out = outputPath(item);
@@ -298,8 +349,8 @@ async function encode() {
   // --from-source encodes the untouched originals (e.g. while Replicate credit
   // is unavailable). Dest paths are identical either way.
   const fromSource = process.argv.includes('--from-source');
-  for (const item of ITEMS.filter((i) => i.dest)) {
-    const useSource = fromSource || scaleOf(item) === 1 || REJECTED.has(item.src);
+  for (const item of ITEMS.filter((i) => i.dest && inBatch(i))) {
+    const useSource = fromSource || scaleOf(item) === 1 || REJECTED.has(stateKey(item));
     const input = useSource ? inputPath(item) : outputPath(item);
     if (!existsSync(input)) throw new Error(`Missing input for ${stateKey(item)}; run upscale first`);
     const format = destFormat(item.dest);

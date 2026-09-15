@@ -49,7 +49,7 @@ export default function AboutPage() {
           <Reveal>
             <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-xl)] bg-[var(--color-ink-2)]">
               <MediaImage
-                media={{ src: teamImg, alt: 'MEC Inc. team on-site during an enterprise event build.' }}
+                media={{ src: teamImg, alt: 'Conference session in progress at an NCB Capital Markets event produced by MEC Inc.' }}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"

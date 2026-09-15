@@ -1,8 +1,8 @@
 import type { ServicePillar } from '@/types/content';
 
-import marketingImg from '@/assets/media/case-studies/wisynco-eco-club/01-hero.avif';
-import eventsImg from '@/assets/media/case-studies/ncb-pinnacle-long-service-awards/01-hero.avif';
-import cateringImg from '@/assets/media/hero/02-plated-catering.avif';
+import marketingImg from '@/assets/media/pillars/strategic-marketing.avif';
+import eventsImg from '@/assets/media/pillars/event-production.avif';
+import cateringImg from '@/assets/media/pillars/bespoke-catering.avif';
 
 export const SERVICE_PILLARS = [
   {
@@ -15,7 +15,7 @@ export const SERVICE_PILLARS = [
     icon: 'chart',
     media: {
       src: marketingImg,
-      alt: 'Recyclables collected by a school for the Wisynco Eco Club programme, run by MEC.',
+      alt: 'Scotiabank branded tent and banners at an outdoor activation run by MEC.',
     },
   },
   {
@@ -28,7 +28,7 @@ export const SERVICE_PILLARS = [
     icon: 'stage',
     media: {
       src: eventsImg,
-      alt: 'NCB Pinnacle Long Service Awards main stage with MEC-produced set design.',
+      alt: 'Poolside evening event with draped cabanas and string lights, produced by MEC.',
     },
   },
   {
@@ -41,7 +41,7 @@ export const SERVICE_PILLARS = [
     icon: 'plate',
     media: {
       src: cateringImg,
-      alt: 'Plated catering course served at an MEC-produced enterprise dinner.',
+      alt: 'Banquet table set with chiavari chairs, green napkins and a candle centrepiece.',
     },
   },
 ] as const satisfies readonly ServicePillar[];

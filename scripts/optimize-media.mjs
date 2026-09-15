@@ -73,6 +73,7 @@ const only = process.argv
 
 const photoEntries = [
   ...manifest.hero,
+  ...manifest.pillars,
   ...Object.values(manifest.case_studies).flat(),
   ...manifest.themes,
   ...manifest.about,
