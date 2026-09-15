@@ -21,19 +21,12 @@ import ncbChampHallway from '@/assets/media/case-studies/ncb-champions/03-hallwa
 
 // -- Wisynco Eco Club ------------------------------------------------
 import wisyncoHero from '@/assets/media/case-studies/wisynco-eco-club/01-hero.avif';
-import wisyncoStudents from '@/assets/media/case-studies/wisynco-eco-club/02-student-collection.avif';
-import wisyncoBeach from '@/assets/media/case-studies/wisynco-eco-club/03-beach-cleanup.avif';
-import wisyncoKiosk from '@/assets/media/case-studies/wisynco-eco-club/04-recycling-kiosk.avif';
 
 // -- Bigga Share With Care -------------------------------------------
 import biggaHero from '@/assets/media/case-studies/bigga-share-with-care/01-hero.avif';
-import biggaInterview from '@/assets/media/case-studies/bigga-share-with-care/02-school-interview.avif';
 
 // -- GRL Cool Fi Di Summer -------------------------------------------
 import grlHero from '@/assets/media/case-studies/grl-cool-fi-di-summer/01-hero.avif';
-import grlFriends from '@/assets/media/case-studies/grl-cool-fi-di-summer/02-friends-campaign.avif';
-import grlCouple from '@/assets/media/case-studies/grl-cool-fi-di-summer/03-couple-campaign.avif';
-import grlPoster from '@/assets/media/case-studies/grl-cool-fi-di-summer/04-poster.avif';
 
 // -- Geddes Refrigeration --------------------------------------------
 import geddesHero from '@/assets/media/case-studies/geddes-refrigeration-summer-sale/01-hero.avif';
@@ -170,11 +163,9 @@ export const CASE_STUDIES = [
       src: wisyncoHero,
       alt: 'Bags of collected recyclables beside a Wisynco ECO flag in a school courtyard.',
     },
-    gallery: [
-      { src: wisyncoStudents, alt: 'Students in Eco Club T-shirts with bags of collected plastic bottles.' },
-      { src: wisyncoBeach, alt: 'Eco Club students collecting litter on a rocky shoreline.' },
-      { src: wisyncoKiosk, alt: 'Wisynco ECO \u201cTurn your Plastics into Rewards\u201d recycling kiosk.' },
-    ],
+    // Deck gallery photos are ~300px; Real-ESRGAN altered the students' faces
+    // and the kiosk lettering at both x4 and x2, so the study ships hero-only.
+    gallery: [],
     featured: true,
   },
   {
@@ -200,9 +191,8 @@ export const CASE_STUDIES = [
     result:
       'A campaign that landed the purpose message without brand tension, and gave partner NGOs measurable amplification of their own outreach.',
     hero: { src: biggaHero, alt: 'Students watching the Bigga schools-tour stage and screen.' },
-    gallery: [
-      { src: biggaInterview, alt: 'On-stage interview at a Bigga \u201cShare With Care\u201d school stop.' },
-    ],
+    // The 230px interview photo failed upscale review (faces, logo lettering).
+    gallery: [],
     featured: true,
   },
   {
@@ -227,12 +217,9 @@ export const CASE_STUDIES = [
     ],
     result:
       'A summer identity that read as one campaign across every touch-point, and that the brand could pick up again the following year.',
-    hero: { src: grlHero, alt: 'GRL \u201cCool Fi Di Summer\u201d Lennox inverter AC campaign creative.' },
-    gallery: [
-      { src: grlFriends, alt: '\u201cCool Fi Di Summer\u201d campaign creative featuring friends on a sofa.' },
-      { src: grlCouple, alt: '\u201cCool Fi Di Summer\u201d social creative featuring a couple at home.' },
-      { src: grlPoster, alt: '\u201cCool Fi Di Summer\u201d portrait poster for Lennox inverter AC units.' },
-    ],
+    hero: { src: grlHero, alt: '\u201cCool Fi Di Summer\u201d social creative for GRL featuring a couple at home.' },
+    // Other creatives failed upscale review (altered faces and small lettering).
+    gallery: [],
     featured: false,
   },
   {

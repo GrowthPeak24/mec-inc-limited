@@ -9,10 +9,10 @@ export const DECOR_THEMES = [
   {
     name: 'Azure Corporate',
     blurb:
-      'Deep navy staging with metallic wayfinding. Built for enterprise award nights where the brand has to hold the room.',
+      'Ice-blue lighting, white drape and mirrored bars. Built for enterprise nights where the brand has to hold the room.',
     media: {
       src: azure,
-      alt: 'Azure-themed corporate stage with metallic finishings, produced by MEC.',
+      alt: 'Blue-lit lounge with white drape and a bar, produced by MEC.',
     },
   },
   {
@@ -27,19 +27,19 @@ export const DECOR_THEMES = [
   {
     name: 'Floral Arrival',
     blurb:
-      'Bespoke floral install engineered to survive load-in. For guest arrivals that read premium from the driveway.',
+      'Bespoke floral arches engineered to survive load-in. For guest arrivals and photo moments that read premium.',
     media: {
       src: floral,
-      alt: 'Floral arrival arch installation at an MEC-produced event.',
+      alt: 'Floral swing arch installed on a lawn for a garden brunch.',
     },
   },
   {
     name: 'Tropical Outdoor',
     blurb:
-      'Island-native styling and shaded lounge scapes. Designed for daytime brand activations and estate weddings.',
+      'Poolside lounges framed by palms. Designed for daytime brand activations and estate weddings.',
     media: {
       src: tropical,
-      alt: 'Tropical outdoor activation setup with shaded seating and native florals.',
+      alt: 'Daytime poolside lounge set among palm trees.',
     },
   },
 ] as const satisfies readonly DecorTheme[];

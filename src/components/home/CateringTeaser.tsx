@@ -17,7 +17,7 @@ export function CateringTeaser() {
             <MediaImage
               media={{
                 src: platedCatering,
-                alt: 'Plated fine-dining course produced by MEC\u2019s bespoke catering team.',
+                alt: 'Banquet table dressed by MEC\u2019s bespoke catering team.',
               }}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
