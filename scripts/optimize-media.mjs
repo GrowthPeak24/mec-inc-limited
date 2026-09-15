@@ -23,10 +23,15 @@ const manifest = JSON.parse(
 );
 
 /** AVIF encoding preset per role (bytes = target ceiling for QA). */
+/** 1920 = the largest next.config deviceSizes entry, i.e. the widest file
+ *  next/image will ever request. bento also feeds the full-bleed
+ *  /services/[category] hero, and 'hero' is the full-bleed /portfolio/[slug]
+ *  hero, both rendered at sizes="100vw". Galleries render at 50vw. */
 const ROLE_PRESET = {
-  bento:   { maxWidth: 1600, quality: 60, chromaSubsampling: '4:2:0', bytes: 180_000 },
+  bento:   { maxWidth: 1920, quality: 60, chromaSubsampling: '4:2:0', bytes: 260_000 },
+  hero:    { maxWidth: 1920, quality: 60, chromaSubsampling: '4:2:0', bytes: 260_000 },
   card:    { maxWidth: 1400, quality: 58, chromaSubsampling: '4:2:0', bytes: 120_000 },
-  gallery: { maxWidth: 1200, quality: 56, chromaSubsampling: '4:2:0', bytes:  90_000 },
+  gallery: { maxWidth: 1600, quality: 56, chromaSubsampling: '4:2:0', bytes: 150_000 },
 };
 
 async function optimizePhoto(entry) {
