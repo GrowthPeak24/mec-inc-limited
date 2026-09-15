@@ -127,6 +127,10 @@ The trap: the CSP had **no `frame-src`**, and a missing `frame-src` silently fal
 
 `npm run dev` and `npm run start` launch Next via `node --use-system-ca ./node_modules/next/dist/bin/next ...` (not the bare `next` bin). Reason: this dev machine runs **Avast**, which MITM-intercepts HTTPS and presents its own root CA. Node's bundled CA store doesn't trust it, so Server Action `fetch` calls to Supabase fail with `UNABLE_TO_VERIFY_LEAF_SIGNATURE` → the user sees "Something went wrong saving your brief" even though the schema/insert are correct. `--use-system-ca` makes Node trust the Windows cert store (which holds Avast's root), fixing it independent of whether the launching shell inherited `NODE_EXTRA_CA_CERTS`. This is **dev-only** — Vercel prod has no MITM proxy. If you see `fetch failed` from a Server Action locally, this is the cause; do NOT disable TLS verification (`NODE_TLS_REJECT_UNAUTHORIZED=0`).
 
+Avast also quarantines TypeScript 7's native compiler. When `npm run typecheck` or the "Running TypeScript" step of `npm run build` fails with `Executable not found: ...\@typescript\typescript-win32-x64\lib\tsc.exe`, the file was deleted from `node_modules`, not broken by code. Restore it with `rm -rf node_modules/@typescript/typescript-win32-x64 && npm install --no-save @typescript/typescript-win32-x64@<locked version>` (a plain `npm install` reports "up to date" and restores nothing). Always check the exit code: piping build output through `tail` hides this failure.
+
+Vercel **Production deploys only from `main`**; branch pushes produce SSO-protected preview URLs that `curl` or `fetch` cannot read (302 to `vercel.com/sso-api`). If the live site still shows old content after a push, check which commit the latest Production deployment was built from (`gh api repos/GrowthPeak24/mec-inc-limited/deployments?environment=Production`) before debugging code.
+
 ## Environment variables
 
 See `.env.example`. `NEXT_PUBLIC_SITE_URL` drives `metadataBase`, canonicals, sitemap, and OG — set it before Phase 8 or all of it regenerates. `IP_HASH_SALT` must be ≥32 chars and stable across deploys, or historical rate-limit hashes become useless.
