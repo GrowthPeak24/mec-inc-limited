@@ -112,13 +112,13 @@ export default async function CaseStudyPage({ params }: PageProps) {
       <Section tone="sand">
         <div className="grid gap-12 lg:grid-cols-3 lg:gap-16">
           <div>
-            <h2 className="eyebrow text-[var(--color-gold)]">
+            <h2 className="eyebrow text-[var(--color-sapphire)]">
               Challenge
             </h2>
             <p className="mt-3 text-[var(--color-ink)]/80">{study.challenge}</p>
           </div>
           <div>
-            <h2 className="eyebrow text-[var(--color-gold)]">
+            <h2 className="eyebrow text-[var(--color-sapphire)]">
               Approach
             </h2>
             <ul className="mt-3 space-y-2">
@@ -126,7 +126,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 <li key={a} className="flex gap-3 text-[var(--color-ink)]/80">
                   <span
                     aria-hidden
-                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-gold)]"
+                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-sapphire)]"
                   />
                   <span>{a}</span>
                 </li>
@@ -134,7 +134,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             </ul>
           </div>
           <div>
-            <h2 className="eyebrow text-[var(--color-gold)]">
+            <h2 className="eyebrow text-[var(--color-sapphire)]">
               Result
             </h2>
             <p className="mt-3 text-[var(--color-ink)]/80">{study.result}</p>

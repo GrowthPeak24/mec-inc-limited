@@ -29,7 +29,7 @@ export function ProcessSteps() {
           key={s.n}
           className="relative border-t border-[var(--color-ink)]/25 pt-6"
         >
-          <span className="eyebrow text-[var(--color-gold)]">
+          <span className="eyebrow text-[var(--color-sapphire)]">
             {s.n}
           </span>
           <h3 className="mt-3 text-xl font-semibold tracking-tight text-[var(--color-ink)]">

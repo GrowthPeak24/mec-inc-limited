@@ -27,7 +27,7 @@ export function CateringTeaser() {
         </div>
       </div>
       <div>
-        <p className="eyebrow text-[var(--color-gold)]">
+        <p className="eyebrow text-[var(--color-sapphire)]">
           Bespoke Catering
         </p>
         <h2 className="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">

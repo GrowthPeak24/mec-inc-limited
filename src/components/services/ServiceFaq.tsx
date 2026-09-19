@@ -22,7 +22,7 @@ export function ServiceFaq({
             <span>{f.q}</span>
             <span
               aria-hidden
-              className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-[var(--color-line-ink)] text-[var(--color-gold)] transition-transform group-open:rotate-45"
+              className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-[var(--color-line-ink)] text-[var(--color-sapphire)] transition-transform group-open:rotate-45"
             >
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
                 <path

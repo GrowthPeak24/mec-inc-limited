@@ -38,7 +38,7 @@ export const SelectableCard = forwardRef<HTMLInputElement, Props>(function Selec
           aria-hidden
           className={clsx(
             'mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full border-2 border-[var(--color-line-ink)] text-transparent',
-            'group-has-[input:checked]:border-[var(--color-gold)] group-has-[input:checked]:bg-[var(--color-gold)] group-has-[input:checked]:text-[var(--color-paper)]',
+            'group-has-[input:checked]:border-[var(--color-sapphire)] group-has-[input:checked]:bg-[var(--color-sapphire)] group-has-[input:checked]:text-[var(--color-paper)]',
             variant === 'checkbox' ? 'rounded-[6px]' : 'rounded-full',
           )}
         >

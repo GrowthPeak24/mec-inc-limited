@@ -13,7 +13,7 @@ export default function QuotePage() {
   return (
     <Section size="md">
       <header className="mx-auto max-w-3xl text-center">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-gold)]">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-sapphire)]">
           Quote Builder
         </p>
         <h1 className="mt-3 font-[var(--font-display)] text-3xl font-semibold text-[var(--color-ink)] md:text-4xl">

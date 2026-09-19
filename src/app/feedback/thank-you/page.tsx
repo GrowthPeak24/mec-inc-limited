@@ -22,7 +22,7 @@ export default async function FeedbackThankYouPage({
   return (
     <Section size="md">
       <div className="mx-auto max-w-2xl text-center">
-        <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[var(--color-gold)] text-[var(--color-paper)]">
+        <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[var(--color-sapphire)] text-[var(--color-paper)]">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden>
             <path
               d="M5 12l4 4 10-10"

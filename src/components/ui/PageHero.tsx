@@ -14,7 +14,7 @@ export function PageHero({ children, aside }: { children: ReactNode; aside?: Rea
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60%_90%_at_90%_0%,color-mix(in_srgb,var(--color-gold)_30%,transparent),transparent_65%)]"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60%_90%_at_90%_0%,color-mix(in_srgb,var(--color-sapphire)_30%,transparent),transparent_65%)]"
       />
       <div
         aria-hidden

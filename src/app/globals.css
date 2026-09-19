@@ -4,11 +4,11 @@
   /* Brand */
   --color-ink: #0A0E1A;         /* deep navy/charcoal base */
   --color-ink-2: #131a2e;        /* raised surface */
-  --color-gold: #0F52BA;         /* brand sapphire — primary accent */
-  --color-gold-2: #0000FF;       /* brand blue — hover / gradient stop */
+  --color-sapphire: #0F52BA;     /* brand sapphire — primary accent */
+  --color-signal-blue: #0000FF;  /* brand blue — hover / gradient stop */
   /* Accent for TEXT and focus rings on ink surfaces. #0000FF on ink is 2.2:1 and
      sapphire is 2.7:1; this lifted sapphire is 6.5:1 on ink, 5.9:1 on ink-2.
-     Keep gold / gold-2 for fills and for text on light surfaces. */
+     Keep sapphire / signal-blue for fills and for text on light surfaces. */
   --color-accent-on-dark: #5B93FF;
   --color-paper: #FFFFFF;        /* brand white */
   --color-sand: #F5F1EA;         /* warm neutral bg */
@@ -64,8 +64,8 @@
     -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, h4, .display { font-family: var(--font-display); letter-spacing: -0.02em; }
-  ::selection { background: var(--color-gold); color: var(--color-paper); }
-  :focus-visible { outline: 2px solid var(--color-gold); outline-offset: 3px; border-radius: 6px; }
+  ::selection { background: var(--color-sapphire); color: var(--color-paper); }
+  :focus-visible { outline: 2px solid var(--color-sapphire); outline-offset: 3px; border-radius: 6px; }
 }
 
 /* Focus ring on ink surfaces. Sapphire is 2.7:1 on ink (WCAG wants 3:1), so dark
