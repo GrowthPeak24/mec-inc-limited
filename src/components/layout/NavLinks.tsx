@@ -24,7 +24,7 @@ export function NavLinks() {
                 className={
                   active
                     ? "relative rounded-full px-4 py-2 text-sm font-medium text-[var(--color-ink)] after:absolute after:inset-x-4 after:-bottom-px after:h-0.5 after:rounded-full after:bg-[var(--color-gold)] after:content-['']"
-                    : 'rounded-full px-4 py-2 text-sm font-medium text-[var(--color-ink)]/75 transition-colors duration-200 hover:bg-[var(--color-sand)] hover:text-[var(--color-ink)]'
+                    : 'rounded-full px-4 py-2 text-sm font-medium text-[var(--color-ink)]/75 transition-colors duration-[var(--duration-control)] hover:bg-[var(--color-sand)] hover:text-[var(--color-ink)]'
                 }
               >
                 {l.label}

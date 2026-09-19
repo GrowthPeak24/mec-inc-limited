@@ -186,6 +186,8 @@ Each shadow below is a `--shadow-*` token in `globals.css` (`shadow-cta`, `shado
 ### Named Rules
 **The Response-Only Shadow Rule.** A shadow, lift or zoom is a reply to hover or focus on something that is actually a link or button. If it links nowhere, it does not move.
 
+**The Shared Tempo Rule.** Motion uses the tokens in `globals.css` and nothing else: one easing (`--ease-out-soft`), durations of 200ms for controls, 300ms for the arrow nudge, 500ms for card lift, 600ms for reveals and 900ms for image zoom, and a 1.05 image zoom (`--scale-image-zoom`). Card grids enter with a stagger of half the control duration (100ms) per card, up to six. Do not write a raw duration or `cubic-bezier` in a component.
+
 ## Shapes
 
 A two-register form language. Small controls are full pills: buttons, chips, tags and nav links. Containers are generously rounded: 28px for cards and panels, 20px for photographs and gallery tiles, 12px for inputs and small plates. Borders are always 1px hairlines. Photographs sometimes sit in a matte, a hairline frame with 8px of padding and an inner radius of the outer minus 0.35rem, so the image reads as placed rather than bled. A dotted texture (10px pitch, 8 to 14% opacity, masked to fade) marks a few dark and light bands as a quiet field of ornament.

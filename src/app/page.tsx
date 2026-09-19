@@ -40,7 +40,7 @@ export default function HomePage() {
           />
         </Reveal>
         <div className="mt-14">
-          <Reveal>
+          <Reveal stagger>
             <PillarsGrid />
           </Reveal>
         </div>
@@ -54,7 +54,7 @@ export default function HomePage() {
           />
         </Reveal>
         <div className="mt-12">
-          <Reveal>
+          <Reveal stagger>
             <FeaturedCaseStudies />
           </Reveal>
         </div>
@@ -76,7 +76,7 @@ export default function HomePage() {
           />
         </Reveal>
         <div className="mt-14">
-          <Reveal>
+          <Reveal stagger>
             <ThemeShowcase />
           </Reveal>
         </div>

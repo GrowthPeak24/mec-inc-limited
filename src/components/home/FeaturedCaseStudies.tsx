@@ -11,7 +11,7 @@ export function FeaturedCaseStudies() {
 
   return (
     <div>
-      <div className="grid gap-6 sm:grid-cols-2 lg:gap-8">
+      <div className="stagger grid gap-6 sm:grid-cols-2 lg:gap-8">
         {FEATURED_CASE_STUDIES.map((s) => (
           <CaseStudyCard
             key={s.slug}

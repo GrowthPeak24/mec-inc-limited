@@ -15,7 +15,7 @@ export function CaseStudyCard({ study, feature, sizes }: Props) {
   return (
     <Link
       href={`/portfolio/${study.slug}`}
-      className="group relative flex h-full flex-col overflow-hidden rounded-[var(--radius-xl)] bg-[var(--color-ink-2)] text-[var(--color-paper)] ring-1 ring-inset ring-[var(--color-line)] transition-all duration-500 ease-[cubic-bezier(.2,.7,.2,1)] hover:-translate-y-1 hover:ring-[var(--color-gold)]/40 hover:shadow-lift"
+      className="group relative flex h-full flex-col overflow-hidden rounded-[var(--radius-xl)] bg-[var(--color-ink-2)] text-[var(--color-paper)] ring-1 ring-inset ring-[var(--color-line)] transition-all duration-[var(--duration-card)] ease-out-soft hover:-translate-y-1 hover:ring-[var(--color-gold)]/40 hover:shadow-lift"
     >
       <div
         className={
@@ -28,7 +28,7 @@ export function CaseStudyCard({ study, feature, sizes }: Props) {
           media={study.hero}
           fill
           sizes={sizes ?? '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'}
-          className="object-cover transition-transform duration-[900ms] ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-105"
+          className="object-cover transition-transform duration-[var(--duration-image-zoom)] ease-out-soft group-hover:scale-[var(--scale-image-zoom)]"
         />
         <div
           aria-hidden
@@ -55,7 +55,7 @@ export function CaseStudyCard({ study, feature, sizes }: Props) {
           {study.title}
         </h3>
         <p className="mt-3 line-clamp-3 text-sm text-[var(--color-paper)]/70">{study.summary}</p>
-        <span className="mt-auto inline-flex items-center gap-1.5 border-t border-[var(--color-line)] pt-5 text-sm font-medium text-[var(--color-accent-on-dark)] transition-colors duration-500 group-hover:text-[var(--color-paper)]">
+        <span className="mt-auto inline-flex items-center gap-1.5 border-t border-[var(--color-line)] pt-5 text-sm font-medium text-[var(--color-accent-on-dark)] transition-colors duration-[var(--duration-card)] group-hover:text-[var(--color-paper)]">
           Read case study
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden className="nudge">
             <path

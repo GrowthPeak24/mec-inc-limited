@@ -6,7 +6,7 @@ import { MediaImage } from '@/components/ui/MediaImage';
  *  Two columns on phones keeps four 3:4 tiles from stacking into ~2,000px. */
 export function ThemeShowcase() {
   return (
-    <div className="grid grid-cols-2 gap-3 md:gap-6 lg:grid-cols-4 lg:gap-8">
+    <div className="stagger grid grid-cols-2 gap-3 md:gap-6 lg:grid-cols-4 lg:gap-8">
       {DECOR_THEMES.map((t) => (
         <figure
           key={t.name}

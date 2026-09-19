@@ -29,6 +29,18 @@
   --shadow-pillar-lift: 0 1px 0 rgba(10,14,26,0.06), 0 30px 60px -30px rgba(10,14,26,0.5);
   --shadow-matte: 0 30px 60px -40px rgba(10,14,26,0.45);
 
+  /* Motion. One easing and a small set of durations shared by every transition,
+     lift, zoom and reveal. Mirrored in .impeccable/design.json. The stagger step
+     is derived (half the control duration), not a separate magic number. */
+  --ease-out-soft: cubic-bezier(.2,.7,.2,1);
+  --duration-control: 200ms;
+  --duration-nudge: 300ms;
+  --duration-card: 500ms;
+  --duration-image-zoom: 900ms;
+  --duration-reveal: 600ms;
+  --scale-image-zoom: 1.05;
+  --stagger-step: calc(var(--duration-control) / 2);
+
   /* Radii */
   --radius-md: 0.75rem;
   --radius-lg: 1.25rem;
@@ -121,17 +133,40 @@
 [data-reveal] {
   opacity: 0;
   transform: translate3d(0, 12px, 0);
-  transition: opacity 600ms cubic-bezier(.2,.7,.2,1), transform 600ms cubic-bezier(.2,.7,.2,1);
+  transition: opacity var(--duration-reveal) var(--ease-out-soft), transform var(--duration-reveal) var(--ease-out-soft);
   will-change: opacity, transform;
 }
 [data-reveal][data-visible='true'] { opacity: 1; transform: none; }
+
+/* Staggered variant, <Reveal stagger> around a grid whose container has .stagger.
+   The wrapper itself stays put and its children enter one after another, each
+   delayed by its position times the stagger step. It animates with keyframes
+   rather than a transition so the cards keep their own hover transitions, and
+   the keyframe only sets `transform` because Tailwind lifts and zooms through
+   the separate `translate` and `scale` properties. */
+@keyframes reveal-rise {
+  from { opacity: 0; transform: translate3d(0, 12px, 0); }
+}
+[data-reveal='stagger'] { opacity: 1; transform: none; transition: none; will-change: auto; }
+[data-reveal='stagger']:not([data-visible='true']) .stagger > * { opacity: 0; }
+[data-reveal='stagger'][data-visible='true'] .stagger > * {
+  animation: reveal-rise var(--duration-reveal) var(--ease-out-soft) backwards;
+  animation-delay: calc(var(--i, 0) * var(--stagger-step));
+}
+.stagger > :nth-child(2) { --i: 1; }
+.stagger > :nth-child(3) { --i: 2; }
+.stagger > :nth-child(4) { --i: 3; }
+.stagger > :nth-child(5) { --i: 4; }
+.stagger > :nth-child(6) { --i: 5; }
 /* Reveal is JS-driven. With scripting off nothing would ever set data-visible,
    so every wrapped section would stay at opacity 0. */
 @media (scripting: none) {
   [data-reveal] { opacity: 1; transform: none; transition: none; }
+  [data-reveal='stagger'] .stagger > * { opacity: 1 !important; }
 }
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+  [data-reveal='stagger'] .stagger > * { opacity: 1 !important; animation: none !important; }
 }
 
 /* Confirmation state (/quote/thank-you) — CSS-only entrance.
@@ -212,7 +247,7 @@
 
 /* Hover arrow nudge, shared by every "read more" affordance. Motion is
    opt-out under reduced-motion like the rest of the system. */
-.nudge { transition: transform 300ms cubic-bezier(.2,.7,.2,1); }
+.nudge { transition: transform var(--duration-nudge) var(--ease-out-soft); }
 .group:hover .nudge { transform: translate3d(3px, 0, 0); }
 @media (prefers-reduced-motion: reduce) {
   .nudge { transition: none; }

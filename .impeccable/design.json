@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-19T14:57:46.198Z",
+  "generatedAt": "2026-09-19T15:27:17.339Z",
   "title": "Design System: MEC Inc. Limited",
   "extensions": {
     "colorMeta": {
@@ -223,6 +223,16 @@
         "purpose": "Fade and 12px rise as a section enters. Off under reduced motion."
       },
       {
+        "name": "stagger-step",
+        "value": "calc(var(--duration-control) / 2)",
+        "purpose": "Delay per card in a staggered grid (100ms), up to six. Derived from duration-control, not a separate value."
+      },
+      {
+        "name": "scale-image-zoom",
+        "value": "1.05",
+        "purpose": "Photograph scale on card hover, over duration-image-zoom."
+      },
+      {
         "name": "marquee",
         "value": "25s linear infinite",
         "purpose": "Client logo track. Deliberately exempt from reduced motion; pauses on hover."
@@ -347,6 +357,11 @@
       {
         "name": "The Response-Only Shadow Rule",
         "body": "A shadow, lift or zoom is a reply to hover or focus on something that is actually a link or button. If it links nowhere, it does not move.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Shared Tempo Rule",
+        "body": "Motion uses the tokens in `globals.css` and nothing else: one easing (`--ease-out-soft`), durations of 200ms for controls, 300ms for the arrow nudge, 500ms for card lift, 600ms for reveals and 900ms for image zoom, and a 1.05 image zoom (`--scale-image-zoom`). Card grids enter with a stagger of half the control duration (100ms) per card, up to six. Do not write a raw duration or `cubic-bezier` in a component.",
         "section": "elevation"
       }
     ],

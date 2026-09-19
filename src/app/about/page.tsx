@@ -93,37 +93,41 @@ export default function AboutPage() {
           <SectionHeading title="A decade in five moments." />
         </Reveal>
         {/* One rule with the years hung off it, instead of five bordered cards. */}
-        <ol className="mt-14 grid gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-5">
-          {TIMELINE.map((t) => (
-            <li key={t.year} className="relative border-t border-[var(--color-ink)]/25 pt-6">
-              <span
-                aria-hidden
-                className="absolute -top-[5px] left-0 h-2.5 w-2.5 rounded-full bg-[var(--color-gold)]"
-              />
-              <span className="eyebrow text-[var(--color-gold)]">{t.year}</span>
-              <h3 className="mt-2 text-base font-semibold tracking-tight text-[var(--color-ink)]">
-                {t.title}
-              </h3>
-              <p className="mt-2 text-sm text-[var(--color-ink)]/70">{t.body}</p>
-            </li>
-          ))}
-        </ol>
+        <Reveal stagger>
+          <ol className="stagger mt-14 grid gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-5">
+            {TIMELINE.map((t) => (
+              <li key={t.year} className="relative border-t border-[var(--color-ink)]/25 pt-6">
+                <span
+                  aria-hidden
+                  className="absolute -top-[5px] left-0 h-2.5 w-2.5 rounded-full bg-[var(--color-gold)]"
+                />
+                <span className="eyebrow text-[var(--color-gold)]">{t.year}</span>
+                <h3 className="mt-2 text-base font-semibold tracking-tight text-[var(--color-ink)]">
+                  {t.title}
+                </h3>
+                <p className="mt-2 text-sm text-[var(--color-ink)]/70">{t.body}</p>
+              </li>
+            ))}
+          </ol>
+        </Reveal>
       </Section>
 
       <Section tone="sand">
         <Reveal>
           <SectionHeading eyebrow="Approach" title="How we operate." />
         </Reveal>
-        <div className="mt-14 grid gap-x-10 gap-y-10 md:grid-cols-3">
-          {APPROACH.map((a) => (
-            <div key={a.title} className="border-t border-[var(--color-ink)]/25 pt-6">
-              <h3 className="text-xl font-semibold tracking-tight text-[var(--color-ink)]">
-                {a.title}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-[var(--color-ink)]/70">{a.body}</p>
-            </div>
-          ))}
-        </div>
+        <Reveal stagger>
+          <div className="stagger mt-14 grid gap-x-10 gap-y-10 md:grid-cols-3">
+            {APPROACH.map((a) => (
+              <div key={a.title} className="border-t border-[var(--color-ink)]/25 pt-6">
+                <h3 className="text-xl font-semibold tracking-tight text-[var(--color-ink)]">
+                  {a.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-[var(--color-ink)]/70">{a.body}</p>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </Section>
 
       <ProofStrip />

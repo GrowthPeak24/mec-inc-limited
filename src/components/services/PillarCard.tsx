@@ -39,14 +39,14 @@ export function PillarCard({ pillar }: { pillar: ServicePillar }) {
   return (
     <Link
       href={`/services/${pillar.slug}`}
-      className="group relative flex flex-col overflow-hidden rounded-[var(--radius-xl)] bg-[var(--color-paper)] ring-1 ring-inset ring-[var(--color-line-ink)] shadow-pillar transition-all duration-500 ease-[cubic-bezier(.2,.7,.2,1)] hover:-translate-y-1 hover:ring-[var(--color-gold)]/30 hover:shadow-pillar-lift"
+      className="group relative flex flex-col overflow-hidden rounded-[var(--radius-xl)] bg-[var(--color-paper)] ring-1 ring-inset ring-[var(--color-line-ink)] shadow-pillar transition-all duration-[var(--duration-card)] ease-out-soft hover:-translate-y-1 hover:ring-[var(--color-gold)]/30 hover:shadow-pillar-lift"
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         <MediaImage
           media={pillar.media}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover transition-transform duration-[900ms] ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-105"
+          className="object-cover transition-transform duration-[var(--duration-image-zoom)] ease-out-soft group-hover:scale-[var(--scale-image-zoom)]"
         />
         <div
           aria-hidden
@@ -67,7 +67,7 @@ export function PillarCard({ pillar }: { pillar: ServicePillar }) {
         </h3>
         <p className="mt-2 text-sm text-[var(--color-ink)]/70">{pillar.tagline}</p>
         <p className="mt-4 text-sm text-[var(--color-ink)]/60">{pillar.blurb}</p>
-        <span className="mt-6 inline-flex items-center gap-1.5 border-t border-[var(--color-line-ink)] pt-5 text-sm font-medium text-[var(--color-ink)] transition-colors duration-500 group-hover:text-[var(--color-gold)]">
+        <span className="mt-6 inline-flex items-center gap-1.5 border-t border-[var(--color-line-ink)] pt-5 text-sm font-medium text-[var(--color-ink)] transition-colors duration-[var(--duration-card)] group-hover:text-[var(--color-gold)]">
           Explore capabilities
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden className="nudge">
             <path

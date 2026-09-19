@@ -23,7 +23,7 @@ const STEPS = [
 
 export function ProcessSteps() {
   return (
-    <ol className="grid gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-4">
+    <ol className="stagger grid gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-4">
       {STEPS.map((s) => (
         <li
           key={s.n}
