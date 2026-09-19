@@ -1,0 +1,375 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T14:57:46.198Z",
+  "title": "Design System: MEC Inc. Limited",
+  "extensions": {
+    "colorMeta": {
+      "sapphire": {
+        "role": "primary",
+        "displayName": "Sapphire",
+        "canonical": "#0F52BA",
+        "oklch": "oklch(46.7% 0.176 260)",
+        "tonalRamp": [
+          "#000040",
+          "#000b78",
+          "#00369d",
+          "#195ac3",
+          "#3d7eea",
+          "#60a2ff",
+          "#94caff",
+          "#cef0ff"
+        ]
+      },
+      "signal-blue": {
+        "role": "primary",
+        "displayName": "Signal Blue",
+        "canonical": "#0000FF",
+        "oklch": "oklch(45.2% 0.313 264)",
+        "tonalRamp": [
+          "#17006d",
+          "#2200bb",
+          "#0f00e4",
+          "#0029ff",
+          "#155fff",
+          "#388aff",
+          "#75beff",
+          "#bbedff"
+        ]
+      },
+      "lifted-sapphire": {
+        "role": "primary",
+        "displayName": "Lifted Sapphire",
+        "canonical": "#5B93FF",
+        "oklch": "oklch(67.7% 0.171 262)",
+        "tonalRamp": [
+          "#00003f",
+          "#000c75",
+          "#03369a",
+          "#2659c0",
+          "#477de7",
+          "#68a1ff",
+          "#9ac9ff",
+          "#d1efff"
+        ]
+      },
+      "midnight-ink": {
+        "role": "neutral",
+        "displayName": "Midnight Ink",
+        "canonical": "#0A0E1A",
+        "oklch": "oklch(16.6% 0.026 269)",
+        "tonalRamp": [
+          "#080b13",
+          "#202532",
+          "#3c4250",
+          "#5b6171",
+          "#7c8293",
+          "#9ea5b6",
+          "#c4c9d7",
+          "#ebeef7"
+        ]
+      },
+      "raised-ink": {
+        "role": "neutral",
+        "displayName": "Raised Ink",
+        "canonical": "#131a2e",
+        "oklch": "oklch(22.2% 0.041 268)",
+        "tonalRamp": [
+          "#060a18",
+          "#1d2439",
+          "#394158",
+          "#576179",
+          "#78829b",
+          "#9aa5bf",
+          "#c0c9de",
+          "#e9eefc"
+        ]
+      },
+      "paper-white": {
+        "role": "neutral",
+        "displayName": "Paper White",
+        "canonical": "#FFFFFF",
+        "oklch": "oklch(100.0% 0.000 90)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      },
+      "warm-sand": {
+        "role": "neutral",
+        "displayName": "Warm Sand",
+        "canonical": "#F5F1EA",
+        "oklch": "oklch(95.9% 0.010 82)",
+        "tonalRamp": [
+          "#0d0b08",
+          "#282520",
+          "#45423c",
+          "#64615b",
+          "#85827c",
+          "#a8a49e",
+          "#ccc9c3",
+          "#f0eeeb"
+        ]
+      },
+      "deep-sand": {
+        "role": "neutral",
+        "displayName": "Deep Sand",
+        "canonical": "#EBE4D6",
+        "oklch": "oklch(92.1% 0.020 85)",
+        "tonalRamp": [
+          "#0e0b05",
+          "#2a241a",
+          "#474136",
+          "#676154",
+          "#888275",
+          "#aba497",
+          "#cec9be",
+          "#f1eee7"
+        ]
+      },
+      "hairline-on-light": {
+        "role": "neutral",
+        "displayName": "Hairline on Light",
+        "canonical": "rgba(10,14,26,0.10)"
+      },
+      "hairline-on-dark": {
+        "role": "neutral",
+        "displayName": "Hairline on Dark",
+        "canonical": "rgba(255,255,255,0.10)"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page titles on hero surfaces."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card and item titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running copy and section intros."
+      },
+      "body-sm": {
+        "displayName": "Body Small",
+        "purpose": "Card summaries, buttons, chips, form fields."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Eyebrow kicker (0.18em) and meta-label (0.14em)."
+      }
+    },
+    "shadows": [
+      {
+        "name": "primary-button",
+        "value": "0 8px 20px -12px rgba(15,82,186,0.55)",
+        "purpose": "Low glow under the blue fill; hover 0 10px 24px -12px rgba(15,82,186,0.6)."
+      },
+      {
+        "name": "card-hover",
+        "value": "0 30px 60px -30px rgba(15,82,186,0.5)",
+        "purpose": "Case-study card on hover, with a 4px lift."
+      },
+      {
+        "name": "pillar-card",
+        "value": "0 1px 0 rgba(10,14,26,0.06), 0 20px 50px -30px rgba(10,14,26,0.35)",
+        "purpose": "Faint resting shadow on the pillar card only."
+      },
+      {
+        "name": "matte-frame",
+        "value": "0 30px 60px -40px rgba(10,14,26,0.45)",
+        "purpose": "Catering teaser photograph inside its hairline mat."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-soft",
+        "value": "cubic-bezier(.2,.7,.2,1)",
+        "purpose": "Shared easing for every state transition, lift and reveal."
+      },
+      {
+        "name": "duration-control",
+        "value": "200ms",
+        "purpose": "Buttons, chips and nav colour changes."
+      },
+      {
+        "name": "duration-nudge",
+        "value": "300ms",
+        "purpose": "Trailing arrow nudge of 3px on hover."
+      },
+      {
+        "name": "duration-card",
+        "value": "500ms",
+        "purpose": "Card lift and shadow."
+      },
+      {
+        "name": "duration-image-zoom",
+        "value": "900ms",
+        "purpose": "Photograph scale to 1.05 on card hover."
+      },
+      {
+        "name": "duration-reveal",
+        "value": "600ms",
+        "purpose": "Fade and 12px rise as a section enters. Off under reduced motion."
+      },
+      {
+        "name": "marquee",
+        "value": "25s linear infinite",
+        "purpose": "Client logo track. Deliberately exempt from reduced motion; pauses on hover."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single blue action on a screen: proposal requests and section CTAs.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Request Proposal <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:9999px;background:#0F52BA;color:#fff;padding:10px 20px;font:500 14px/1.4 Inter,system-ui,sans-serif;letter-spacing:-0.01em;text-decoration:none;box-shadow:0 8px 20px -12px rgba(15,82,186,.55);transition:background-color 200ms cubic-bezier(.2,.7,.2,1),box-shadow 200ms cubic-bezier(.2,.7,.2,1)}.ds-btn-primary:hover{background:#0000FF;box-shadow:0 10px 24px -12px rgba(15,82,186,.6)}.ds-btn-primary:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px #0F52BA}"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action. Takes its colour from the section it sits in.",
+      "html": "<a class=\"ds-btn-outline\" href=\"#\">View all work <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a>",
+      "css": ".ds-btn-outline{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:9999px;border:1px solid rgba(10,14,26,.3);color:#0A0E1A;background:transparent;padding:10px 20px;font:500 14px/1.4 Inter,system-ui,sans-serif;text-decoration:none;transition:border-color 200ms,color 200ms,background-color 200ms}.ds-btn-outline:hover{border-color:#0F52BA;color:#0F52BA;background:rgba(15,82,186,.05)}.ds-btn-outline:focus-visible{outline:2px solid #0F52BA;outline-offset:3px}"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "filter-chip",
+      "description": "URL-driven discipline filter. The active chip inverts to solid ink.",
+      "html": "<div style=\"display:flex;gap:8px;flex-wrap:wrap\"><a class=\"ds-chip ds-chip-active\" href=\"#\" aria-current=\"page\">All work</a><a class=\"ds-chip\" href=\"#\">Event Production</a><a class=\"ds-chip\" href=\"#\">Bespoke Catering</a></div>",
+      "css": ".ds-chip{display:inline-flex;align-items:center;border-radius:9999px;border:1px solid rgba(10,14,26,.1);background:#fff;color:#0A0E1A;padding:8px 16px;font:500 14px/1.4 Inter,system-ui,sans-serif;text-decoration:none;transition:border-color 150ms}.ds-chip:hover{border-color:#0A0E1A}.ds-chip-active{background:#0A0E1A;border-color:#0A0E1A;color:#fff}.ds-chip:focus-visible{outline:2px solid #0F52BA;outline-offset:3px}"
+    },
+    {
+      "name": "Frost Tag",
+      "kind": "chip",
+      "refersTo": "case-study-card",
+      "description": "Discipline label over photography. The only glass element in the system.",
+      "html": "<div style=\"padding:24px;background:linear-gradient(135deg,#5b6b8a,#1c2440)\"><span class=\"ds-frost\">Event Production</span></div>",
+      "css": ".ds-frost{display:inline-flex;align-items:center;border-radius:9999px;padding:4px 12px;color:#fff;font:500 12px/1.4 Inter,system-ui,sans-serif;letter-spacing:-0.01em;background:rgba(10,14,26,.55);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px) saturate(140%);-webkit-backdrop-filter:blur(10px) saturate(140%)}"
+    },
+    {
+      "name": "Case Study Card",
+      "kind": "card",
+      "refersTo": "case-study-card",
+      "description": "Raised-ink card with a 4:3 photograph. Lifts and glows only on hover, because it is a link.",
+      "html": "<a class=\"ds-card\" href=\"#\"><div class=\"ds-card-img\"></div><div class=\"ds-card-body\"><div class=\"ds-card-meta\"><span>NCB</span><span>2024</span></div><h3>NCB Pinnacle Long Service Awards</h3><p>Full-house corporate awards experience honouring three decades of service, engineered end to end.</p><span class=\"ds-card-link\">Read case study <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span></div></a>",
+      "css": ".ds-card{display:flex;flex-direction:column;overflow:hidden;border-radius:28px;background:#131a2e;color:#fff;text-decoration:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);max-width:360px;transition:transform 500ms cubic-bezier(.2,.7,.2,1),box-shadow 500ms cubic-bezier(.2,.7,.2,1)}.ds-card:hover{transform:translateY(-4px);box-shadow:inset 0 0 0 1px rgba(15,82,186,.4),0 30px 60px -30px rgba(15,82,186,.5)}.ds-card-img{aspect-ratio:4/3;background:linear-gradient(160deg,#3a4a70,#131a2e)}.ds-card-body{display:flex;flex-direction:column;padding:20px}.ds-card-meta{display:flex;justify-content:space-between;font:600 12px/1.333 Inter,system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.65)}.ds-card h3{margin:12px 0 0;font:600 20px/1.25 Sora,system-ui,sans-serif;letter-spacing:-.02em}.ds-card p{margin:12px 0 0;font:400 14px/1.5 Inter,system-ui,sans-serif;color:rgba(255,255,255,.7)}.ds-card-link{display:inline-flex;align-items:center;gap:6px;margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);font:500 14px/1.4 Inter,system-ui,sans-serif;color:#5B93FF}.ds-card:hover .ds-card-link{color:#fff}"
+    },
+    {
+      "name": "Eyebrow and Heading",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "The recurring section opener: an eyebrow kicker over a Sora headline, on sand.",
+      "html": "<div class=\"ds-head\"><span class=\"ds-eyebrow\">Three pillars, one team</span><h2>One accountable producer across marketing, events and catering.</h2></div>",
+      "css": ".ds-head{display:flex;flex-direction:column;gap:16px;max-width:640px;padding:24px;background:#F5F1EA}.ds-eyebrow{font:600 12px/1.333 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.18em;color:#0F52BA}.ds-head h2{margin:0;font:600 30px/1.1 Sora,system-ui,sans-serif;letter-spacing:-.02em;color:#0A0E1A}"
+    },
+    {
+      "name": "Navigation Link",
+      "kind": "nav",
+      "refersTo": "button-outline",
+      "description": "Desktop header links. The current page turns full ink with a 2px sapphire underline.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">Services</a><a href=\"#\" aria-current=\"page\">Work</a><a href=\"#\">About</a><a href=\"#\">Contact</a></nav>",
+      "css": ".ds-nav{display:flex;gap:4px;padding:16px;background:#fff}.ds-nav a{position:relative;border-radius:9999px;padding:8px 16px;font:500 14px/1.4 Inter,system-ui,sans-serif;color:rgba(10,14,26,.75);text-decoration:none;transition:color 200ms,background-color 200ms}.ds-nav a:hover{background:#F5F1EA;color:#0A0E1A}.ds-nav a[aria-current=page]{color:#0A0E1A}.ds-nav a[aria-current=page]::after{content:\"\";position:absolute;left:16px;right:16px;bottom:-1px;height:2px;border-radius:9999px;background:#0F52BA}.ds-nav a:focus-visible{outline:2px solid #0F52BA;outline-offset:3px}"
+    },
+    {
+      "name": "Form Field",
+      "kind": "input",
+      "refersTo": "form-field",
+      "description": "Text input as used across the quote, contact and feedback forms (documented, not to be restyled).",
+      "html": "<label class=\"ds-field\"><span>Company</span><input class=\"ds-input\" placeholder=\"Acme Ltd.\"></label>",
+      "css": ".ds-field{display:block;max-width:320px;font:500 14px/1.4 Inter,system-ui,sans-serif;color:#0A0E1A}.ds-field span{display:block;margin-bottom:6px}.ds-input{width:100%;box-sizing:border-box;border-radius:12px;border:1px solid rgba(10,14,26,.1);background:#fff;padding:10px 14px;font:400 14px/1.5 Inter,system-ui,sans-serif;color:#0A0E1A}.ds-input::placeholder{color:rgba(10,14,26,.4)}.ds-input:focus{outline:none;border-color:#0A0E1A}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Producer's Run Sheet",
+    "overview": "The site behaves like the document a good producer hands the client before an event: ordered, exact, and calm. Sections follow one another in a clear sequence. Hairline rules do the dividing work instead of boxes. One confident blue marks the action, and real photographs of real events are the proof. It should feel accountable rather than showy, which is the same promise the company makes in words: one owner-operated team, one scope of work, nothing dropped between vendors.\n\nThe palette is three surfaces and one accent. Midnight ink carries authority and holds the hero, the case-study covers and the footer. Warm sand is the reading surface and paper white is the clean inset. Sapphire is the only saturated colour, and it works as a fill. Because sapphire is dark, text on ink switches to a lifted tint of the same hue. Type is a geometric display face over a neutral text face, tightly tracked at large sizes and quiet everywhere else. Motion is small: a short lift, an arrow that nudges, a fade-up as a section enters.",
+    "keyCharacteristics": [
+      "Ink, sand and paper surfaces with a single blue accent.",
+      "Hairline borders and rings for structure; shadow only in response to interaction.",
+      "Pills for small controls, generous 20 to 28px radii for cards and photography.",
+      "Photography carries the imagery; the interface never decorates in its place.",
+      "Small-caps eyebrows and meta labels as the recurring typographic signature."
+    ],
+    "rules": [
+      {
+        "name": "The Lifted Blue Rule",
+        "body": "On an ink surface, accent text, links, eyebrows and focus rings use Lifted Sapphire. Sapphire and Signal Blue never appear as text on ink. Every dark section is marked `data-surface=\"ink\"` so the focus ring follows.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Accent Rule",
+        "body": "Blue is the only saturated colour. Photography supplies all other colour; the interface does not add a second accent.",
+        "section": "colors"
+      },
+      {
+        "name": "The Paper-on-Blue Rule",
+        "body": "A blue-filled control carries paper-white text. Ink on sapphire fails contrast.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Labels Rule",
+        "body": "Small caps come in exactly two forms, `eyebrow` and `meta-label`. Do not hand-roll 11px or 0.2em variants. Labels stay at ink/70 or stronger on light and paper/65 or stronger on ink.",
+        "section": "typography"
+      },
+      {
+        "name": "The Response-Only Shadow Rule",
+        "body": "A shadow, lift or zoom is a reply to hover or focus on something that is actually a link or button. If it links nowhere, it does not move.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** put text and links on ink in Lifted Sapphire (#5B93FF) and mark every dark surface `data-surface=\"ink\"`.",
+      "**Do** pair any sapphire or blue fill with paper-white text.",
+      "**Do** separate with hairlines and inset rings at 10% opacity, and let shadow appear only on hover or focus of real controls.",
+      "**Do** use `eyebrow` for the kicker over a heading and `meta-label` for stats, captions and dates.",
+      "**Do** keep card grids uniform: equal size, equal gaps, no feature tile.",
+      "**Do** let ghost and outline buttons inherit their colour from the section.",
+      "**Do** keep client logos in their brand colours, sized to a similar painted area.",
+      "**Do** use real event photography as the imagery, with descriptive alt text."
+    ],
+    "donts": [
+      "**Don't** use Sapphire (#0F52BA) or Signal Blue (#0000FF) as text on an ink surface; they measure 2.7:1 and 2.2:1.",
+      "**Don't** add a second accent colour; the blue is the only saturated colour.",
+      "**Don't** make non-links lift, ring or zoom on hover.",
+      "**Don't** hard-code a colour into `ghost` or `outline` buttons.",
+      "**Don't** blur the header or use glass anywhere except the frosted tag over photography.",
+      "**Don't** recolour client logos or apply a grayscale filter (NCB and Scotiabank guidelines).",
+      "**Don't** put gradient text, hard offset shadows, or colour side-borders on cards.",
+      "**Don't** hand-roll 11px or 0.2em small-caps; use the two label utilities.",
+      "**Don't** restyle the Quote Builder, contact form or feedback form as part of general visual work."
+    ]
+  }
+}
