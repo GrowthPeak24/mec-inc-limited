@@ -12,7 +12,7 @@ Marketing site for **Marketing, Events and Catering (MEC) Inc. Limited** — a J
 npm run dev            # Turbopack dev server
 npm run build          # Production build (uses Turbopack)
 npm run typecheck      # tsc --noEmit — strict, noUncheckedIndexedAccess
-npm run lint           # eslint
+npm run lint           # eslint . — flat config in eslint.config.mjs; errors fail, the QuoteBuilder watch() warning is known
 
 # Media pipeline (Phase 0 — run only when the source PDF changes)
 npm run media:extract  # extract embedded images → scripts/.raw/
@@ -23,7 +23,9 @@ npm run media:optimize # sharp → src/assets/media/**.avif + logos/**.png
 node --use-system-ca scripts/upscale-replicate.mjs upscale|validate|encode [--from-source]
 ```
 
-There is no test runner set up. Verify changes with `npm run typecheck && npm run build`. Manual QA passes: RLS smoke test, JS-disabled portfolio filtering, quote-form end-to-end, screen-reader pass.
+There is no test runner set up. Verify changes with `npm run typecheck && npm run build`, plus `npm run lint` for anything touching components. Manual QA passes: RLS smoke test, JS-disabled portfolio filtering, quote-form end-to-end, screen-reader pass.
+
+**ESLint is hand-assembled, not `eslint-config-next`.** The project runs TypeScript 7 (native), which `typescript-eslint` cannot load yet, and `eslint-config-next`'s entry point requires it at import time and crashes. `eslint.config.mjs` therefore wires the same `@next/next`, `react`, `react-hooks` and `jsx-a11y` plugins by hand and parses TS with Next's Babel parser (`eslint-config-next/parser`); type errors stay with `tsc`. Do NOT alias `typescript` to the TS 6 compat package to make the packaged config work: `next build` needs the real `typescript` package with a `tsc` bin and fails at "Running TypeScript". `react-hooks/purity` is turned off for `ContactForm` and `FeedbackForm` only, because the dwell-time `useRef(Date.now())` is deliberate. When `typescript-eslint` supports TS 7.1+, switch back to spreading `eslint-config-next/core-web-vitals`.
 
 ## Architecture
 

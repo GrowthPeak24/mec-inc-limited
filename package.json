@@ -7,7 +7,7 @@
     "dev": "node --use-system-ca ./node_modules/next/dist/bin/next dev --turbopack",
     "build": "next build",
     "start": "node --use-system-ca ./node_modules/next/dist/bin/next start",
-    "lint": "eslint",
+    "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "media:extract": "node scripts/extract-pdf-media.mjs",
     "media:optimize": "node scripts/optimize-media.mjs"
@@ -26,10 +26,17 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^16.3.5",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^26.1.2",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.5",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^16.5.0",
     "mupdf": "^1.28.0",
     "postcss": "^8.5.26",
     "sharp": "^0.35.3",
