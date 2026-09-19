@@ -59,7 +59,7 @@ export default function ServicesPage() {
           />
         </Reveal>
         <div className="mt-14">
-          <Reveal>
+          <Reveal stagger>
             <ProcessSteps />
           </Reveal>
         </div>

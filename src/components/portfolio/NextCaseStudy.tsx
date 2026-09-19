@@ -13,7 +13,7 @@ export function NextCaseStudy({ study }: { study: CaseStudy }) {
           media={study.hero}
           fill
           sizes="100vw"
-          className="object-cover opacity-60 transition-transform duration-[900ms] ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-105 group-hover:opacity-70"
+          className="object-cover opacity-60 transition-transform duration-[var(--duration-image-zoom)] ease-out-soft group-hover:scale-[var(--scale-image-zoom)] group-hover:opacity-70"
         />
         <div
           aria-hidden
