@@ -39,7 +39,7 @@ export function PillarCard({ pillar }: { pillar: ServicePillar }) {
   return (
     <Link
       href={`/services/${pillar.slug}`}
-      className="group relative flex flex-col overflow-hidden rounded-[var(--radius-xl)] bg-[var(--color-paper)] ring-1 ring-inset ring-[var(--color-line-ink)] shadow-[0_1px_0_rgba(10,14,26,0.06),0_20px_50px_-30px_rgba(10,14,26,0.35)] transition-all duration-500 ease-[cubic-bezier(.2,.7,.2,1)] hover:-translate-y-1 hover:ring-[var(--color-gold)]/30 hover:shadow-[0_1px_0_rgba(10,14,26,0.06),0_30px_60px_-30px_rgba(10,14,26,0.5)]"
+      className="group relative flex flex-col overflow-hidden rounded-[var(--radius-xl)] bg-[var(--color-paper)] ring-1 ring-inset ring-[var(--color-line-ink)] shadow-pillar transition-all duration-500 ease-[cubic-bezier(.2,.7,.2,1)] hover:-translate-y-1 hover:ring-[var(--color-gold)]/30 hover:shadow-pillar-lift"
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         <MediaImage

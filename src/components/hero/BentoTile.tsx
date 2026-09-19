@@ -35,7 +35,7 @@ export function BentoTile({
       className={clsx(
         'group relative block overflow-hidden rounded-[var(--radius-xl)] bg-[var(--color-ink-2)]',
         'ring-1 ring-inset ring-[var(--color-line)] transition-[box-shadow,transform] duration-500 ease-[cubic-bezier(.2,.7,.2,1)]',
-        href && 'hover:ring-[var(--color-gold)]/40 hover:shadow-[0_30px_60px_-30px_rgba(15,82,186,0.55)]',
+        href && 'hover:ring-[var(--color-gold)]/40 hover:shadow-lift',
         className,
       )}
     >
@@ -59,7 +59,7 @@ export function BentoTile({
           {href && (
             <span
               aria-hidden
-              className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-white/0 transition-colors duration-500 group-hover:text-white/85 group-focus-visible:text-white/85 [@media(hover:none)]:text-white/85"
+              className="mt-3 inline-flex items-center gap-1.5 eyebrow text-white/0 transition-colors duration-500 group-hover:text-white/85 group-focus-visible:text-white/85 [@media(hover:none)]:text-white/85"
             >
               View
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="nudge">

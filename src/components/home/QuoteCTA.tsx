@@ -9,7 +9,7 @@ export function QuoteCTA() {
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_60%_at_80%_0%,rgba(15,82,186,0.22),transparent_60%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_60%_at_80%_0%,color-mix(in_srgb,var(--color-gold)_22%,transparent),transparent_60%)]"
       />
       <div
         aria-hidden
