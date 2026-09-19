@@ -4,7 +4,6 @@
   /* Brand */
   --color-ink: #0A0E1A;         /* deep navy/charcoal base */
   --color-ink-2: #131a2e;        /* raised surface */
-  --color-ink-3: #1c2440;        /* elevated */
   --color-gold: #0F52BA;         /* brand sapphire — primary accent */
   --color-gold-2: #0000FF;       /* brand blue — hover / gradient stop */
   /* Accent for TEXT and focus rings on ink surfaces. #0000FF on ink is 2.2:1 and
@@ -14,13 +13,21 @@
   --color-paper: #FFFFFF;        /* brand white */
   --color-sand: #F5F1EA;         /* warm neutral bg */
   --color-sand-2: #EBE4D6;
-  --color-mute: #6B7280;
   --color-line: rgba(255,255,255,0.10);
   --color-line-ink: rgba(10,14,26,0.10);
 
   /* Type */
   --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Elevation. Shadows appear only in response to hover or focus of real controls.
+     Sapphire-tinted for blue fills and dark cards, ink-tinted for light cards. */
+  --shadow-cta: 0 8px 20px -12px rgba(15,82,186,0.55);
+  --shadow-cta-hover: 0 10px 24px -12px rgba(15,82,186,0.6);
+  --shadow-lift: 0 30px 60px -30px rgba(15,82,186,0.5);
+  --shadow-pillar: 0 1px 0 rgba(10,14,26,0.06), 0 20px 50px -30px rgba(10,14,26,0.35);
+  --shadow-pillar-lift: 0 1px 0 rgba(10,14,26,0.06), 0 30px 60px -30px rgba(10,14,26,0.5);
+  --shadow-matte: 0 30px 60px -40px rgba(10,14,26,0.45);
 
   /* Radii */
   --radius-md: 0.75rem;

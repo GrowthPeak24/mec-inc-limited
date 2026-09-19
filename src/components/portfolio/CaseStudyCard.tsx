@@ -15,7 +15,7 @@ export function CaseStudyCard({ study, feature, sizes }: Props) {
   return (
     <Link
       href={`/portfolio/${study.slug}`}
-      className="group relative flex h-full flex-col overflow-hidden rounded-[var(--radius-xl)] bg-[var(--color-ink-2)] text-[var(--color-paper)] ring-1 ring-inset ring-[var(--color-line)] transition-all duration-500 ease-[cubic-bezier(.2,.7,.2,1)] hover:-translate-y-1 hover:ring-[var(--color-gold)]/40 hover:shadow-[0_30px_60px_-30px_rgba(15,82,186,0.5)]"
+      className="group relative flex h-full flex-col overflow-hidden rounded-[var(--radius-xl)] bg-[var(--color-ink-2)] text-[var(--color-paper)] ring-1 ring-inset ring-[var(--color-line)] transition-all duration-500 ease-[cubic-bezier(.2,.7,.2,1)] hover:-translate-y-1 hover:ring-[var(--color-gold)]/40 hover:shadow-lift"
     >
       <div
         className={

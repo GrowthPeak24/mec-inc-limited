@@ -17,7 +17,7 @@ export function HeroBento() {
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-[520px] bg-[radial-gradient(60%_60%_at_20%_0%,rgba(15,82,186,0.18),transparent_60%)]"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[520px] bg-[radial-gradient(60%_60%_at_20%_0%,color-mix(in_srgb,var(--color-gold)_18%,transparent),transparent_60%)]"
       />
       {/* Dotted texture field — anchors the copy column without competing
           with the photography. */}

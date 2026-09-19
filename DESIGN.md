@@ -175,6 +175,8 @@ Flat at rest, lifting on interaction. Surfaces separate with hairline borders or
 One frosted-glass element exists: the `FrostTag` over photography, where a blurred, darkened backing keeps a label legible on any image. The header itself is solid paper, not blurred.
 
 ### Shadow Vocabulary
+
+Each shadow below is a `--shadow-*` token in `globals.css` (`shadow-cta`, `shadow-cta-hover`, `shadow-lift`, `shadow-pillar`, `shadow-pillar-lift`, `shadow-matte`). Use the token, not an inline rgba value.
 - **Primary button** (`box-shadow: 0 8px 20px -12px rgba(15,82,186,0.55)`, hover `0 10px 24px -12px rgba(15,82,186,0.6)`): a low glow under the blue fill.
 - **Card hover** (`box-shadow: 0 30px 60px -30px rgba(15,82,186,0.5)`): case-study cards on hover, with a 4px lift and a 40% sapphire ring.
 - **Pillar card** (`box-shadow: 0 1px 0 rgba(10,14,26,0.06), 0 20px 50px -30px rgba(10,14,26,0.35)`): the one card with a faint resting shadow; hover deepens it. This is the exception, not the pattern.

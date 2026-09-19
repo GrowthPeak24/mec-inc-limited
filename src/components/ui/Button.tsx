@@ -15,7 +15,7 @@ const base =
    white-on-sand inside `tone="sand"` sections. */
 const variants: Record<Variant, string> = {
   primary:
-    'bg-[var(--color-gold)] text-[var(--color-paper)] hover:bg-[var(--color-gold-2)] shadow-[0_8px_20px_-12px_rgba(15,82,186,0.55)] hover:shadow-[0_10px_24px_-12px_rgba(15,82,186,0.6)]',
+    'bg-[var(--color-gold)] text-[var(--color-paper)] hover:bg-[var(--color-gold-2)] shadow-cta hover:shadow-cta-hover',
   ghost:
     'text-current hover:text-[var(--color-gold-2)] in-data-[surface=ink]:hover:text-[var(--color-accent-on-dark)]',
   outline:

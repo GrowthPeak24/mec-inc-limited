@@ -12,7 +12,7 @@ export function CateringTeaser() {
           aria-hidden
           className="dot-grid pointer-events-none absolute -left-6 -top-6 hidden h-32 w-32 text-[var(--color-ink)] opacity-[0.14] lg:block"
         />
-        <div className="matte relative rounded-[var(--radius-xl)] shadow-[0_30px_60px_-40px_rgba(10,14,26,0.45)]">
+        <div className="matte relative rounded-[var(--radius-xl)] shadow-matte">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[calc(var(--radius-xl)-0.35rem)] bg-[var(--color-ink-2)]">
             <MediaImage
               media={{
