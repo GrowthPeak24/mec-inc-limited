@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Button } from '@/components/ui/Button';
 
 export function EmptyState({ tag }: { tag: string }) {
   return (
@@ -9,12 +9,9 @@ export function EmptyState({ tag }: { tag: string }) {
       <p className="mt-2 text-[var(--color-ink)]/60">
         Reset the filter or browse all work.
       </p>
-      <Link
-        href="/portfolio"
-        className="mt-6 inline-flex items-center gap-2 rounded-full bg-[var(--color-ink)] px-4 py-2 text-sm font-medium text-[var(--color-paper)] hover:bg-[var(--color-ink-2)]"
-      >
-        See all work
-      </Link>
+      <div className="mt-6">
+        <Button href="/portfolio">See all work</Button>
+      </div>
     </div>
   );
 }

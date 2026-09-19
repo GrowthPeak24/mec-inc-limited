@@ -23,13 +23,13 @@ const STEPS = [
 
 export function ProcessSteps() {
   return (
-    <ol className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+    <ol className="grid gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-4">
       {STEPS.map((s) => (
         <li
           key={s.n}
-          className="relative rounded-[var(--radius-xl)] border border-[var(--color-line-ink)] bg-[var(--color-paper)] p-6 md:p-7"
+          className="relative border-t border-[var(--color-ink)]/25 pt-6"
         >
-          <span className="text-xs font-semibold uppercase tracking-widest text-[var(--color-gold)]">
+          <span className="eyebrow text-[var(--color-gold)]">
             {s.n}
           </span>
           <h3 className="mt-3 text-xl font-semibold tracking-tight text-[var(--color-ink)]">

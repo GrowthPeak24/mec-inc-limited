@@ -58,7 +58,7 @@ export function PillarCard({ pillar }: { pillar: ServicePillar }) {
           <span className="flex size-9 shrink-0 items-center justify-center rounded-[10px] border border-[var(--color-line-ink)] bg-[var(--color-sand)]">
             <PillarIcon kind={pillar.icon} />
           </span>
-          <span className="text-[11px] font-semibold uppercase tracking-[0.2em]">
+          <span className="eyebrow">
             Pillar 0{pillar.id === 'marketing' ? 1 : pillar.id === 'events' ? 2 : 3}
           </span>
         </div>

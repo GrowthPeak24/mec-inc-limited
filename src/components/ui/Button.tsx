@@ -6,7 +6,7 @@ type Variant = 'primary' | 'ghost' | 'outline';
 type Size = 'md' | 'lg';
 
 const base =
-  'group inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-tight transition-all duration-500 ease-[cubic-bezier(.2,.7,.2,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-ink)]';
+  'group inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-tight transition-[background-color,color,border-color,box-shadow] duration-200 ease-[cubic-bezier(.2,.7,.2,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-paper)] in-data-[surface=ink]:focus-visible:ring-[var(--color-accent-on-dark)] in-data-[surface=ink]:focus-visible:ring-offset-[var(--color-ink)]';
 
 /* `ghost` and `outline` derive their colour from the inherited text colour
    (Section sets paper on ink tones, ink on sand/paper tones). That keeps a
@@ -15,7 +15,7 @@ const base =
    white-on-sand inside `tone="sand"` sections. */
 const variants: Record<Variant, string> = {
   primary:
-    'bg-[var(--color-gold)] text-[var(--color-paper)] hover:bg-[var(--color-gold-2)] shadow-[0_10px_30px_-12px_rgba(15,82,186,0.6)] hover:shadow-[0_16px_40px_-14px_rgba(0,0,255,0.7)]',
+    'bg-[var(--color-gold)] text-[var(--color-paper)] hover:bg-[var(--color-gold-2)] shadow-[0_8px_20px_-12px_rgba(15,82,186,0.55)] hover:shadow-[0_10px_24px_-12px_rgba(15,82,186,0.6)]',
   ghost:
     'text-current hover:text-[var(--color-gold-2)] in-data-[surface=ink]:hover:text-[var(--color-accent-on-dark)]',
   outline:

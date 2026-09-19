@@ -9,7 +9,7 @@ import { TRUST_STATS } from '@/content/trust-stats';
 export function TrustStats() {
   return (
     <section className="border-b border-[var(--color-line-ink)] bg-[var(--color-paper)]">
-      <div className="container-x py-10 md:py-12">
+      <div className="container-x py-8 md:py-10">
         <div className="flex items-stretch">
           <div
             aria-hidden
@@ -28,7 +28,7 @@ export function TrustStats() {
                 <dd className="font-display text-3xl font-semibold leading-none tracking-tight text-[var(--color-ink)] md:text-4xl">
                   {s.value}
                 </dd>
-                <dt className="mt-3 text-[11px] font-semibold uppercase leading-relaxed tracking-[0.2em] text-[var(--color-ink)]/50">
+                <dt className="meta-label mt-3 text-[var(--color-ink)]/70">
                   {s.label}
                 </dt>
               </div>

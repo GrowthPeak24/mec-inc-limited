@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Section } from '@/components/ui/Section';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { PageHero } from '@/components/ui/PageHero';
 import { ProofStrip } from '@/components/home/ProofStrip';
 import { QuoteCTA } from '@/components/home/QuoteCTA';
 import { Reveal } from '@/components/ui/Reveal';
@@ -33,7 +34,18 @@ const APPROACH = [
 export default function AboutPage() {
   return (
     <>
-      <Section tone="ink">
+      <PageHero
+        aside={
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-xl)] bg-[var(--color-ink-2)] ring-1 ring-inset ring-[var(--color-line)]">
+            <MediaImage
+              media={{ src: teamImg, alt: 'Conference session in progress at an NCB Capital Markets event produced by MEC Inc.' }}
+              fill
+              sizes="(min-width: 1024px) 40vw, 0px"
+              className="object-cover"
+            />
+          </div>
+        }
+      >
         <Reveal>
           <SectionHeading
             eyebrow="About MEC Inc."
@@ -42,66 +54,53 @@ export default function AboutPage() {
             tone="paper"
           />
         </Reveal>
-      </Section>
+      </PageHero>
 
       <Section tone="sand">
-        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-          <Reveal>
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-xl)] bg-[var(--color-ink-2)]">
-              <MediaImage
-                media={{ src: teamImg, alt: 'Conference session in progress at an NCB Capital Markets event produced by MEC Inc.' }}
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
-            </div>
-          </Reveal>
-          <Reveal>
-            <div>
-              <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
-                Ten years of delivery, one accountable team.
-              </h2>
-              <p className="mt-5 text-[var(--color-ink)]/70">
+        <Reveal>
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl lg:col-span-5">
+              Ten years of delivery, one accountable team.
+            </h2>
+            <div className="lg:col-span-7">
+              <p className="max-w-2xl text-lg leading-relaxed text-[var(--color-ink)]/75">
                 MEC was built on the premise that marketing, events and catering are one craft in
                 practice. Separating them across three vendors is where enterprise programmes
                 go wrong. We coordinate the whole delivery under a single producer, so the client
                 brief travels intact from concept to strike.
               </p>
-              <dl className="mt-8 grid grid-cols-3 gap-6 border-t border-[var(--color-line-ink)] pt-6">
+              <dl className="mt-10 grid grid-cols-3 gap-6 border-t border-[var(--color-line-ink)] pt-6">
                 <div>
-                  <dt className="text-xs uppercase tracking-widest text-[var(--color-ink)]/60">Founded</dt>
+                  <dt className="meta-label text-[var(--color-ink)]/70">Founded</dt>
                   <dd className="mt-1 text-2xl font-semibold text-[var(--color-gold)]">{SITE.founded}</dd>
                 </div>
                 <div>
-                  <dt className="text-xs uppercase tracking-widest text-[var(--color-ink)]/60">Base</dt>
+                  <dt className="meta-label text-[var(--color-ink)]/70">Base</dt>
                   <dd className="mt-1 text-2xl font-semibold text-[var(--color-gold)]">Kingston</dd>
                 </div>
                 <div>
-                  <dt className="text-xs uppercase tracking-widest text-[var(--color-ink)]/60">Served</dt>
+                  <dt className="meta-label text-[var(--color-ink)]/70">Served</dt>
                   <dd className="mt-1 text-2xl font-semibold text-[var(--color-gold)]">Caribbean</dd>
                 </div>
               </dl>
             </div>
-          </Reveal>
-        </div>
+          </div>
+        </Reveal>
       </Section>
 
       <Section tone="paper">
         <Reveal>
-          <SectionHeading
-            title="A decade in five moments."
-            align="center"
-          />
+          <SectionHeading title="A decade in five moments." />
         </Reveal>
-        <ol className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-5 lg:gap-4">
+        {/* One rule with the years hung off it, instead of five bordered cards. */}
+        <ol className="mt-14 grid gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-5">
           {TIMELINE.map((t) => (
-            <li
-              key={t.year}
-              className="rounded-[var(--radius-lg)] border border-[var(--color-line-ink)] bg-[var(--color-paper)] p-5"
-            >
-              <span className="text-xs font-semibold uppercase tracking-widest text-[var(--color-gold)]">
-                {t.year}
-              </span>
+            <li key={t.year} className="relative border-t border-[var(--color-ink)]/25 pt-6">
+              <span
+                aria-hidden
+                className="absolute -top-[5px] left-0 h-2.5 w-2.5 rounded-full bg-[var(--color-gold)]"
+              />
+              <span className="eyebrow text-[var(--color-gold)]">{t.year}</span>
               <h3 className="mt-2 text-base font-semibold tracking-tight text-[var(--color-ink)]">
                 {t.title}
               </h3>
@@ -113,22 +112,15 @@ export default function AboutPage() {
 
       <Section tone="sand">
         <Reveal>
-          <SectionHeading
-            eyebrow="Approach"
-            title="How we operate."
-            align="center"
-          />
+          <SectionHeading eyebrow="Approach" title="How we operate." />
         </Reveal>
-        <div className="mt-14 grid gap-6 md:grid-cols-3 lg:gap-8">
+        <div className="mt-14 grid gap-x-10 gap-y-10 md:grid-cols-3">
           {APPROACH.map((a) => (
-            <div
-              key={a.title}
-              className="rounded-[var(--radius-xl)] border border-[var(--color-line-ink)] bg-[var(--color-paper)] p-6 md:p-8"
-            >
+            <div key={a.title} className="border-t border-[var(--color-ink)]/25 pt-6">
               <h3 className="text-xl font-semibold tracking-tight text-[var(--color-ink)]">
                 {a.title}
               </h3>
-              <p className="mt-3 text-sm text-[var(--color-ink)]/70">{a.body}</p>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--color-ink)]/70">{a.body}</p>
             </div>
           ))}
         </div>

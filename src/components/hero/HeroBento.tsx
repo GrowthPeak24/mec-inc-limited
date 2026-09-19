@@ -28,7 +28,7 @@ export function HeroBento() {
       <div className="container-x relative grid gap-10 py-20 md:py-28 lg:grid-cols-12 lg:gap-14">
         {/* Copy column */}
         <div className="lg:col-span-6 lg:pt-6">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--color-accent-on-dark)]">
+          <p className="eyebrow text-[var(--color-accent-on-dark)]">
             Marketing &middot; Events &middot; Catering
           </p>
           <h1 className="mt-5 text-4xl font-semibold leading-[1.05] tracking-tight md:text-5xl lg:text-6xl">

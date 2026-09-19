@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { SERVICE_PILLARS } from '@/content/service-pillars';
 import { Section } from '@/components/ui/Section';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { PageHero, PhotoStack } from '@/components/ui/PageHero';
 import { PillarPanel } from '@/components/services/PillarPanel';
 import { ProcessSteps } from '@/components/services/ProcessSteps';
 import { QuoteCTA } from '@/components/home/QuoteCTA';
@@ -23,7 +24,13 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <Section tone="ink">
+      <PageHero
+        aside={
+          <PhotoStack
+            images={[SERVICE_PILLARS[1].media, SERVICE_PILLARS[0].media, SERVICE_PILLARS[2].media]}
+          />
+        }
+      >
         <Reveal>
           <SectionHeading
             eyebrow="What we do"
@@ -32,7 +39,7 @@ export default function ServicesPage() {
             tone="paper"
           />
         </Reveal>
-      </Section>
+      </PageHero>
 
       <Section tone="sand">
         <div className="space-y-20 md:space-y-28">
@@ -49,7 +56,6 @@ export default function ServicesPage() {
           <SectionHeading
             eyebrow="How we work"
             title="A four-step process, from brief to wrap."
-            align="center"
           />
         </Reveal>
         <div className="mt-14">

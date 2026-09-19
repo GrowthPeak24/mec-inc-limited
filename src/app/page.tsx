@@ -49,8 +49,8 @@ export default function HomePage() {
       <Section tone="paper">
         <Reveal>
           <SectionHeading
-            title="A decade of delivery for Jamaica’s enterprise brands."
-            intro="Case studies filterable by discipline. Every project is scoped, staffed and produced by MEC end-to-end."
+            title="Recent projects, produced end to end."
+            intro="Every project is scoped, staffed and produced by one accountable MEC team. Browse the full portfolio by discipline."
           />
         </Reveal>
         <div className="mt-12">
@@ -60,7 +60,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section tone="sand" size="sm">
+      <Section tone="sand">
         <Reveal>
           <CapabilitiesRibbon />
         </Reveal>

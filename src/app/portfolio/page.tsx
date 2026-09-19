@@ -3,12 +3,16 @@ import { CASE_STUDIES } from '@/content/case-studies';
 import { PORTFOLIO_TAGS, type PortfolioTag } from '@/types/content';
 import { Section } from '@/components/ui/Section';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { PageHero, PhotoStack } from '@/components/ui/PageHero';
 import { PortfolioFilter } from '@/components/portfolio/PortfolioFilter';
 import { PortfolioGrid } from '@/components/portfolio/PortfolioGrid';
 import { EmptyState } from '@/components/portfolio/EmptyState';
 import { QuoteCTA } from '@/components/home/QuoteCTA';
 
 type SP = { tag?: string | string[] };
+
+/** Hero photo stack: covers of the first three case studies. */
+const COVERS = CASE_STUDIES.slice(0, 3).map((s) => s.hero);
 
 function parseTag(sp: SP): PortfolioTag | null {
   const raw = Array.isArray(sp.tag) ? sp.tag[0] : sp.tag;
@@ -48,7 +52,9 @@ export default async function PortfolioPage({
 
   return (
     <>
-      <Section tone="ink">
+      <PageHero
+        aside={<PhotoStack images={COVERS} />}
+      >
         <SectionHeading
           eyebrow="Selected work"
           title="A decade of delivery for Jamaica's enterprise brands."
@@ -58,7 +64,7 @@ export default async function PortfolioPage({
         <div className="mt-10">
           <PortfolioFilter active={active} />
         </div>
-      </Section>
+      </PageHero>
 
       <Section tone="sand">
         {studies.length > 0 ? (

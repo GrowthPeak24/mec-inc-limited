@@ -41,7 +41,7 @@ export function CaseStudyCard({ study, feature, sizes }: Props) {
         </div>
       </div>
       <div className="flex flex-1 flex-col p-5 md:p-6">
-        <div className="flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--color-paper)]/50">
+        <div className="flex items-center justify-between meta-label text-[var(--color-paper)]/65">
           <span>{study.client}</span>
           <span className="tabular-nums">{study.year}</span>
         </div>

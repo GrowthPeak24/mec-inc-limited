@@ -92,7 +92,7 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
         </div>
         <div className="container-x flex min-h-[420px] flex-col justify-end pt-24 pb-16 md:min-h-[520px] md:pt-32 md:pb-24">
           <div className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--color-accent-on-dark)]">
+            <p className="eyebrow text-[var(--color-accent-on-dark)]">
               Service
             </p>
             <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-6xl">
