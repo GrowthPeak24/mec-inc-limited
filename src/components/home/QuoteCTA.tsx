@@ -17,7 +17,7 @@ export function QuoteCTA() {
       />
       <div className="container-x relative grid gap-10 lg:grid-cols-12 lg:items-end lg:gap-16">
         <div className="lg:col-span-8">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-on-dark)]">
+          <p className="eyebrow text-[var(--color-accent-on-dark)]">
             Bring us the brief
           </p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight md:text-5xl">

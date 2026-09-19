@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { NAV_LINKS } from '@/content/nav';
+import { isActiveHref } from '@/lib/nav';
 
 /** Full-screen menu below `lg`.
  *
@@ -92,7 +93,7 @@ export function MobileNav() {
           >
             <nav aria-label="Primary" className="container-x flex flex-col gap-1">
               {NAV_LINKS.map((l) => {
-                const active = pathname === l.href || pathname.startsWith(`${l.href}/`);
+                const active = isActiveHref(pathname, l.href);
                 return (
                   <Link
                     key={l.href}

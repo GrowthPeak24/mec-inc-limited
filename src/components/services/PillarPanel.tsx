@@ -28,7 +28,7 @@ export function PillarPanel({
         />
       </div>
       <div className={flipped ? 'lg:order-1' : ''}>
-        <p className="text-xs font-semibold uppercase tracking-widest text-[var(--color-gold)]">
+        <p className="eyebrow text-[var(--color-gold)]">
           Pillar 0{pillar.id === 'marketing' ? 1 : pillar.id === 'events' ? 2 : 3}
         </p>
         <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">

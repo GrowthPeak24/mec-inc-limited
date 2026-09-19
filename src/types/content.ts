@@ -91,8 +91,6 @@ export interface ServiceCategory {
 export interface ClientLogo {
   name: string;
   src: StaticImageData;
-  /** Aspect-ratio-preserving render width (px) in the marquee track. */
-  width: number;
 }
 
 /** Decor showcase — themes MEC has produced (Santorini, Amazon, etc.) */

@@ -9,7 +9,7 @@ export function CapabilityList({
     <div className="grid gap-8 md:grid-cols-3 lg:gap-10">
       {groups.map((g) => (
         <div key={g.title}>
-          <h3 className="text-xs font-semibold uppercase tracking-widest text-[var(--color-gold)]">
+          <h3 className="eyebrow text-[var(--color-gold)]">
             {g.title}
           </h3>
           <ul className="mt-4 space-y-2">

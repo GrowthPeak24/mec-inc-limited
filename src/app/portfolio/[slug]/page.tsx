@@ -83,7 +83,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             stacking level they paint OVER this negative-margin block. */}
         <div className="container-x relative z-10 -mt-40 pb-16 md:-mt-52 md:pb-24">
           <div className="max-w-4xl">
-            <div className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-widest text-[var(--color-paper)]/60">
+            <div className="flex flex-wrap items-center gap-2 meta-label text-[var(--color-paper)]/70">
               <span>{study.client}</span>
               <span aria-hidden>·</span>
               <span>{study.year}</span>
@@ -112,13 +112,13 @@ export default async function CaseStudyPage({ params }: PageProps) {
       <Section tone="sand">
         <div className="grid gap-12 lg:grid-cols-3 lg:gap-16">
           <div>
-            <h2 className="text-xs font-semibold uppercase tracking-widest text-[var(--color-gold)]">
+            <h2 className="eyebrow text-[var(--color-gold)]">
               Challenge
             </h2>
             <p className="mt-3 text-[var(--color-ink)]/80">{study.challenge}</p>
           </div>
           <div>
-            <h2 className="text-xs font-semibold uppercase tracking-widest text-[var(--color-gold)]">
+            <h2 className="eyebrow text-[var(--color-gold)]">
               Approach
             </h2>
             <ul className="mt-3 space-y-2">
@@ -134,13 +134,13 @@ export default async function CaseStudyPage({ params }: PageProps) {
             </ul>
           </div>
           <div>
-            <h2 className="text-xs font-semibold uppercase tracking-widest text-[var(--color-gold)]">
+            <h2 className="eyebrow text-[var(--color-gold)]">
               Result
             </h2>
             <p className="mt-3 text-[var(--color-ink)]/80">{study.result}</p>
             {study.partners && study.partners.length > 0 && (
               <div className="mt-6">
-                <p className="text-xs font-semibold uppercase tracking-widest text-[var(--color-ink)]/60">
+                <p className="meta-label text-[var(--color-ink)]/70">
                   Partners
                 </p>
                 <p className="mt-2 text-[var(--color-ink)]/80">

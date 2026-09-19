@@ -21,7 +21,7 @@ export function NextCaseStudy({ study }: { study: CaseStudy }) {
         />
       </div>
       <div className="absolute inset-0 flex flex-col justify-center p-8 md:p-14">
-        <p className="text-xs font-semibold uppercase tracking-widest text-[var(--color-accent-on-dark)]">
+        <p className="eyebrow text-[var(--color-accent-on-dark)]">
           Next case study
         </p>
         <h3 className="mt-3 max-w-3xl text-2xl font-semibold tracking-tight md:text-4xl">

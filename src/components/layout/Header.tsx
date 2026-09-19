@@ -1,7 +1,8 @@
 import Link from 'next/link';
-import { NAV_LINKS } from '@/content/nav';
 import { MobileNav } from './MobileNav';
+import { NavLinks } from './NavLinks';
 import { Wordmark } from '@/components/brand/Wordmark';
+import { Button } from '@/components/ui/Button';
 
 export function Header() {
   return (
@@ -17,28 +18,12 @@ export function Header() {
           <Wordmark height={36} priority className="hidden md:block" />
         </Link>
 
-        <nav aria-label="Primary" className="hidden lg:block">
-          <ul className="flex items-center gap-1">
-            {NAV_LINKS.map((l) => (
-              <li key={l.href}>
-                <Link
-                  href={l.href}
-                  className="rounded-full px-4 py-2 text-sm font-medium text-[var(--color-ink)]/75 hover:bg-[var(--color-sand)] hover:text-[var(--color-ink)]"
-                >
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <NavLinks />
 
         <div className="flex items-center gap-2">
-          <Link
-            href="/quote"
-            className="hidden lg:inline-flex items-center gap-2 rounded-full bg-[var(--color-ink)] px-4 py-2 text-sm font-medium text-[var(--color-paper)] hover:bg-[var(--color-gold)]"
-          >
-            Request Proposal
-          </Link>
+          <div className="hidden lg:block">
+            <Button href="/quote">Request Proposal</Button>
+          </div>
           <MobileNav />
         </div>
       </div>
