@@ -9,7 +9,7 @@ export function CapabilityList({
     <div className="grid gap-8 md:grid-cols-3 lg:gap-10">
       {groups.map((g) => (
         <div key={g.title}>
-          <h3 className="eyebrow text-[var(--color-gold)]">
+          <h3 className="eyebrow text-[var(--color-sapphire)]">
             {g.title}
           </h3>
           <ul className="mt-4 space-y-2">
@@ -20,7 +20,7 @@ export function CapabilityList({
               >
                 <span
                   aria-hidden
-                  className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-gold)]"
+                  className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-sapphire)]"
                 />
                 <span className="text-sm md:text-base">{item}</span>
               </li>

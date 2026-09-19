@@ -13,8 +13,8 @@ export default function PrivacyPage() {
     <Section size="md">
       {/* No @tailwindcss/typography here, so paragraph rhythm and link styling are
           spelled out on the article rather than assumed from a `prose` class. */}
-      <article className="mx-auto max-w-2xl leading-relaxed text-[var(--color-ink)]/80 [&_a]:underline [&_a]:decoration-[var(--color-gold)]/40 [&_a]:underline-offset-4 hover:[&_a]:decoration-current [&_p]:mt-3">
-        <p className="eyebrow text-[var(--color-gold)]">
+      <article className="mx-auto max-w-2xl leading-relaxed text-[var(--color-ink)]/80 [&_a]:underline [&_a]:decoration-[var(--color-sapphire)]/40 [&_a]:underline-offset-4 hover:[&_a]:decoration-current [&_p]:mt-3">
+        <p className="eyebrow text-[var(--color-sapphire)]">
           Privacy
         </p>
         <h1 className="mt-3 font-[var(--font-display)] text-3xl font-semibold text-[var(--color-ink)] md:text-4xl">

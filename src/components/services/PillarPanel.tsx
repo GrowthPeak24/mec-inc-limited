@@ -28,7 +28,7 @@ export function PillarPanel({
         />
       </div>
       <div className={flipped ? 'lg:order-1' : ''}>
-        <p className="eyebrow text-[var(--color-gold)]">
+        <p className="eyebrow text-[var(--color-sapphire)]">
           Pillar 0{pillar.id === 'marketing' ? 1 : pillar.id === 'events' ? 2 : 3}
         </p>
         <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
@@ -38,7 +38,7 @@ export function PillarPanel({
         <p className="mt-5 max-w-xl text-[var(--color-ink)]/70">{pillar.blurb}</p>
         <Link
           href={`/services/${pillar.slug}`}
-          className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-ink)] hover:text-[var(--color-gold)]"
+          className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-ink)] hover:text-[var(--color-sapphire)]"
         >
           See {pillar.name.toLowerCase()} capabilities
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>

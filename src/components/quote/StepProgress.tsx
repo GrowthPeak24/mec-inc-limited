@@ -23,7 +23,7 @@ export function StepProgress({ current }: { current: 1 | 2 | 3 | 4 }) {
               className={clsx(
                 'grid h-7 w-7 shrink-0 place-items-center rounded-full text-xs font-semibold transition-colors',
                 done
-                  ? 'bg-[var(--color-gold)] text-[var(--color-paper)]'
+                  ? 'bg-[var(--color-sapphire)] text-[var(--color-paper)]'
                   : active
                     ? 'bg-[var(--color-ink)] text-[var(--color-paper)]'
                     : 'bg-[var(--color-sand-2)] text-[var(--color-ink)]/50',
@@ -58,7 +58,7 @@ export function StepProgress({ current }: { current: 1 | 2 | 3 | 4 }) {
                 aria-hidden
                 className={clsx(
                   'h-px flex-1 transition-colors',
-                  done ? 'bg-[var(--color-gold)]' : 'bg-[var(--color-line-ink)]',
+                  done ? 'bg-[var(--color-sapphire)]' : 'bg-[var(--color-line-ink)]',
                 )}
               />
             )}

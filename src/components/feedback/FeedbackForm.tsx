@@ -133,8 +133,8 @@ export function FeedbackForm() {
                   width="32"
                   height="32"
                   viewBox="0 0 24 24"
-                  fill={filled ? 'var(--color-gold)' : 'none'}
-                  stroke={filled ? 'var(--color-gold)' : 'var(--color-line-ink)'}
+                  fill={filled ? 'var(--color-sapphire)' : 'none'}
+                  stroke={filled ? 'var(--color-sapphire)' : 'var(--color-line-ink)'}
                   strokeWidth="1.6"
                   aria-hidden
                 >

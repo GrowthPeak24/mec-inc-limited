@@ -14,7 +14,7 @@ export function Eyebrow({
     <span
       className={clsx(
         'eyebrow inline-block',
-        tone === 'paper' ? 'text-[var(--color-accent-on-dark)]' : 'text-[var(--color-gold)]',
+        tone === 'paper' ? 'text-[var(--color-accent-on-dark)]' : 'text-[var(--color-sapphire)]',
         className,
       )}
     >

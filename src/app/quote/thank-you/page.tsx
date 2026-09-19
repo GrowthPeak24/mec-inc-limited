@@ -37,7 +37,7 @@ export default async function ThankYouPage({
           <Link
             href="/"
             aria-label="Close and return home"
-            className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-full text-[var(--color-ink)]/40 transition-colors duration-200 hover:bg-[var(--color-sand)] hover:text-[var(--color-ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-paper)] sm:right-6 sm:top-6"
+            className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-full text-[var(--color-ink)]/40 transition-colors duration-200 hover:bg-[var(--color-sand)] hover:text-[var(--color-ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-sapphire)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-paper)] sm:right-6 sm:top-6"
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path
@@ -51,11 +51,11 @@ export default async function ThankYouPage({
 
           <span className="confirm-badge mx-auto inline-flex h-28 w-28 items-center justify-center sm:h-32 sm:w-32">
             <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <circle cx="12" cy="12" r="11" stroke="var(--color-gold)" strokeWidth="0.6" />
+              <circle cx="12" cy="12" r="11" stroke="var(--color-sapphire)" strokeWidth="0.6" />
               <path
                 className="confirm-check"
                 d="M6.6 12.4l3.6 3.6L17.4 8.8"
-                stroke="var(--color-gold)"
+                stroke="var(--color-sapphire)"
                 strokeWidth="0.9"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -92,7 +92,7 @@ export default async function ThankYouPage({
             We&rsquo;ll send your tailored proposal from{' '}
             <a
               href={`mailto:${REPLY_ADDRESS}`}
-              className="inline-block break-all rounded-md bg-[var(--color-gold)]/10 px-1.5 py-0.5 font-semibold text-[var(--color-gold)] transition-colors duration-200 hover:bg-[var(--color-gold)]/[0.18]"
+              className="inline-block break-all rounded-md bg-[var(--color-sapphire)]/10 px-1.5 py-0.5 font-semibold text-[var(--color-sapphire)] transition-colors duration-200 hover:bg-[var(--color-sapphire)]/[0.18]"
             >
               {REPLY_ADDRESS}
             </a>
@@ -105,7 +105,7 @@ export default async function ThankYouPage({
           >
             <Link
               href="/"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-[var(--color-ink)] px-8 text-sm font-semibold tracking-tight text-[var(--color-paper)] transition-all duration-200 hover:-translate-y-px hover:bg-[var(--color-ink-2)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-paper)]"
+              className="inline-flex h-12 items-center justify-center rounded-full bg-[var(--color-ink)] px-8 text-sm font-semibold tracking-tight text-[var(--color-paper)] transition-all duration-200 hover:-translate-y-px hover:bg-[var(--color-ink-2)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-sapphire)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-paper)]"
             >
               Back to Home
             </Link>

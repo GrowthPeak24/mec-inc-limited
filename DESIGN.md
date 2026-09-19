@@ -121,8 +121,8 @@ The palette is three surfaces and one accent. Midnight ink carries authority and
 A restrained palette: one saturated blue, a deep navy-black, and two warm neutrals. The blue is a fill colour on light surfaces and a tinted text colour on dark ones.
 
 ### Primary
-- **Sapphire** (#0F52BA): the brand fill. Primary buttons, active tags, eyebrows and links on light surfaces, the default focus ring. Because it is dark, any surface filled with it takes paper-white text, never ink. (The code token is `--color-gold`, a legacy name.)
-- **Signal Blue** (#0000FF): hover and gradient stop for sapphire fills only. It is 2.2:1 on ink, so it is never used as text on a dark surface. (Code token `--color-gold-2`.)
+- **Sapphire** (#0F52BA): the brand fill. Primary buttons, active tags, eyebrows and links on light surfaces, the default focus ring. Because it is dark, any surface filled with it takes paper-white text, never ink. (Code token `--color-sapphire`.)
+- **Signal Blue** (#0000FF): hover and gradient stop for sapphire fills only. It is 2.2:1 on ink, so it is never used as text on a dark surface. (Code token `--color-signal-blue`.)
 - **Lifted Sapphire** (#5B93FF): the on-dark accent for text, links, eyebrows and the focus ring on ink surfaces. 6.48:1 on midnight ink and 5.81:1 on raised ink. (Code token `--color-accent-on-dark`.)
 
 ### Neutral

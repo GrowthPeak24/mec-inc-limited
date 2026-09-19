@@ -72,15 +72,15 @@ export default function AboutPage() {
               <dl className="mt-10 grid grid-cols-3 gap-6 border-t border-[var(--color-line-ink)] pt-6">
                 <div>
                   <dt className="meta-label text-[var(--color-ink)]/70">Founded</dt>
-                  <dd className="mt-1 text-2xl font-semibold text-[var(--color-gold)]">{SITE.founded}</dd>
+                  <dd className="mt-1 text-2xl font-semibold text-[var(--color-sapphire)]">{SITE.founded}</dd>
                 </div>
                 <div>
                   <dt className="meta-label text-[var(--color-ink)]/70">Base</dt>
-                  <dd className="mt-1 text-2xl font-semibold text-[var(--color-gold)]">Kingston</dd>
+                  <dd className="mt-1 text-2xl font-semibold text-[var(--color-sapphire)]">Kingston</dd>
                 </div>
                 <div>
                   <dt className="meta-label text-[var(--color-ink)]/70">Served</dt>
-                  <dd className="mt-1 text-2xl font-semibold text-[var(--color-gold)]">Caribbean</dd>
+                  <dd className="mt-1 text-2xl font-semibold text-[var(--color-sapphire)]">Caribbean</dd>
                 </div>
               </dl>
             </div>
@@ -99,9 +99,9 @@ export default function AboutPage() {
               <li key={t.year} className="relative border-t border-[var(--color-ink)]/25 pt-6">
                 <span
                   aria-hidden
-                  className="absolute -top-[5px] left-0 h-2.5 w-2.5 rounded-full bg-[var(--color-gold)]"
+                  className="absolute -top-[5px] left-0 h-2.5 w-2.5 rounded-full bg-[var(--color-sapphire)]"
                 />
-                <span className="eyebrow text-[var(--color-gold)]">{t.year}</span>
+                <span className="eyebrow text-[var(--color-sapphire)]">{t.year}</span>
                 <h3 className="mt-2 text-base font-semibold tracking-tight text-[var(--color-ink)]">
                   {t.title}
                 </h3>

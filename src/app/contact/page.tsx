@@ -34,7 +34,7 @@ export default function ContactPage() {
     <Section size="md">
       <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr]">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-gold)]">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-sapphire)]">
             Contact
           </p>
           <h1 className="mt-3 font-[var(--font-display)] text-3xl font-semibold text-[var(--color-ink)] md:text-4xl">
@@ -57,7 +57,7 @@ export default function ContactPage() {
               <dd className="mt-1">
                 <a
                   href={SITE.tel.href}
-                  className="text-base font-medium text-[var(--color-ink)] hover:text-[var(--color-gold)]"
+                  className="text-base font-medium text-[var(--color-ink)] hover:text-[var(--color-sapphire)]"
                 >
                   {SITE.tel.display}
                 </a>
@@ -70,7 +70,7 @@ export default function ContactPage() {
               <dd className="mt-1">
                 <a
                   href={`mailto:${SITE.email}`}
-                  className="text-base font-medium text-[var(--color-ink)] hover:text-[var(--color-gold)]"
+                  className="text-base font-medium text-[var(--color-ink)] hover:text-[var(--color-sapphire)]"
                 >
                   {SITE.email}
                 </a>

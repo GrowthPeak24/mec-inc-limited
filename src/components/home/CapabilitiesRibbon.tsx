@@ -41,7 +41,7 @@ export function CapabilitiesRibbon() {
           <div key={p.id}>
             <Link
               href={`/services/${p.slug}`}
-              className="group inline-flex items-center gap-2 text-lg font-semibold tracking-tight text-[var(--color-ink)] transition-colors duration-[var(--duration-control)] hover:text-[var(--color-gold)]"
+              className="group inline-flex items-center gap-2 text-lg font-semibold tracking-tight text-[var(--color-ink)] transition-colors duration-[var(--duration-control)] hover:text-[var(--color-sapphire)]"
             >
               {p.name}
               <svg

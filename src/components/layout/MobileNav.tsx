@@ -113,7 +113,7 @@ export function MobileNav() {
               <Link
                 href="/quote"
                 onClick={() => setOpen(false)}
-                className="mt-6 inline-flex items-center justify-center rounded-full bg-[var(--color-gold)] px-6 py-4 text-base font-medium text-[var(--color-paper)]"
+                className="mt-6 inline-flex items-center justify-center rounded-full bg-[var(--color-sapphire)] px-6 py-4 text-base font-medium text-[var(--color-paper)]"
               >
                 Request Proposal
               </Link>
