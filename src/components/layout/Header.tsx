@@ -5,7 +5,7 @@ import { Wordmark } from '@/components/brand/Wordmark';
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-30 border-b border-[var(--color-line-ink)] bg-[var(--color-paper)]/90 backdrop-blur-md">
+    <header className="sticky top-0 z-30 border-b border-[var(--color-line-ink)] bg-[var(--color-paper)]">
       <div className="container-x flex h-16 items-center justify-between md:h-20">
         <Link
           href="/"

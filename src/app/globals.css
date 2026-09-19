@@ -7,6 +7,10 @@
   --color-ink-3: #1c2440;        /* elevated */
   --color-gold: #0F52BA;         /* brand sapphire — primary accent */
   --color-gold-2: #0000FF;       /* brand blue — hover / gradient stop */
+  /* Accent for TEXT and focus rings on ink surfaces. #0000FF on ink is 2.2:1 and
+     sapphire is 2.7:1; this lifted sapphire is 6.5:1 on ink, 5.9:1 on ink-2.
+     Keep gold / gold-2 for fills and for text on light surfaces. */
+  --color-accent-on-dark: #5B93FF;
   --color-paper: #FFFFFF;        /* brand white */
   --color-sand: #F5F1EA;         /* warm neutral bg */
   --color-sand-2: #EBE4D6;
@@ -43,6 +47,14 @@
   h1, h2, h3, h4, .display { font-family: var(--font-display); letter-spacing: -0.02em; }
   ::selection { background: var(--color-gold); color: var(--color-paper); }
   :focus-visible { outline: 2px solid var(--color-gold); outline-offset: 3px; border-radius: 6px; }
+}
+
+/* Focus ring on ink surfaces. Sapphire is 2.7:1 on ink (WCAG wants 3:1), so dark
+   sections opt in with data-surface="ink" and get the lifted accent instead.
+   Light surfaces, including every form page, keep the base ring above. */
+[data-surface='ink'] :focus-visible,
+[data-surface='ink']:focus-visible {
+  outline-color: var(--color-accent-on-dark);
 }
 
 @utility container-x {
@@ -87,6 +99,11 @@
   will-change: opacity, transform;
 }
 [data-reveal][data-visible='true'] { opacity: 1; transform: none; }
+/* Reveal is JS-driven. With scripting off nothing would ever set data-visible,
+   so every wrapped section would stay at opacity 0. */
+@media (scripting: none) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+}
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
 }

@@ -17,7 +17,7 @@ const variants: Record<Variant, string> = {
   primary:
     'bg-[var(--color-gold)] text-[var(--color-paper)] hover:bg-[var(--color-gold-2)] shadow-[0_10px_30px_-12px_rgba(15,82,186,0.6)] hover:shadow-[0_16px_40px_-14px_rgba(0,0,255,0.7)]',
   ghost:
-    'text-current hover:text-[var(--color-gold-2)]',
+    'text-current hover:text-[var(--color-gold-2)] in-data-[surface=ink]:hover:text-[var(--color-accent-on-dark)]',
   outline:
     'border border-current/30 text-current hover:border-[var(--color-gold)] hover:text-[var(--color-gold)] hover:bg-[var(--color-gold)]/5',
 };

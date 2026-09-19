@@ -55,7 +55,7 @@ export function CaseStudyCard({ study, feature, sizes }: Props) {
           {study.title}
         </h3>
         <p className="mt-3 line-clamp-3 text-sm text-[var(--color-paper)]/70">{study.summary}</p>
-        <span className="mt-auto inline-flex items-center gap-1.5 border-t border-[var(--color-line)] pt-5 text-sm font-medium text-[var(--color-gold-2)] transition-colors duration-500 group-hover:text-[var(--color-paper)]">
+        <span className="mt-auto inline-flex items-center gap-1.5 border-t border-[var(--color-line)] pt-5 text-sm font-medium text-[var(--color-accent-on-dark)] transition-colors duration-500 group-hover:text-[var(--color-paper)]">
           Read case study
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden className="nudge">
             <path

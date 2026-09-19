@@ -60,21 +60,28 @@ export default async function CaseStudyPage({ params }: PageProps) {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-[var(--color-ink)] text-[var(--color-paper)]">
+      <section
+        data-surface="ink"
+        className="relative bg-[var(--color-ink)] text-[var(--color-paper)]"
+      >
         <div className="relative h-[62vh] min-h-[420px] w-full overflow-hidden">
           <MediaImage
             media={study.hero}
             fill
             sizes="100vw"
             priority
-            className="object-cover opacity-75"
+            className="object-cover"
           />
+          {/* Photo at full strength above; the scrim goes near-solid ink across the
+              bottom 40%, which is where the title block below is pulled up into. */}
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)] via-[var(--color-ink)]/70 to-transparent"
+            className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)] from-0% via-[var(--color-ink)]/85 via-40% to-transparent to-85%"
           />
         </div>
-        <div className="container-x -mt-40 pb-16 md:-mt-52 md:pb-24">
+        {/* relative z-10: the image and scrim above are positioned, so without a
+            stacking level they paint OVER this negative-margin block. */}
+        <div className="container-x relative z-10 -mt-40 pb-16 md:-mt-52 md:pb-24">
           <div className="max-w-4xl">
             <div className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-widest text-[var(--color-paper)]/60">
               <span>{study.client}</span>

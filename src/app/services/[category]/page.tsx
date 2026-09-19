@@ -71,23 +71,28 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
   return (
     <>
       {/* Hero */}
-      <section className="relative isolate overflow-hidden bg-[var(--color-ink)] text-[var(--color-paper)]">
+      <section
+        data-surface="ink"
+        className="relative isolate overflow-hidden bg-[var(--color-ink)] text-[var(--color-paper)]"
+      >
         <div className="absolute inset-0 -z-10">
           <MediaImage
             media={cat.hero}
             fill
             sizes="100vw"
             priority
-            className="object-cover opacity-45"
+            className="object-cover"
           />
+          {/* Photo reads through in the upper half; the scrim is ~85% ink from the
+              title block down so the copy holds contrast on any photograph. */}
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)] via-[var(--color-ink)]/85 to-[var(--color-ink)]/60"
+            className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)] from-0% via-[var(--color-ink)]/85 via-45% to-[var(--color-ink)]/15 to-100%"
           />
         </div>
         <div className="container-x flex min-h-[420px] flex-col justify-end pt-24 pb-16 md:min-h-[520px] md:pt-32 md:pb-24">
           <div className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--color-gold-2)]">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--color-accent-on-dark)]">
               Service
             </p>
             <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-6xl">
