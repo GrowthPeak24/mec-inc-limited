@@ -11,7 +11,10 @@ import brandActivation from '@/assets/media/hero/03-brand-activation.avif';
  *  nothing here blocks or defers the LCP paint. */
 export function HeroBento() {
   return (
-    <section className="relative overflow-hidden bg-[var(--color-ink)] text-[var(--color-paper)]">
+    <section
+      data-surface="ink"
+      className="relative overflow-hidden bg-[var(--color-ink)] text-[var(--color-paper)]"
+    >
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-[520px] bg-[radial-gradient(60%_60%_at_20%_0%,rgba(15,82,186,0.18),transparent_60%)]"
@@ -25,11 +28,11 @@ export function HeroBento() {
       <div className="container-x relative grid gap-10 py-20 md:py-28 lg:grid-cols-12 lg:gap-14">
         {/* Copy column */}
         <div className="lg:col-span-6 lg:pt-6">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--color-gold-2)]">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--color-accent-on-dark)]">
             Marketing &middot; Events &middot; Catering
           </p>
           <h1 className="mt-5 text-4xl font-semibold leading-[1.05] tracking-tight md:text-5xl lg:text-6xl">
-            Impacting brands through <em className="not-italic font-semibold text-[var(--color-gold-2)]">innovative solutions</em>.
+            Impacting brands through <em className="not-italic font-semibold text-[var(--color-accent-on-dark)]">innovative solutions</em>.
           </h1>
           <p className="mt-6 max-w-xl text-lg text-[var(--color-paper)]/75">
             Marketing, Events and Catering (MEC) Inc. is Jamaica&rsquo;s integrated agency for
@@ -53,7 +56,7 @@ export function HeroBento() {
 
         {/* Bento column — 3 tiles, asymmetric */}
         <div className="lg:col-span-6">
-          <div className="grid h-[520px] grid-cols-2 grid-rows-2 gap-4 md:h-[560px] md:gap-5">
+          <div className="grid grid-cols-2 gap-4 md:h-[560px] md:grid-rows-2 md:gap-5">
             <BentoTile
               media={{
                 src: stageBooth,
@@ -64,7 +67,7 @@ export function HeroBento() {
               href="/services/event-production"
               priority
               sizes="(max-width: 1024px) 50vw, 25vw"
-              className="row-span-2 aspect-auto"
+              className="col-span-2 aspect-[16/10] md:col-span-1 md:row-span-2 md:aspect-auto"
             />
             <BentoTile
               media={{
@@ -76,6 +79,7 @@ export function HeroBento() {
               href="/services/bespoke-catering"
               priority
               sizes="(max-width: 1024px) 50vw, 25vw"
+              className="aspect-square md:aspect-auto"
             />
             <BentoTile
               media={{
@@ -87,6 +91,7 @@ export function HeroBento() {
               href="/services/strategic-marketing"
               priority
               sizes="(max-width: 1024px) 50vw, 25vw"
+              className="aspect-square md:aspect-auto"
             />
           </div>
         </div>

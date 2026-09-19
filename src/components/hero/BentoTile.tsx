@@ -35,7 +35,7 @@ export function BentoTile({
       className={clsx(
         'group relative block overflow-hidden rounded-[var(--radius-xl)] bg-[var(--color-ink-2)]',
         'ring-1 ring-inset ring-[var(--color-line)] transition-[box-shadow,transform] duration-500 ease-[cubic-bezier(.2,.7,.2,1)]',
-        href && 'hover:ring-[var(--color-gold)]/40 hover:shadow-[0_30px_60px_-30px_rgba(15,82,186,0.55)] focus-visible:outline-none',
+        href && 'hover:ring-[var(--color-gold)]/40 hover:shadow-[0_30px_60px_-30px_rgba(15,82,186,0.55)]',
         className,
       )}
     >
@@ -50,16 +50,16 @@ export function BentoTile({
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/5"
       />
-      <div className="absolute inset-0 flex flex-col justify-between p-5 md:p-6">
+      <div className="absolute inset-0 flex flex-col justify-between p-4 md:p-6">
         <FrostedBadge>{label}</FrostedBadge>
         <div>
-          <p className="max-w-[26ch] text-lg font-medium leading-snug text-white md:text-xl">
+          <p className="max-w-[26ch] text-base font-medium leading-snug text-white sm:text-lg md:text-xl">
             {caption}
           </p>
           {href && (
             <span
               aria-hidden
-              className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-white/0 transition-colors duration-500 group-hover:text-white/85"
+              className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-white/0 transition-colors duration-500 group-hover:text-white/85 group-focus-visible:text-white/85 [@media(hover:none)]:text-white/85"
             >
               View
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="nudge">

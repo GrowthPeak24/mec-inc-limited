@@ -5,7 +5,7 @@ import { Wordmark } from '@/components/brand/Wordmark';
 
 export function Footer() {
   return (
-    <footer className="bg-[var(--color-ink)] text-[var(--color-paper)]">
+    <footer data-surface="ink" className="bg-[var(--color-ink)] text-[var(--color-paper)]">
       <div className="container-x py-16 md:py-20">
         <div className="grid gap-12 md:grid-cols-3">
           <div>
@@ -19,31 +19,31 @@ export function Footer() {
           </div>
 
           <div className="grid grid-cols-2 gap-x-6 gap-y-2 md:col-span-1">
-            <p className="col-span-2 mb-2 text-xs font-semibold uppercase tracking-widest text-[var(--color-gold-2)]">
+            <p className="col-span-2 mb-2 text-xs font-semibold uppercase tracking-widest text-[var(--color-accent-on-dark)]">
               Explore
             </p>
             {NAV_LINKS.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
-                className="text-sm text-[var(--color-paper)]/80 hover:text-[var(--color-gold-2)]"
+                className="text-sm text-[var(--color-paper)]/80 hover:text-[var(--color-accent-on-dark)]"
               >
                 {l.label}
               </Link>
             ))}
-            <Link href="/quote" className="text-sm text-[var(--color-paper)]/80 hover:text-[var(--color-gold-2)]">
+            <Link href="/quote" className="text-sm text-[var(--color-paper)]/80 hover:text-[var(--color-accent-on-dark)]">
               Request Proposal
             </Link>
-            <Link href="/feedback" className="text-sm text-[var(--color-paper)]/80 hover:text-[var(--color-gold-2)]">
+            <Link href="/feedback" className="text-sm text-[var(--color-paper)]/80 hover:text-[var(--color-accent-on-dark)]">
               Share Feedback
             </Link>
-            <Link href="/privacy" className="text-sm text-[var(--color-paper)]/80 hover:text-[var(--color-gold-2)]">
+            <Link href="/privacy" className="text-sm text-[var(--color-paper)]/80 hover:text-[var(--color-accent-on-dark)]">
               Privacy
             </Link>
           </div>
 
           <address className="not-italic md:col-span-1">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-[var(--color-gold-2)]">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-[var(--color-accent-on-dark)]">
               Visit &amp; Contact
             </p>
             <p className="text-sm text-[var(--color-paper)]/80">
@@ -51,9 +51,9 @@ export function Footer() {
               {SITE.address.locality}, {SITE.address.countryName}
             </p>
             <p className="mt-2 text-sm">
-              <a href={SITE.tel.href} className="hover:text-[var(--color-gold-2)]">{SITE.tel.display}</a>
+              <a href={SITE.tel.href} className="hover:text-[var(--color-accent-on-dark)]">{SITE.tel.display}</a>
               <br />
-              <a href={`mailto:${SITE.email}`} className="hover:text-[var(--color-gold-2)]">{SITE.email}</a>
+              <a href={`mailto:${SITE.email}`} className="hover:text-[var(--color-accent-on-dark)]">{SITE.email}</a>
             </p>
           </address>
         </div>

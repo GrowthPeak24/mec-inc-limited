@@ -35,6 +35,7 @@ export function Section({
     <section
       id={id}
       aria-labelledby={ariaLabelledBy}
+      data-surface={tone === 'ink' ? 'ink' : undefined}
       className={clsx(sizes[size], tones[tone], className)}
     >
       <div className="container-x">{children}</div>

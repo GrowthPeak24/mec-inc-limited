@@ -3,7 +3,10 @@ import { SITE } from '@/lib/site';
 
 export function QuoteCTA() {
   return (
-    <section className="relative overflow-hidden bg-[var(--color-ink)] py-20 text-[var(--color-paper)] md:py-24">
+    <section
+      data-surface="ink"
+      className="relative overflow-hidden bg-[var(--color-ink)] py-20 text-[var(--color-paper)] md:py-24"
+    >
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_60%_at_80%_0%,rgba(15,82,186,0.22),transparent_60%)]"
@@ -14,7 +17,7 @@ export function QuoteCTA() {
       />
       <div className="container-x relative grid gap-10 lg:grid-cols-12 lg:items-end lg:gap-16">
         <div className="lg:col-span-8">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--color-gold-2)]">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-on-dark)]">
             Bring us the brief
           </p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight md:text-5xl">
@@ -31,7 +34,7 @@ export function QuoteCTA() {
           </Button>
           <p className="text-sm text-[var(--color-paper)]/60">
             or call{' '}
-            <a href={SITE.tel.href} className="text-[var(--color-gold-2)] hover:underline">
+            <a href={SITE.tel.href} className="text-[var(--color-accent-on-dark)] underline decoration-[var(--color-accent-on-dark)]/40 underline-offset-4 hover:decoration-current">
               {SITE.tel.display}
             </a>
           </p>
