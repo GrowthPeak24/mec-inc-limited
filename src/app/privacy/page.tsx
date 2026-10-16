@@ -24,7 +24,7 @@ export default function PrivacyPage() {
 
         <h2 className="mt-10 text-lg font-semibold text-[var(--color-ink)]">What we collect</h2>
         <p>
-          When you submit the Quote Builder or the contact form, we collect the
+          When you submit the proposal request or the contact form, we collect the
           business details you enter (company, name, work email, phone if
           provided) and the project information you share. We also store a
           salted, one-way hash of your IP address for spam and rate-limiting

@@ -35,7 +35,7 @@ export function Footer() {
               </Link>
             ))}
             <Link href="/quote" className="py-1.5 text-sm text-[var(--color-paper)]/80 hover:text-[var(--color-accent-on-dark)]">
-              Request Proposal
+              Request a proposal
             </Link>
             <Link href="/feedback" className="py-1.5 text-sm text-[var(--color-paper)]/80 hover:text-[var(--color-accent-on-dark)]">
               Share Feedback

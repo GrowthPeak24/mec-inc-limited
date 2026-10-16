@@ -43,7 +43,7 @@ export function CateringTeaser() {
             See catering services
           </Button>
           <Button href="/quote" variant="outline">
-            Request a menu proposal
+            Request a catering proposal
           </Button>
         </div>
       </div>

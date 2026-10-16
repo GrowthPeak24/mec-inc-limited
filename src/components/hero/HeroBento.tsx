@@ -29,24 +29,27 @@ export function HeroBento() {
         {/* Copy column */}
         <div className="lg:col-span-6 lg:pt-6">
           <p className="eyebrow text-[var(--color-accent-on-dark)]">
-            Marketing &middot; Events &middot; Catering
+            Kingston, Jamaica
           </p>
           <h1 className="mt-5 text-4xl font-semibold leading-[1.05] tracking-tight md:text-5xl lg:text-6xl">
-            Impacting brands through <em className="not-italic font-semibold text-[var(--color-accent-on-dark)]">innovative solutions</em>.
+            Marketing, events and catering for Jamaican brands, <em className="not-italic font-semibold text-[var(--color-accent-on-dark)]">from one team</em>.
           </h1>
           <p className="mt-6 max-w-xl text-lg text-[var(--color-paper)]/75">
-            Marketing, Events and Catering (MEC) Inc. is Jamaica&rsquo;s integrated agency for
-            strategic marketing, full-service event production and bespoke catering. Ten years
+            Marketing, Events and Catering (MEC) Inc. plans and runs strategic marketing,
+            event production and bespoke catering under a single scope of work. Ten years
             delivered for NCB, Wisynco, Scotiabank, Nestl&eacute; and more.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Button href="/quote" variant="primary" size="lg">
-              Request Proposal
+              Request a proposal
             </Button>
             <Button href="/portfolio" variant="ghost" size="lg">
-              Explore Case Studies
+              Explore case studies
             </Button>
           </div>
+          <p className="mt-4 text-sm text-[var(--color-paper)]/65">
+            Four short steps. A senior producer replies within one business day.
+          </p>
           <div className="mt-10 hidden border-t border-[var(--color-line)] pt-6 lg:block">
             <p className="text-sm text-[var(--color-paper)]/55">
               One accountable producer across all three disciplines &mdash; you brief once.

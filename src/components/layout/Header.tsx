@@ -22,7 +22,7 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <div className="hidden lg:block">
-            <Button href="/quote">Request Proposal</Button>
+            <Button href="/quote">Request a proposal</Button>
           </div>
           <MobileNav />
         </div>

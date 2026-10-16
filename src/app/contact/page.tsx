@@ -43,7 +43,7 @@ export default function ContactPage() {
           <p className="mt-4 text-base text-[var(--color-ink)]/70">
             For scoped briefs, the four-step{' '}
             <a href="/quote" className="underline underline-offset-2">
-              Quote Builder
+              proposal request
             </a>{' '}
             gets you a response fastest. For everything else, use the form or call
             us directly.

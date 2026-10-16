@@ -30,7 +30,7 @@ export function QuoteCTA() {
         </div>
         <div className="flex flex-col items-start gap-4 border-t border-[var(--color-line)] pt-8 lg:col-span-4 lg:items-end lg:border-t-0 lg:pt-0">
           <Button href="/quote" variant="primary" size="lg">
-            Start the brief
+            Request a proposal
           </Button>
           <p className="text-sm text-[var(--color-paper)]/60">
             or call{' '}
